@@ -1,0 +1,17 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "aether"
+    }
+  ],
+  "type": "slowlight:ageing",
+  "ingredient": {
+    "item": "aether:enchanted_berry"
+  },
+  "result": {
+    "id": "slowlight:enchanted_berry_preserve",
+    "count": 1
+  },
+  "days": 4
+}

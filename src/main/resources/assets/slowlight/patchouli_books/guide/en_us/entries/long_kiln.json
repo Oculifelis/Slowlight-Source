@@ -1,0 +1,16 @@
+{
+  "name": "Long Kiln",
+  "icon": "slowlight:long_kiln",
+  "category": "slowlight:kilns",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Long Kiln takes a $(l)whole stack$() and ages all of it at once, in one long wait: usually three times what a single item takes.$(br2)Fill it by hand or from a hopper. Once nothing more has gone in for ten seconds, or it is full, the door is bricked up and sealed, and ash rises from the chimney."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "slowlight:long_kiln"
+    }
+  ]
+}

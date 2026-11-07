@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "slowlight:still_shard_block_grid"
+  },
+  "result": {
+    "id": "slowlight:still_shard_block",
+    "count": 1
+  }
+}

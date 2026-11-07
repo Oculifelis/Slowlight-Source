@@ -1,0 +1,17 @@
+{
+  "name": "Rain, Sky and Night",
+  "icon": "minecraft:water_bucket",
+  "category": "slowlight:waiting",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Some things only age in the right weather. Dirt turns to mud, a sponge soaks, and an empty bottle or bucket fills only $(l)in the rain$(), with the kiln out under the sky. Kelp, wet sponges and petals dry, and clay bakes to brick, only $(l)by day, under a clear sky$(). Ink takes on a glow only $(l)under the night sky$().$(br2)When the weather is wrong the wait stands still, keeping the days it already has. Ask the kiln and it says what it is waiting for."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Other places",
+      "text": "Some recipes belong to one dimension, and there they come first. In $(l)the Nether$() cobblestone darkens to blackstone and sand to soul sand, five days each. In $(l)the End$() obsidian begins to weep in seven days, and chorus fruit pops in two."
+    }
+  ]
+}

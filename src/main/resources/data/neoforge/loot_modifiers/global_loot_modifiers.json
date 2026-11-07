@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "entries": [
+    "slowlight:sniffer_shard",
+    "slowlight:sniffer_seeds",
+    "slowlight:sherd_trail_ruins",
+    "slowlight:sherd_desert_well",
+    "slowlight:sniffer_sapling"
+  ]
+}

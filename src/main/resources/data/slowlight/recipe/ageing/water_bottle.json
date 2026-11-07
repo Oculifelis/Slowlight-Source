@@ -1,0 +1,19 @@
+{
+  "type": "slowlight:ageing",
+  "ingredient": {
+    "item": "minecraft:glass_bottle"
+  },
+  "result": {
+    "id": "minecraft:potion",
+    "count": 1,
+    "components": {
+      "minecraft:potion_contents": {
+        "potion": "minecraft:water"
+      }
+    }
+  },
+  "days": 1,
+  "condition": {
+    "weather": "rain"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "slowlight:block/still_shard_cluster",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "slowlight:block/still_shard_cluster",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "slowlight:block/still_shard_cluster",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "slowlight:block/still_shard_cluster",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "slowlight:block/still_shard_cluster"
+    },
+    "facing=west": {
+      "model": "slowlight:block/still_shard_cluster",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

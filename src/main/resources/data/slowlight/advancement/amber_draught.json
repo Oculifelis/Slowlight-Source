@@ -1,0 +1,37 @@
+{
+  "display": {
+    "icon": {
+      "id": "slowlight:mead"
+    },
+    "title": {
+      "translate": "advancements.slowlight.amber_draught.title"
+    },
+    "description": {
+      "translate": "advancements.slowlight.amber_draught.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "draught": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "slowlight:mead"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "draught"
+    ]
+  ],
+  "parent": "slowlight:root"
+}

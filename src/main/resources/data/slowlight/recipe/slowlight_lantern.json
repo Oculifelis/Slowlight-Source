@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    " C ",
+    "GSG",
+    " C "
+  ],
+  "key": {
+    "C": { "item": "minecraft:copper_ingot" },
+    "G": { "item": "minecraft:glass_pane" },
+    "S": { "item": "slowlight:slowlight_shard" }
+  },
+  "result": { "id": "slowlight:slowlight_lantern", "count": 1 }
+}

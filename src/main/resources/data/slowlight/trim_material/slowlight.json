@@ -1,0 +1,6 @@
+{
+  "asset_name": "slowlight",
+  "description": { "color": "#9FC4EE", "translate": "trim_material.slowlight.slowlight" },
+  "ingredient": "slowlight:slowlight_shard",
+  "item_model_index": 0.8517
+}

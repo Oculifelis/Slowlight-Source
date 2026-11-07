@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "SSS",
+    "SSS",
+    "SSS"
+  ],
+  "key": {
+    "S": {
+      "item": "slowlight:still_shard"
+    }
+  },
+  "result": {
+    "id": "slowlight:still_shard_block",
+    "count": 1
+  }
+}

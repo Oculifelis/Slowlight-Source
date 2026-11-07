@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "slowlight:gloamwood_lighted_large_bookshelf"
+  },
+  "result": {
+    "id": "slowlight:gloamwood_bookshelf",
+    "count": 1
+  }
+}

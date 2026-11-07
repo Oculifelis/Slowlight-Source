@@ -1,0 +1,15 @@
+{
+  "type": "slowlight:ageing",
+  "ingredient": {
+    "item": "minecraft:obsidian"
+  },
+  "result": {
+    "id": "minecraft:crying_obsidian",
+    "count": 1
+  },
+  "days": 7,
+  "condition": {
+    "sky": "void",
+    "dimension": "minecraft:the_end"
+  }
+}

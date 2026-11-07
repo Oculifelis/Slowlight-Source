@@ -1,0 +1,17 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "aerialhell"
+    }
+  ],
+  "type": "slowlight:ageing",
+  "ingredient": {
+    "item": "aerialhell:vibrant_aerial_berry"
+  },
+  "result": {
+    "id": "slowlight:vibrant_aerial_berry_preserve",
+    "count": 1
+  },
+  "days": 4
+}

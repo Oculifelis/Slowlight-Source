@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "slowlight:block/still_shard_block_chiseled_slab"
+    },
+    "type=double": {
+      "model": "slowlight:block/still_shard_block_chiseled"
+    },
+    "type=top": {
+      "model": "slowlight:block/still_shard_block_chiseled_slab_top"
+    }
+  }
+}

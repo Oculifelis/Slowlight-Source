@@ -1,0 +1,37 @@
+{
+  "display": {
+    "icon": {
+      "id": "slowlight:lanternfruit"
+    },
+    "title": {
+      "translate": "advancements.slowlight.lanternfruit.title"
+    },
+    "description": {
+      "translate": "advancements.slowlight.lanternfruit.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "got": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "slowlight:lanternfruit"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "got"
+    ]
+  ],
+  "parent": "slowlight:gloamwood"
+}

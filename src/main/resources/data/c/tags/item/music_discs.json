@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "slowlight:music_disc_patient_light",
+    "slowlight:music_disc_a_week_in",
+    "slowlight:music_disc_lantern_hours"
+  ]
+}

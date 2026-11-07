@@ -1,0 +1,11 @@
+{
+  "type": "slowlight:ageing",
+  "ingredient": {
+    "item": "minecraft:cooked_salmon"
+  },
+  "result": {
+    "id": "slowlight:cured_salmon",
+    "count": 1
+  },
+  "days": 3
+}

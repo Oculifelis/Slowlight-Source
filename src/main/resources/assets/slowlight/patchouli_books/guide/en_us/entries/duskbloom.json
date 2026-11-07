@@ -1,0 +1,17 @@
+{
+  "name": "Duskbloom",
+  "icon": "slowlight:duskbloom_petals",
+  "category": "slowlight:night",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Now and then a sniffer turns up $(item)Duskbloom Seeds$(), from a crop that kept the lantern's hours long before the lantern did.$(br2)Plant them in farmland. They grow only $(l)at night$(), or anywhere with no sky to keep time by. Ripe, the plant opens and glows faintly, and gives $(item)Duskbloom Petals$() and seeds."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "What petals make",
+      "text": "Crafted alone, light blue dye. A day in a kiln under a clear sunny sky dries them; two dried petals in a water bottle make $(item)Duskbloom Tea$(), a minute of night sight.$(br2)Stirred into Preserved Berries they make $(item)Duskbloom Jam$(). And a dried petal left under the night sky for two weeks hardens into a $(item)Slowlight Shard$()."
+    }
+  ]
+}

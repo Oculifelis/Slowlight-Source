@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lapsed=false": {
+      "model": "slowlight:block/lapse_block"
+    },
+    "lapsed=true": {
+      "model": "slowlight:block/lapse_block_faded"
+    }
+  }
+}

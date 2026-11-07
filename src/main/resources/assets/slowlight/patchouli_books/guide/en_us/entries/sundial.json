@@ -1,0 +1,17 @@
+{
+  "name": "The Sundial",
+  "icon": "slowlight:sundial",
+  "category": "slowlight:waiting",
+  "sortnum": 7,
+  "pages": [
+    {
+      "type": "patchouli:crafting",
+      "recipe": "slowlight:sundial",
+      "text": "Where the Sandglass counts days, the Sundial tells the hours of one."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Set it under open sky. Its copper gnomon throws a shadow across the hour lines, and a $(item)comparator$() reads it: nothing all night, rising through the morning to full strength at $(thing)noon$(), and falling again to sunset.$(br2)Roofed over, or in a world with no sun, no shadow falls and it reads nothing. Click it to ask what it says."
+    }
+  ]
+}

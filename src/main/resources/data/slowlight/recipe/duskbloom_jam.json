@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "slowlight:preserved_berries"
+    },
+    {
+      "item": "slowlight:duskbloom_petals"
+    },
+    {
+      "item": "slowlight:duskbloom_petals"
+    }
+  ],
+  "result": {
+    "id": "slowlight:duskbloom_jam",
+    "count": 1
+  }
+}

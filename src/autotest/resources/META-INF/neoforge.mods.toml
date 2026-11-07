@@ -1,0 +1,19 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+license = "All Rights Reserved"
+
+[[mods]]
+modId = "slowlight_autotest"
+version = "0"
+displayName = "Slowlight autotest (dev only)"
+description = '''Drives a fresh world through the Slowlight checklist. Loaded only by runClient -Pautotest=1.'''
+
+[[mixins]]
+config = "slowlight_autotest.mixins.json"
+
+[[dependencies.slowlight_autotest]]
+modId = "slowlight"
+type = "required"
+versionRange = "*"
+ordering = "AFTER"
+side = "BOTH"

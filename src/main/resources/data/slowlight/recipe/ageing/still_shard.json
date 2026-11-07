@@ -1,0 +1,15 @@
+{
+  "type": "slowlight:ageing",
+  "ingredient": {
+    "item": "minecraft:ender_pearl"
+  },
+  "result": {
+    "id": "slowlight:still_shard",
+    "count": 1
+  },
+  "days": 10,
+  "condition": {
+    "sky": "void",
+    "dimension": "minecraft:the_end"
+  }
+}

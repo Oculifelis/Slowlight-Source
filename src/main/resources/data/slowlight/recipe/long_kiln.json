@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "BBB",
+    "KMK",
+    "BBB"
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:brick"
+    },
+    "K": {
+      "item": "slowlight:patient_kiln"
+    },
+    "M": {
+      "item": "minecraft:mud_bricks"
+    }
+  },
+  "result": {
+    "id": "slowlight:long_kiln",
+    "count": 1
+  }
+}

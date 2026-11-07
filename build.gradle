@@ -1,0 +1,147 @@
+plugins {
+    id 'java-library'
+    id 'net.neoforged.moddev' version '2.0.148'
+    id 'idea'
+}
+
+version = "${mod_version}+${minecraft_version}-neoforge"
+group = mod_group_id
+
+base {
+    archivesName = mod_id
+}
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+
+repositories {
+    mavenCentral()
+    maven {
+        name = 'JEI (BlameJared)'
+        url = 'https://maven.blamejared.com/'
+        content { includeGroup 'mezz.jei' }
+    }
+    maven {
+        name = 'Patchouli (BlameJared)'
+        url = 'https://maven.blamejared.com/'
+        content { includeGroup 'vazkii.patchouli' }
+    }
+}
+
+configurations {
+    localRuntime
+    runtimeClasspath.extendsFrom localRuntime
+}
+
+// Jade publishes to no maven this workspace has ever used, so its own jar is the dependency, taken
+// from an instance into libs/. It is compileOnly: nothing of Jade ends up in the built jar. The jar
+// is NOT committed, so when it is absent the Jade plugin is simply left out of the build and the
+// mod loses that one integration rather than failing to build at all.
+def jadeJar = file("libs/${jade_file}")
+def hasJade = jadeJar.exists()
+if (!hasJade) {
+    logger.lifecycle("Slowlight: libs/${jade_file} not found, building without the Jade integration.")
+    sourceSets.main.java.exclude '**/compat/SlowlightJadePlugin.java'
+}
+
+dependencies {
+    // Both integrations are optional and compiled against APIs only, so the mod runs with neither.
+    compileOnly "mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"
+    compileOnly "mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}"
+    localRuntime "mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}"
+    // The guide book is data only (patchouli_books/), so Patchouli is needed at runtime in dev to test it, never to build.
+    localRuntime "vazkii.patchouli:Patchouli:${patchouli_version}"
+    if (hasJade) {
+        compileOnly files(jadeJar)
+    }
+    // KubeJS and Rhino, when their jars are in libs/ (taken from an instance, not committed), run in dev so the
+    // autotest can check the script route: src/autotest/kubejs/ is copied into run/kubejs/ by run_client_test.sh.
+    localRuntime fileTree('libs') { include 'kubejs-*.jar', 'rhino-*.jar', 'aerialhell-*.jar' }
+}
+
+// The automated play-test: a second mod, loaded only by `runClient -Pautotest=1` (tools/run_client_test.sh).
+sourceSets {
+    autotest {
+        compileClasspath += sourceSets.main.output
+        runtimeClasspath += sourceSets.main.output
+    }
+}
+
+neoForge {
+    version = project.neo_version
+    parchment {
+        mappingsVersion = project.parchment_mappings_version
+        minecraftVersion = project.parchment_minecraft_version
+    }
+    runs {
+        client {
+            client()
+            gameDirectory = project.file('run')
+        }
+        server {
+            server()
+            gameDirectory = project.file('run-server')
+            programArgument '--nogui'
+        }
+        configureEach {
+            logLevel = org.slf4j.event.Level.INFO
+            jvmArgument '-Xmx2G'
+        }
+    }
+    mods {
+        "${mod_id}" {
+            sourceSet(sourceSets.main)
+        }
+        // Dev-only test mod (tools/run_client_test.sh). Its own source set, so none of it is in the jar.
+        if (project.hasProperty('autotest')) {
+            slowlight_autotest {
+                sourceSet(sourceSets.autotest)
+            }
+        }
+    }
+}
+
+// The autotest mod drives the kiln, lantern, hoppers and jukebox in a fresh world, logs SLTEST lines and takes
+// screenshots for JEI and Jade. None of it goes into the jar.
+neoForge.addModdingDependenciesTo(sourceSets.autotest)
+dependencies {
+    autotestCompileOnly "mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"
+    autotestCompileOnly "mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}"
+    if (hasJade) {
+        localRuntime files(jadeJar)
+    }
+}
+if (project.hasProperty('autotest')) {
+    neoForge.runs.client {
+        systemProperty 'slowlight.autotest', project.property('autotest').toString()
+    }
+}
+
+var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
+    var replaceProperties = [
+            minecraft_version      : minecraft_version,
+            minecraft_version_range: minecraft_version_range,
+            neo_version            : neo_version,
+            neo_version_range      : neo_version_range,
+            loader_version_range   : loader_version_range,
+            mod_id                 : mod_id,
+            mod_name               : mod_name,
+            mod_license            : mod_license,
+            mod_version            : mod_version,
+            mod_authors            : mod_authors,
+            mod_description        : mod_description,
+    ]
+    inputs.properties replaceProperties
+    expand replaceProperties
+    from "src/main/templates"
+    into "build/generated/sources/modMetadata"
+}
+sourceSets.main.resources.srcDir generateModMetadata
+neoForge.ideSyncTask generateModMetadata
+
+tasks.named('processResources', ProcessResources).configure {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}

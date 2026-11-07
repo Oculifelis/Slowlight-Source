@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "BBB",
+    "BKB",
+    "BMB"
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:polished_blackstone_bricks"
+    },
+    "K": {
+      "item": "slowlight:patient_kiln"
+    },
+    "M": {
+      "item": "minecraft:magma_block"
+    }
+  },
+  "result": {
+    "id": "slowlight:ember_kiln",
+    "count": 1
+  }
+}

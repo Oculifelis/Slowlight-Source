@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "slowlight:still_shard_block_shiny"
+  },
+  "result": {
+    "id": "slowlight:still_shard_block_shiny_slab",
+    "count": 2
+  }
+}

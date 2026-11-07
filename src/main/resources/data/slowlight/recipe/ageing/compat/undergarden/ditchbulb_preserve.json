@@ -1,0 +1,17 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "undergarden"
+    }
+  ],
+  "type": "slowlight:ageing",
+  "ingredient": {
+    "item": "undergarden:ditchbulb"
+  },
+  "result": {
+    "id": "slowlight:ditchbulb_preserve",
+    "count": 1
+  },
+  "days": 4
+}

@@ -1,0 +1,17 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "aerialhell"
+    }
+  ],
+  "type": "slowlight:ageing",
+  "ingredient": {
+    "item": "aerialhell:venomous_snake_skin"
+  },
+  "result": {
+    "id": "minecraft:leather",
+    "count": 1
+  },
+  "days": 3
+}

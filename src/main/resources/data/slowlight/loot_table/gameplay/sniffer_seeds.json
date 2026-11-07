@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:gift",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "slowlight:duskbloom_seeds"
+        }
+      ]
+    }
+  ],
+  "random_sequence": "slowlight:gameplay/sniffer_seeds"
+}

@@ -1,0 +1,6 @@
+{
+  "type": "slowlight:ageing",
+  "ingredient": { "item": "minecraft:music_disc_mellohi" },
+  "result": { "id": "slowlight:music_disc_patient_light", "count": 1 },
+  "days": 4
+}

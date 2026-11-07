@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "slowlight:lanternfruit"
+    }
+  ],
+  "result": {
+    "id": "slowlight:lanternfruit_seeds",
+    "count": 2
+  }
+}

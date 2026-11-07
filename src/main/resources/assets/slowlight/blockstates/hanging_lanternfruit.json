@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "slowlight:block/lanternfruit_stage0"
+    },
+    "age=1": {
+      "model": "slowlight:block/lanternfruit_stage1"
+    },
+    "age=2": {
+      "model": "slowlight:block/lanternfruit_stage2"
+    },
+    "age=3": {
+      "model": "slowlight:block/lanternfruit_stage3"
+    }
+  }
+}

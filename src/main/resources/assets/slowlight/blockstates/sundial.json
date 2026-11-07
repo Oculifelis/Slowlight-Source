@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "slowlight:block/sundial"
+    },
+    "facing=east": {
+      "model": "slowlight:block/sundial",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "slowlight:block/sundial",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "slowlight:block/sundial",
+      "y": 270
+    }
+  }
+}

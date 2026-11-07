@@ -1,0 +1,11 @@
+{
+  "type": "slowlight:ageing",
+  "ingredient": {
+    "item": "minecraft:string"
+  },
+  "result": {
+    "id": "minecraft:cobweb",
+    "count": 1
+  },
+  "days": 3
+}

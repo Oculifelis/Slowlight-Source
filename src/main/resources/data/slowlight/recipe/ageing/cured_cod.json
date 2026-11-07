@@ -1,0 +1,11 @@
+{
+  "type": "slowlight:ageing",
+  "ingredient": {
+    "item": "minecraft:cooked_cod"
+  },
+  "result": {
+    "id": "slowlight:cured_cod",
+    "count": 1
+  },
+  "days": 3
+}

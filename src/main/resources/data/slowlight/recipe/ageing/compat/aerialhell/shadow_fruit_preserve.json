@@ -1,0 +1,17 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "aerialhell"
+    }
+  ],
+  "type": "slowlight:ageing",
+  "ingredient": {
+    "item": "aerialhell:purple_shadow_fruit"
+  },
+  "result": {
+    "id": "slowlight:shadow_fruit_preserve",
+    "count": 1
+  },
+  "days": 4
+}

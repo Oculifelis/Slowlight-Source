@@ -1,0 +1,17 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "undergarden"
+    }
+  ],
+  "type": "slowlight:ageing",
+  "ingredient": {
+    "item": "undergarden:cooked_gwibling"
+  },
+  "result": {
+    "id": "slowlight:cured_gwibling",
+    "count": 1
+  },
+  "days": 3
+}

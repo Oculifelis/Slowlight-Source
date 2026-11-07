@@ -1,0 +1,17 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "undergarden"
+    }
+  ],
+  "type": "slowlight:ageing",
+  "ingredient": {
+    "item": "undergarden:depthrock_bricks"
+  },
+  "result": {
+    "id": "undergarden:cracked_depthrock_bricks",
+    "count": 1
+  },
+  "days": 3
+}

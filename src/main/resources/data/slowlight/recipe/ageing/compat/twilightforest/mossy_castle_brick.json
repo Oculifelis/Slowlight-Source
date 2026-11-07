@@ -1,0 +1,17 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "twilightforest"
+    }
+  ],
+  "type": "slowlight:ageing",
+  "ingredient": {
+    "item": "twilightforest:castle_brick"
+  },
+  "result": {
+    "id": "twilightforest:mossy_castle_brick",
+    "count": 1
+  },
+  "days": 5
+}

@@ -1,0 +1,16 @@
+{
+  "type": "slowlight:ageing",
+  "ingredient": {
+    "item": "minecraft:clay_ball"
+  },
+  "result": {
+    "id": "minecraft:brick",
+    "count": 1
+  },
+  "days": 3,
+  "condition": {
+    "sky": "open",
+    "weather": "clear",
+    "time": "day"
+  }
+}

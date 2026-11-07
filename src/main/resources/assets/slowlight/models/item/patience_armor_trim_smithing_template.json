@@ -1,0 +1,4 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": { "layer0": "slowlight:item/patience_armor_trim_smithing_template" }
+}

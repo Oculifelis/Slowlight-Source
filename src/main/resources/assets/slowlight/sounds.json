@@ -1,0 +1,61 @@
+{
+  "music_disc.patient_light": {
+    "sounds": [
+      {
+        "name": "slowlight:records/patient_light",
+        "stream": true
+      }
+    ]
+  },
+  "music_disc.a_week_in": {
+    "sounds": [
+      {
+        "name": "slowlight:records/a_week_in",
+        "stream": true
+      }
+    ]
+  },
+  "music_disc.lantern_hours": {
+    "sounds": [
+      {
+        "name": "slowlight:records/lantern_hours",
+        "stream": true
+      }
+    ]
+  },
+  "block.patient_kiln.seal": {
+    "subtitle": "subtitles.slowlight.kiln.seal",
+    "sounds": [
+      {
+        "name": "minecraft:block/barrel/close",
+        "pitch": 0.72,
+        "volume": 0.9
+      },
+      {
+        "name": "minecraft:block/barrel/close",
+        "pitch": 0.8,
+        "volume": 0.9
+      },
+      {
+        "name": "minecraft:block/wooden_trapdoor/close1",
+        "pitch": 0.6,
+        "volume": 0.6
+      }
+    ]
+  },
+  "block.patient_kiln.open": {
+    "subtitle": "subtitles.slowlight.kiln.open",
+    "sounds": [
+      {
+        "name": "minecraft:block/barrel/open1",
+        "pitch": 0.8,
+        "volume": 0.8
+      },
+      {
+        "name": "minecraft:block/barrel/open2",
+        "pitch": 0.85,
+        "volume": 0.8
+      }
+    ]
+  }
+}

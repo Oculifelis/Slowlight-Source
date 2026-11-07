@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "slowlight:block/stripped_gloamwood_log_top",
+    "side": "slowlight:block/stripped_gloamwood_log"
+  }
+}

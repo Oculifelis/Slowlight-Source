@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "slowlight:patient_kiln",
+    "slowlight:long_kiln",
+    "slowlight:ember_kiln"
+  ]
+}

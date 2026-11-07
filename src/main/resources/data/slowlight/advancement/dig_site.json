@@ -1,0 +1,50 @@
+{
+  "display": {
+    "icon": {
+      "id": "minecraft:suspicious_gravel"
+    },
+    "title": {
+      "translate": "advancements.slowlight.dig_site.title"
+    },
+    "description": {
+      "translate": "advancements.slowlight.dig_site.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "gravel": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:suspicious_gravel"
+            ]
+          }
+        ]
+      }
+    },
+    "sand": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:suspicious_sand"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "gravel",
+      "sand"
+    ]
+  ],
+  "parent": "slowlight:root"
+}

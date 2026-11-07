@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "slowlight:block/gloamwood_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "slowlight:block/gloamwood_log"
+    },
+    "axis=z": {
+      "model": "slowlight:block/gloamwood_log_horizontal",
+      "x": 90
+    }
+  }
+}

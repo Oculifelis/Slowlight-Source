@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "BBB",
+    "B B",
+    "BBB"
+  ],
+  "key": {
+    "B": { "item": "minecraft:brick" }
+  },
+  "result": { "id": "slowlight:patient_kiln", "count": 1 }
+}

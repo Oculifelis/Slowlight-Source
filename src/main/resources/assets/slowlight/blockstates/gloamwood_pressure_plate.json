@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "slowlight:block/gloamwood_pressure_plate"
+    },
+    "powered=true": {
+      "model": "slowlight:block/gloamwood_pressure_plate_down"
+    }
+  }
+}

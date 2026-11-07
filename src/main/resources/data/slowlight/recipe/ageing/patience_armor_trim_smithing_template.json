@@ -1,0 +1,6 @@
+{
+  "type": "slowlight:ageing",
+  "ingredient": { "item": "slowlight:slowlight_shard" },
+  "result": { "id": "slowlight:patience_armor_trim_smithing_template", "count": 1 },
+  "days": 14
+}

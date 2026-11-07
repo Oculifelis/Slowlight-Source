@@ -1,0 +1,17 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "undergarden"
+    }
+  ],
+  "type": "slowlight:ageing",
+  "ingredient": {
+    "item": "undergarden:glitterkelp"
+  },
+  "result": {
+    "id": "slowlight:dried_glitterkelp",
+    "count": 1
+  },
+  "days": 2
+}

@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "lit=false": { "model": "slowlight:block/patient_kiln" },
+    "lit=true": { "model": "slowlight:block/patient_kiln_sealed" }
+  }
+}

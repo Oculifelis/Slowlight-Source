@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "slowlight:block/ember_kiln"
+    },
+    "lit=true": {
+      "model": "slowlight:block/ember_kiln_sealed"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "asset_id": "slowlight:patience",
+  "decal": false,
+  "description": { "translate": "trim_pattern.slowlight.patience" },
+  "template_item": "slowlight:patience_armor_trim_smithing_template"
+}

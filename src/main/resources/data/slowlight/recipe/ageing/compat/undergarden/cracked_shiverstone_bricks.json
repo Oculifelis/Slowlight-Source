@@ -1,0 +1,17 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "undergarden"
+    }
+  ],
+  "type": "slowlight:ageing",
+  "ingredient": {
+    "item": "undergarden:shiverstone_bricks"
+  },
+  "result": {
+    "id": "undergarden:cracked_shiverstone_bricks",
+    "count": 1
+  },
+  "days": 3
+}

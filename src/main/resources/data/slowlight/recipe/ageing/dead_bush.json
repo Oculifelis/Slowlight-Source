@@ -1,0 +1,14 @@
+{
+  "type": "slowlight:ageing",
+  "ingredient": {
+    "item": "minecraft:oak_sapling"
+  },
+  "result": {
+    "id": "minecraft:dead_bush",
+    "count": 1
+  },
+  "days": 7,
+  "condition": {
+    "sky": "covered"
+  }
+}

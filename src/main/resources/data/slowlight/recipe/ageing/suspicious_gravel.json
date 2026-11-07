@@ -1,0 +1,12 @@
+{
+  "type": "slowlight:ageing",
+  "ingredient": { "item": "minecraft:gravel" },
+  "result": {
+    "id": "minecraft:suspicious_gravel",
+    "count": 1,
+    "components": {
+      "minecraft:block_entity_data": { "id": "minecraft:brushable_block", "LootTable": "slowlight:archaeology/kiln_gravel" }
+    }
+  },
+  "days": 7
+}

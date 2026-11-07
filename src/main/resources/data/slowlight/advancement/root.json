@@ -1,0 +1,37 @@
+{
+  "display": {
+    "icon": {
+      "id": "slowlight:patient_kiln"
+    },
+    "title": {
+      "translate": "advancements.slowlight.root.title"
+    },
+    "description": {
+      "translate": "advancements.slowlight.root.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false,
+    "background": "minecraft:textures/block/terracotta.png"
+  },
+  "criteria": {
+    "kiln": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "slowlight:patient_kiln"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "kiln"
+    ]
+  ]
+}

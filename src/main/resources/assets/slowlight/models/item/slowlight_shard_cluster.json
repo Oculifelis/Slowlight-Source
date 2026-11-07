@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "slowlight:block/slowlight_shard_cluster"
+  }
+}

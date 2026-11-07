@@ -1,0 +1,17 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "undergarden"
+    }
+  ],
+  "type": "slowlight:ageing",
+  "ingredient": {
+    "item": "undergarden:droopvine_item"
+  },
+  "result": {
+    "id": "slowlight:candied_droopfruit",
+    "count": 1
+  },
+  "days": 3
+}

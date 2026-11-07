@@ -1,0 +1,6 @@
+{
+  "type": "slowlight:ageing",
+  "ingredient": { "item": "minecraft:mud" },
+  "result": { "id": "minecraft:clay_ball", "count": 2 },
+  "days": 2
+}

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": ["#S#", "#K#", "###"],
+  "key": {
+    "#": { "item": "minecraft:diamond" },
+    "S": { "item": "slowlight:patience_armor_trim_smithing_template" },
+    "K": { "item": "slowlight:patient_kiln" }
+  },
+  "result": { "id": "slowlight:patience_armor_trim_smithing_template", "count": 2 }
+}

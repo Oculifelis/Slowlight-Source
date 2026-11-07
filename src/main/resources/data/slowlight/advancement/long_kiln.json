@@ -1,0 +1,37 @@
+{
+  "display": {
+    "icon": {
+      "id": "slowlight:long_kiln"
+    },
+    "title": {
+      "translate": "advancements.slowlight.long_kiln.title"
+    },
+    "description": {
+      "translate": "advancements.slowlight.long_kiln.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "kiln": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "slowlight:long_kiln"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "kiln"
+    ]
+  ],
+  "parent": "slowlight:root"
+}

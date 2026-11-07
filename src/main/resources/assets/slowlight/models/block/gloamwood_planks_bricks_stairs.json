@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "slowlight:block/gloamwood_planks_bricks",
+    "side": "slowlight:block/gloamwood_planks_bricks",
+    "top": "slowlight:block/gloamwood_planks_bricks"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "aether"
+    }
+  ],
+  "type": "slowlight:ageing",
+  "ingredient": {
+    "item": "aether:white_apple"
+  },
+  "result": {
+    "id": "slowlight:white_apple_cider",
+    "count": 1
+  },
+  "days": 4
+}

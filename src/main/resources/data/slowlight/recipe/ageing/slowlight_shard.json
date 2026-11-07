@@ -1,0 +1,6 @@
+{
+  "type": "slowlight:ageing",
+  "ingredient": { "item": "minecraft:amethyst_shard" },
+  "result": { "id": "slowlight:slowlight_shard", "count": 1 },
+  "days": 7
+}

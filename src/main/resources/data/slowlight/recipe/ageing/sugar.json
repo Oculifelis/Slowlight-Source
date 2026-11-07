@@ -1,0 +1,11 @@
+{
+  "type": "slowlight:ageing",
+  "ingredient": {
+    "item": "minecraft:honey_block"
+  },
+  "result": {
+    "id": "minecraft:sugar",
+    "count": 12
+  },
+  "days": 5
+}

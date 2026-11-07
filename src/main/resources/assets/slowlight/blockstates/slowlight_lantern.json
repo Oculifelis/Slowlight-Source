@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "hanging=false,lit=false": {
+      "model": "slowlight:block/slowlight_lantern"
+    },
+    "hanging=false,lit=true": {
+      "model": "slowlight:block/slowlight_lantern_lit"
+    },
+    "hanging=true,lit=false": {
+      "model": "slowlight:block/slowlight_lantern_hanging"
+    },
+    "hanging=true,lit=true": {
+      "model": "slowlight:block/slowlight_lantern_hanging_lit"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "slowlight:slowlight_shard_block_small_tiles"
+  },
+  "result": {
+    "id": "slowlight:slowlight_shard_block",
+    "count": 1
+  }
+}

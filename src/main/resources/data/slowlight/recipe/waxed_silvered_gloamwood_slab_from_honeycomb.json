@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "slowlight_waxed_gloamwood",
+  "ingredients": [
+    {
+      "item": "slowlight:silvered_gloamwood_slab"
+    },
+    {
+      "item": "minecraft:honeycomb"
+    }
+  ],
+  "result": {
+    "id": "slowlight:waxed_silvered_gloamwood_slab",
+    "count": 1
+  }
+}

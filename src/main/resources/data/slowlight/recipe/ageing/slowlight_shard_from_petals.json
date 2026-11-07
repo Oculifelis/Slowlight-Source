@@ -1,0 +1,15 @@
+{
+  "type": "slowlight:ageing",
+  "ingredient": {
+    "item": "slowlight:dried_duskbloom_petals"
+  },
+  "result": {
+    "id": "slowlight:slowlight_shard",
+    "count": 1
+  },
+  "days": 14,
+  "condition": {
+    "sky": "open",
+    "time": "night"
+  }
+}

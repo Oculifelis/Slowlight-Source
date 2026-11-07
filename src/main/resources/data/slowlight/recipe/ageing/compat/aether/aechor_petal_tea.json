@@ -1,0 +1,17 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "aether"
+    }
+  ],
+  "type": "slowlight:ageing",
+  "ingredient": {
+    "item": "aether:aechor_petal"
+  },
+  "result": {
+    "id": "slowlight:aechor_petal_tea",
+    "count": 1
+  },
+  "days": 2
+}

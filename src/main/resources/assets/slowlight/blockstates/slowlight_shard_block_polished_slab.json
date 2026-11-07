@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "slowlight:block/slowlight_shard_block_polished_slab"
+    },
+    "type=double": {
+      "model": "slowlight:block/slowlight_shard_block_polished"
+    },
+    "type=top": {
+      "model": "slowlight:block/slowlight_shard_block_polished_slab_top"
+    }
+  }
+}

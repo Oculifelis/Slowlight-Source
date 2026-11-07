@@ -1,0 +1,31 @@
+{
+  "parent": "minecraft:husbandry/root",
+  "display": {
+    "icon": { "id": "slowlight:slowlight_shard" },
+    "title": { "translate": "advancement.slowlight.patience.title" },
+    "description": { "translate": "advancement.slowlight.patience.description" },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_shard": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "slowlight:slowlight_shard"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_shard"
+    ]
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "type": "slowlight:ageing",
+  "ingredient": {
+    "item": "minecraft:sand"
+  },
+  "result": {
+    "id": "minecraft:soul_sand",
+    "count": 1
+  },
+  "days": 5,
+  "condition": {
+    "dimension": "minecraft:the_nether"
+  }
+}

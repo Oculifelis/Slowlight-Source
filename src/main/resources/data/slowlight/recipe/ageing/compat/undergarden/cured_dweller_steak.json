@@ -1,0 +1,17 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "undergarden"
+    }
+  ],
+  "type": "slowlight:ageing",
+  "ingredient": {
+    "item": "undergarden:dweller_steak"
+  },
+  "result": {
+    "id": "slowlight:cured_dweller_steak",
+    "count": 1
+  },
+  "days": 4
+}

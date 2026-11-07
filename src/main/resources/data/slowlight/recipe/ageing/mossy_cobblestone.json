@@ -1,0 +1,11 @@
+{
+  "type": "slowlight:ageing",
+  "ingredient": {
+    "item": "minecraft:cobblestone"
+  },
+  "result": {
+    "id": "minecraft:mossy_cobblestone",
+    "count": 1
+  },
+  "days": 4
+}

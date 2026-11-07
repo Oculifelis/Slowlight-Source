@@ -1,0 +1,14 @@
+{
+  "type": "slowlight:ageing",
+  "ingredient": {
+    "item": "minecraft:cobblestone"
+  },
+  "result": {
+    "id": "minecraft:blackstone",
+    "count": 1
+  },
+  "days": 5,
+  "condition": {
+    "dimension": "minecraft:the_nether"
+  }
+}

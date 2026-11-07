@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "lit=false,stage=1,waterlogged=false": {
+      "model": "slowlight:block/slow_candle_1"
+    },
+    "lit=false,stage=1,waterlogged=true": {
+      "model": "slowlight:block/slow_candle_1"
+    },
+    "lit=true,stage=1,waterlogged=false": {
+      "model": "slowlight:block/slow_candle_1_lit"
+    },
+    "lit=true,stage=1,waterlogged=true": {
+      "model": "slowlight:block/slow_candle_1_lit"
+    },
+    "lit=false,stage=2,waterlogged=false": {
+      "model": "slowlight:block/slow_candle_2"
+    },
+    "lit=false,stage=2,waterlogged=true": {
+      "model": "slowlight:block/slow_candle_2"
+    },
+    "lit=true,stage=2,waterlogged=false": {
+      "model": "slowlight:block/slow_candle_2_lit"
+    },
+    "lit=true,stage=2,waterlogged=true": {
+      "model": "slowlight:block/slow_candle_2_lit"
+    },
+    "lit=false,stage=3,waterlogged=false": {
+      "model": "slowlight:block/slow_candle_3"
+    },
+    "lit=false,stage=3,waterlogged=true": {
+      "model": "slowlight:block/slow_candle_3"
+    },
+    "lit=true,stage=3,waterlogged=false": {
+      "model": "slowlight:block/slow_candle_3_lit"
+    },
+    "lit=true,stage=3,waterlogged=true": {
+      "model": "slowlight:block/slow_candle_3_lit"
+    },
+    "lit=false,stage=4,waterlogged=false": {
+      "model": "slowlight:block/slow_candle_4"
+    },
+    "lit=false,stage=4,waterlogged=true": {
+      "model": "slowlight:block/slow_candle_4"
+    },
+    "lit=true,stage=4,waterlogged=false": {
+      "model": "slowlight:block/slow_candle_4_lit"
+    },
+    "lit=true,stage=4,waterlogged=true": {
+      "model": "slowlight:block/slow_candle_4_lit"
+    }
+  }
+}

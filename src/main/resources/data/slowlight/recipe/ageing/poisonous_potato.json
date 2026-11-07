@@ -1,0 +1,14 @@
+{
+  "type": "slowlight:ageing",
+  "ingredient": {
+    "item": "minecraft:potato"
+  },
+  "result": {
+    "id": "minecraft:poisonous_potato",
+    "count": 1
+  },
+  "days": 3,
+  "condition": {
+    "sky": "covered"
+  }
+}

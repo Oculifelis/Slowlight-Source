@@ -1,0 +1,6 @@
+{
+  "type": "slowlight:ageing",
+  "ingredient": { "item": "minecraft:sweet_berries" },
+  "result": { "id": "slowlight:preserved_berries", "count": 1 },
+  "days": 1
+}

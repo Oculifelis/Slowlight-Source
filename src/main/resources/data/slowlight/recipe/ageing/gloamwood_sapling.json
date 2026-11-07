@@ -1,0 +1,11 @@
+{
+  "type": "slowlight:ageing",
+  "ingredient": {
+    "item": "slowlight:lanternfruit_seeds"
+  },
+  "result": {
+    "id": "slowlight:gloamwood_sapling",
+    "count": 1
+  },
+  "days": 7
+}

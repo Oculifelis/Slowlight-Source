@@ -1,0 +1,17 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "aerialhell"
+    }
+  ],
+  "type": "slowlight:ageing",
+  "ingredient": {
+    "item": "aerialhell:shadow_catacombs_bricks"
+  },
+  "result": {
+    "id": "aerialhell:mossy_shadow_catacombs_bricks",
+    "count": 1
+  },
+  "days": 5
+}

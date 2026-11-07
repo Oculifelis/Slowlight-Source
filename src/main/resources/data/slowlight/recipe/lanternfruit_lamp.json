@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "P": {
+      "item": "slowlight:lanternfruit_peel"
+    },
+    "T": {
+      "item": "minecraft:torch"
+    }
+  },
+  "pattern": [
+    " P ",
+    "PTP",
+    " P "
+  ],
+  "result": {
+    "id": "slowlight:lanternfruit_lamp",
+    "count": 1
+  }
+}

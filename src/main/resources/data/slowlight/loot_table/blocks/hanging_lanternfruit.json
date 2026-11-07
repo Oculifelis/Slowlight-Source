@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "slowlight:lanternfruit",
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "slowlight:hanging_lanternfruit",
+              "properties": {
+                "age": "3"
+              }
+            }
+          ]
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:explosion_decay"
+        }
+      ]
+    }
+  ],
+  "random_sequence": "slowlight:blocks/hanging_lanternfruit"
+}

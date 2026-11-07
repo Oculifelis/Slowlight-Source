@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "slowlight:still_shard_block_diagonal_tiles"
+  },
+  "result": {
+    "id": "slowlight:still_shard_block_diagonal_tiles_stairs",
+    "count": 1
+  }
+}

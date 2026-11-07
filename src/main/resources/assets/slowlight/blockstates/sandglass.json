@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "running=false,sand=0": {
+      "model": "slowlight:block/sandglass_0"
+    },
+    "running=true,sand=0": {
+      "model": "slowlight:block/sandglass_0_running"
+    },
+    "running=false,sand=1": {
+      "model": "slowlight:block/sandglass_1"
+    },
+    "running=true,sand=1": {
+      "model": "slowlight:block/sandglass_1_running"
+    },
+    "running=false,sand=2": {
+      "model": "slowlight:block/sandglass_2"
+    },
+    "running=true,sand=2": {
+      "model": "slowlight:block/sandglass_2_running"
+    },
+    "running=false,sand=3": {
+      "model": "slowlight:block/sandglass_3"
+    },
+    "running=true,sand=3": {
+      "model": "slowlight:block/sandglass_3_running"
+    },
+    "running=false,sand=4": {
+      "model": "slowlight:block/sandglass_4"
+    },
+    "running=true,sand=4": {
+      "model": "slowlight:block/sandglass_4_running"
+    },
+    "running=false,sand=5": {
+      "model": "slowlight:block/sandglass_5"
+    },
+    "running=true,sand=5": {
+      "model": "slowlight:block/sandglass_5_running"
+    },
+    "running=false,sand=6": {
+      "model": "slowlight:block/sandglass_6"
+    },
+    "running=true,sand=6": {
+      "model": "slowlight:block/sandglass_6_running"
+    },
+    "running=false,sand=7": {
+      "model": "slowlight:block/sandglass_7"
+    },
+    "running=true,sand=7": {
+      "model": "slowlight:block/sandglass_7_running"
+    }
+  }
+}

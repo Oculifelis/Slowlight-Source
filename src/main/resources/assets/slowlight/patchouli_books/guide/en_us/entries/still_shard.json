@@ -1,0 +1,17 @@
+{
+  "name": "Under the Empty Sky",
+  "icon": "slowlight:still_shard",
+  "category": "slowlight:night",
+  "sortnum": 5,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The End has no day and no weather, only an empty sky. Some recipes want just that: a kiln in the End with nothing above it.$(br2)An $(item)ender pearl$() left ten days there goes quiet and still: a $(item)Still Shard$(), which trims armour in a pale pearl grey.$(br2)Obsidian left there a week starts to weep into $(item)crying obsidian$(), and chorus fruit pops in two days, but only under that empty sky."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Old kiln ruins",
+      "text": "Out on the plains, the savanna and the badlands there are, here and there, the ruins of old potters' yards: a ring of broken brick round a hearth, and a $(item)Patient Kiln$() someone sealed long ago and never came back for. Its batch is long done. Brush the gravel nearby."
+    }
+  ]
+}

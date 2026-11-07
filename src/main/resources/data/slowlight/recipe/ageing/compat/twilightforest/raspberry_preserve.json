@@ -1,0 +1,17 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "twilightforest"
+    }
+  ],
+  "type": "slowlight:ageing",
+  "ingredient": {
+    "item": "twilightforest:raspberry"
+  },
+  "result": {
+    "id": "slowlight:raspberry_preserve",
+    "count": 1
+  },
+  "days": 4
+}

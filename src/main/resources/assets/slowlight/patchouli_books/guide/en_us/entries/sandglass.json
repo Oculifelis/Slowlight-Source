@@ -1,0 +1,17 @@
+{
+  "name": "The Sandglass",
+  "icon": "slowlight:sandglass",
+  "category": "slowlight:waiting",
+  "sortnum": 5,
+  "pages": [
+    {
+      "type": "patchouli:crafting",
+      "recipe": "slowlight:sandglass",
+      "text": "An hourglass that measures days. Click it to set one to seven; each click turns it over and starts again."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "The shard sand in the top bulb runs down over the days you set, so it reads at a glance like a clock face. When the last grain falls it gives one $(thing)redstone pulse$() and turns itself over.$(br2)A $(item)comparator$() reads how much sand is left on top. Sneak-click to ask how long is left.$(br2)In the Nether and the End it cannot find the time: the sand jumps about and never settles."
+    }
+  ]
+}

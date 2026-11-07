@@ -1,0 +1,17 @@
+{
+  "name": "The Ember Kiln",
+  "icon": "slowlight:ember_kiln",
+  "category": "slowlight:kilns",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "patchouli:crafting",
+      "recipe": "slowlight:ember_kiln",
+      "text": "A Patient Kiln of blackstone, for the Nether."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "It only takes to the work where the world itself is hot. In the $(thing)Nether$() it ages anything a Patient Kiln would, and the Nether's own recipes too, in $(l)half the days$(). Anywhere cooler it holds what it is given and waits for the heat."
+    }
+  ]
+}

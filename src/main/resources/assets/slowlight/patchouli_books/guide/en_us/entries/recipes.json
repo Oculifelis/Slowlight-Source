@@ -1,0 +1,17 @@
+{
+  "name": "Everything Else",
+  "icon": "minecraft:honey_bottle",
+  "category": "slowlight:waiting",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Honey becomes Amber Draught, apples cider (stir in dried Duskbloom petals for Dusk Cider), and cooked fish cures to keep you fed longer. Berries keep. Rotten flesh cures into leather, mud dries to clay, string gathers into cobweb, coarse dirt turns to podzol, cobblestone and stone bricks grow moss, and copper weathers one stage at a time.$(br2)A recipe viewer such as JEI lists every one, with its wait and what it needs."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Your own",
+      "text": "Every recipe is a datapack JSON of type $(thing)slowlight:ageing$(): an ingredient, a result, days, and optionally long_days and a condition: sky (open, covered, or void for the End's empty sky), weather, time, and a dimension. KubeJS can add them too."
+    }
+  ]
+}

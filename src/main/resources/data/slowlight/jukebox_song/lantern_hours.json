@@ -1,0 +1,8 @@
+{
+  "comparator_output": 12,
+  "description": {
+    "translate": "jukebox_song.slowlight.lantern_hours"
+  },
+  "length_in_seconds": 99.0,
+  "sound_event": "slowlight:music_disc.lantern_hours"
+}

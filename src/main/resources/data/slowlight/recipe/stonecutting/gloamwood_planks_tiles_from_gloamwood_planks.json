@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "slowlight:gloamwood_planks"
+  },
+  "result": {
+    "id": "slowlight:gloamwood_planks_tiles",
+    "count": 1
+  }
+}

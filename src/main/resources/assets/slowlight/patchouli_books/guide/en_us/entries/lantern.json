@@ -1,0 +1,16 @@
+{
+  "name": "Slowlight Lantern",
+  "icon": "slowlight:slowlight_lantern",
+  "category": "slowlight:night",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Leave an amethyst shard in a Patient Kiln for a week and it comes out a $(item)Slowlight Shard$(). Set it in copper and glass and it makes a lantern that keeps the opposite hours to everyone else: dim through the day, bright from dusk to dawn. Underground, where the sky never brightens, it simply stays up."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "slowlight:slowlight_lantern"
+    }
+  ]
+}

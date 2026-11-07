@@ -1,0 +1,37 @@
+{
+  "display": {
+    "icon": {
+      "id": "slowlight:gloamwood_sapling"
+    },
+    "title": {
+      "translate": "advancements.slowlight.gloamwood.title"
+    },
+    "description": {
+      "translate": "advancements.slowlight.gloamwood.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "got": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "slowlight:gloamwood_sapling"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "got"
+    ]
+  ],
+  "parent": "slowlight:duskbloom"
+}

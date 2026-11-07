@@ -1,0 +1,68 @@
+{
+  "sources": [
+    {
+      "type": "paletted_permutations",
+      "textures": [
+        "trims/items/helmet_trim",
+        "trims/items/chestplate_trim",
+        "trims/items/leggings_trim",
+        "trims/items/boots_trim"
+      ],
+      "palette_key": "trims/color_palettes/trim_palette",
+      "permutations": {
+        "slowlight": "slowlight:trims/color_palettes/slowlight",
+        "still": "slowlight:trims/color_palettes/still"
+      }
+    },
+    {
+      "type": "paletted_permutations",
+      "textures": [
+        "aerialhell:item/glowing_stick_fruit"
+      ],
+      "palette_key": "slowlight:aerial/candied_glowing_stick_fruit_key",
+      "permutations": {
+        "slowlight": "slowlight:aerial/candied_glowing_stick_fruit"
+      }
+    },
+    {
+      "type": "paletted_permutations",
+      "textures": [
+        "aerialhell:item/stellar_stone_crystal"
+      ],
+      "palette_key": "slowlight:aerial/stellar_rock_sugar_key",
+      "permutations": {
+        "slowlight": "slowlight:aerial/stellar_rock_sugar"
+      }
+    },
+    {
+      "type": "paletted_permutations",
+      "textures": [
+        "aerialhell:item/cooked_phantom_meat"
+      ],
+      "palette_key": "slowlight:aerial/cured_phantom_meat_key",
+      "permutations": {
+        "slowlight": "slowlight:aerial/cured_phantom_meat"
+      }
+    },
+    {
+      "type": "paletted_permutations",
+      "textures": [
+        "aerialhell:item/cooked_turtle_meat"
+      ],
+      "palette_key": "slowlight:aerial/cured_turtle_meat_key",
+      "permutations": {
+        "slowlight": "slowlight:aerial/cured_turtle_meat"
+      }
+    },
+    {
+      "type": "paletted_permutations",
+      "textures": [
+        "aerialhell:item/stellar_bread"
+      ],
+      "palette_key": "slowlight:aerial/stellar_rusk_key",
+      "permutations": {
+        "slowlight": "slowlight:aerial/stellar_rusk"
+      }
+    }
+  ]
+}

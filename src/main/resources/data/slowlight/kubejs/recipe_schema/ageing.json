@@ -1,0 +1,42 @@
+{
+  "mappings": [
+    "slowlight:ageing"
+  ],
+  "keys": [
+    {
+      "name": "result",
+      "role": "output",
+      "type": "kubejs:item_stack"
+    },
+    {
+      "name": "ingredient",
+      "role": "input",
+      "type": "kubejs:ingredient"
+    },
+    {
+      "name": "days",
+      "type": "kubejs:int",
+      "optional": 1
+    },
+    {
+      "name": "long_days",
+      "type": "kubejs:int",
+      "optional": 0
+    }
+  ],
+  "constructors": [
+    {
+      "keys": [
+        "result",
+        "ingredient",
+        "days"
+      ]
+    },
+    {
+      "keys": [
+        "result",
+        "ingredient"
+      ]
+    }
+  ]
+}

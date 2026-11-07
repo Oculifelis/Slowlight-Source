@@ -1,0 +1,6 @@
+{
+  "name": "Kilns",
+  "description": "Two kilns that measure in days, not in fuel.",
+  "icon": "slowlight:patient_kiln",
+  "sortnum": 0
+}

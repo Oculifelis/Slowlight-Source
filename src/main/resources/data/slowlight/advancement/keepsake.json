@@ -1,0 +1,28 @@
+{
+  "display": {
+    "icon": {
+      "id": "slowlight:keepsake_urn"
+    },
+    "title": {
+      "translate": "advancements.slowlight.keepsake.title"
+    },
+    "description": {
+      "translate": "advancements.slowlight.keepsake.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "opened": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "opened"
+    ]
+  ],
+  "parent": "slowlight:root"
+}

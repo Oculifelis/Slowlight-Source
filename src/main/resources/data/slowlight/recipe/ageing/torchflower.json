@@ -1,0 +1,6 @@
+{
+  "type": "slowlight:ageing",
+  "ingredient": { "item": "minecraft:torchflower_seeds" },
+  "result": { "id": "minecraft:torchflower", "count": 1 },
+  "days": 2
+}

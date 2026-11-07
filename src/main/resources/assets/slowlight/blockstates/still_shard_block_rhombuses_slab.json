@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "slowlight:block/still_shard_block_rhombuses_slab"
+    },
+    "type=double": {
+      "model": "slowlight:block/still_shard_block_rhombuses"
+    },
+    "type=top": {
+      "model": "slowlight:block/still_shard_block_rhombuses_slab_top"
+    }
+  }
+}

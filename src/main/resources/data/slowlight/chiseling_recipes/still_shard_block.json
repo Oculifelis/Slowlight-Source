@@ -1,0 +1,75 @@
+{
+  "type": "rechiseled:chiseling",
+  "entries": [
+    {
+      "block": "slowlight:still_shard_block"
+    },
+    {
+      "block": "slowlight:still_shard_block_chiseled",
+      "stairs": "slowlight:still_shard_block_chiseled_stairs",
+      "slab": "slowlight:still_shard_block_chiseled_slab",
+      "slab_worth": 0.5
+    },
+    {
+      "block": "slowlight:still_shard_block_chiseled_cubes",
+      "stairs": "slowlight:still_shard_block_chiseled_cubes_stairs",
+      "slab": "slowlight:still_shard_block_chiseled_cubes_slab",
+      "slab_worth": 0.5
+    },
+    {
+      "block": "slowlight:still_shard_block_diagonal_tiles",
+      "stairs": "slowlight:still_shard_block_diagonal_tiles_stairs",
+      "slab": "slowlight:still_shard_block_diagonal_tiles_slab",
+      "slab_worth": 0.5
+    },
+    {
+      "block": "slowlight:still_shard_block_grid",
+      "stairs": "slowlight:still_shard_block_grid_stairs",
+      "slab": "slowlight:still_shard_block_grid_slab",
+      "slab_worth": 0.5
+    },
+    {
+      "block": "slowlight:still_shard_block_jewel_block",
+      "stairs": "slowlight:still_shard_block_jewel_block_stairs",
+      "slab": "slowlight:still_shard_block_jewel_block_slab",
+      "slab_worth": 0.5
+    },
+    {
+      "block": "slowlight:still_shard_block_polished",
+      "stairs": "slowlight:still_shard_block_polished_stairs",
+      "slab": "slowlight:still_shard_block_polished_slab",
+      "slab_worth": 0.5
+    },
+    {
+      "block": "slowlight:still_shard_block_rhombuses",
+      "stairs": "slowlight:still_shard_block_rhombuses_stairs",
+      "slab": "slowlight:still_shard_block_rhombuses_slab",
+      "slab_worth": 0.5
+    },
+    {
+      "block": "slowlight:still_shard_block_shiny",
+      "stairs": "slowlight:still_shard_block_shiny_stairs",
+      "slab": "slowlight:still_shard_block_shiny_slab",
+      "slab_worth": 0.5
+    },
+    {
+      "block": "slowlight:still_shard_block_shiny_bordered",
+      "stairs": "slowlight:still_shard_block_shiny_bordered_stairs",
+      "slab": "slowlight:still_shard_block_shiny_bordered_slab",
+      "slab_worth": 0.5
+    },
+    {
+      "block": "slowlight:still_shard_block_small_tiles",
+      "stairs": "slowlight:still_shard_block_small_tiles_stairs",
+      "slab": "slowlight:still_shard_block_small_tiles_slab",
+      "slab_worth": 0.5
+    },
+    {
+      "block": "slowlight:still_shard_block_smooth",
+      "stairs": "slowlight:still_shard_block_smooth_stairs",
+      "slab": "slowlight:still_shard_block_smooth_slab",
+      "slab_worth": 0.5
+    }
+  ],
+  "overwrite": false
+}

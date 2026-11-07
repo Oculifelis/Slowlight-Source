@@ -1,0 +1,11 @@
+{
+  "type": "slowlight:ageing",
+  "ingredient": {
+    "item": "minecraft:bone"
+  },
+  "result": {
+    "id": "minecraft:bone_meal",
+    "count": 6
+  },
+  "days": 2
+}

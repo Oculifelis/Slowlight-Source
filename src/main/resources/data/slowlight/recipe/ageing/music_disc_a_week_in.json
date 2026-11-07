@@ -1,0 +1,6 @@
+{
+  "type": "slowlight:ageing",
+  "ingredient": { "item": "minecraft:music_disc_far" },
+  "result": { "id": "slowlight:music_disc_a_week_in", "count": 1 },
+  "days": 7
+}

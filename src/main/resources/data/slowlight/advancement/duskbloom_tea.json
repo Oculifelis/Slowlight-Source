@@ -1,0 +1,37 @@
+{
+  "display": {
+    "icon": {
+      "id": "slowlight:duskbloom_tea"
+    },
+    "title": {
+      "translate": "advancements.slowlight.duskbloom_tea.title"
+    },
+    "description": {
+      "translate": "advancements.slowlight.duskbloom_tea.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "tea": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "slowlight:duskbloom_tea"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "tea"
+    ]
+  ],
+  "parent": "slowlight:duskbloom"
+}

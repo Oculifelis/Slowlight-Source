@@ -1,0 +1,27 @@
+{
+  "replace": false,
+  "values": [
+    "slowlight:slowlight_shard_block_chiseled_slab",
+    "slowlight:slowlight_shard_block_chiseled_cubes_slab",
+    "slowlight:slowlight_shard_block_diagonal_tiles_slab",
+    "slowlight:slowlight_shard_block_grid_slab",
+    "slowlight:slowlight_shard_block_jewel_block_slab",
+    "slowlight:slowlight_shard_block_polished_slab",
+    "slowlight:slowlight_shard_block_rhombuses_slab",
+    "slowlight:slowlight_shard_block_shiny_slab",
+    "slowlight:slowlight_shard_block_shiny_bordered_slab",
+    "slowlight:slowlight_shard_block_small_tiles_slab",
+    "slowlight:slowlight_shard_block_smooth_slab",
+    "slowlight:still_shard_block_chiseled_slab",
+    "slowlight:still_shard_block_chiseled_cubes_slab",
+    "slowlight:still_shard_block_diagonal_tiles_slab",
+    "slowlight:still_shard_block_grid_slab",
+    "slowlight:still_shard_block_jewel_block_slab",
+    "slowlight:still_shard_block_polished_slab",
+    "slowlight:still_shard_block_rhombuses_slab",
+    "slowlight:still_shard_block_shiny_slab",
+    "slowlight:still_shard_block_shiny_bordered_slab",
+    "slowlight:still_shard_block_small_tiles_slab",
+    "slowlight:still_shard_block_smooth_slab"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "slowlight:still_shard_block"
+    }
+  ],
+  "result": {
+    "id": "slowlight:still_shard",
+    "count": 9
+  }
+}

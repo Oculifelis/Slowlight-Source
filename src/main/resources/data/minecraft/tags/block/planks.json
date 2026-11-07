@@ -1,0 +1,32 @@
+{
+  "replace": false,
+  "values": [
+    "slowlight:gloamwood_planks",
+    "slowlight:gloamwood_planks_beams",
+    "slowlight:gloamwood_planks_brick_pattern",
+    "slowlight:gloamwood_planks_brick_paving",
+    "slowlight:gloamwood_planks_bricks",
+    "slowlight:gloamwood_planks_crate",
+    "slowlight:gloamwood_planks_diagonal_stripes",
+    "slowlight:gloamwood_planks_diagonal_tiles",
+    "slowlight:gloamwood_planks_dotted",
+    "slowlight:gloamwood_planks_flooring",
+    "slowlight:gloamwood_planks_large_tiles",
+    "slowlight:gloamwood_planks_mosaic",
+    "slowlight:gloamwood_planks_pattern",
+    "slowlight:gloamwood_planks_rotated_bricks",
+    "slowlight:gloamwood_planks_small_bricks",
+    "slowlight:gloamwood_planks_small_tiles",
+    "slowlight:gloamwood_planks_squares",
+    "slowlight:gloamwood_planks_tiles",
+    "slowlight:gloamwood_planks_wavy",
+    "slowlight:gloamwood_planks_woven",
+    "slowlight:waxed_gloamwood_planks",
+    "slowlight:faded_gloamwood_planks",
+    "slowlight:waxed_faded_gloamwood_planks",
+    "slowlight:weathered_gloamwood_planks",
+    "slowlight:waxed_weathered_gloamwood_planks",
+    "slowlight:silvered_gloamwood_planks",
+    "slowlight:waxed_silvered_gloamwood_planks"
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "display": {
+    "icon": {
+      "id": "slowlight:still_shard"
+    },
+    "title": {
+      "translate": "advancements.slowlight.still_shard.title"
+    },
+    "description": {
+      "translate": "advancements.slowlight.still_shard.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "shard": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "slowlight:still_shard"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "shard"
+    ]
+  ],
+  "parent": "slowlight:root"
+}

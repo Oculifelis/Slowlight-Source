@@ -1,0 +1,27 @@
+{
+  "replace": false,
+  "values": [
+    "slowlight:slowlight_shard_block_chiseled_stairs",
+    "slowlight:slowlight_shard_block_chiseled_cubes_stairs",
+    "slowlight:slowlight_shard_block_diagonal_tiles_stairs",
+    "slowlight:slowlight_shard_block_grid_stairs",
+    "slowlight:slowlight_shard_block_jewel_block_stairs",
+    "slowlight:slowlight_shard_block_polished_stairs",
+    "slowlight:slowlight_shard_block_rhombuses_stairs",
+    "slowlight:slowlight_shard_block_shiny_stairs",
+    "slowlight:slowlight_shard_block_shiny_bordered_stairs",
+    "slowlight:slowlight_shard_block_small_tiles_stairs",
+    "slowlight:slowlight_shard_block_smooth_stairs",
+    "slowlight:still_shard_block_chiseled_stairs",
+    "slowlight:still_shard_block_chiseled_cubes_stairs",
+    "slowlight:still_shard_block_diagonal_tiles_stairs",
+    "slowlight:still_shard_block_grid_stairs",
+    "slowlight:still_shard_block_jewel_block_stairs",
+    "slowlight:still_shard_block_polished_stairs",
+    "slowlight:still_shard_block_rhombuses_stairs",
+    "slowlight:still_shard_block_shiny_stairs",
+    "slowlight:still_shard_block_shiny_bordered_stairs",
+    "slowlight:still_shard_block_small_tiles_stairs",
+    "slowlight:still_shard_block_smooth_stairs"
+  ]
+}

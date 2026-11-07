@@ -1,0 +1,17 @@
+{
+  "name": "The Keepsake Urn",
+  "icon": "slowlight:keepsake_urn",
+  "category": "slowlight:waiting",
+  "sortnum": 6,
+  "pages": [
+    {
+      "type": "patchouli:crafting",
+      "recipe": "slowlight:keepsake_urn",
+      "text": "Nine slots for putting things away for later."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Sneak-click to choose how long (from one day to thirty), then click with a $(item)honeycomb$() to seal it with wax. Until the days are up it will not open, for you or for a hopper. Then the wax gives, and whatever you put away is there again.$(br2)Break a sealed urn early and it $(l)cracks$(): the urn is lost and everything spills out."
+    }
+  ]
+}

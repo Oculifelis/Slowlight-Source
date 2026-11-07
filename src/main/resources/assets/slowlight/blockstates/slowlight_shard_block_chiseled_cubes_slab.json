@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "slowlight:block/slowlight_shard_block_chiseled_cubes_slab"
+    },
+    "type=double": {
+      "model": "slowlight:block/slowlight_shard_block_chiseled_cubes"
+    },
+    "type=top": {
+      "model": "slowlight:block/slowlight_shard_block_chiseled_cubes_slab_top"
+    }
+  }
+}

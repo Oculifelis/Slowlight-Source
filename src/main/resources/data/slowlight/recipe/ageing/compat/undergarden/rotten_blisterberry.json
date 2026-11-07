@@ -1,0 +1,17 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "undergarden"
+    }
+  ],
+  "type": "slowlight:ageing",
+  "ingredient": {
+    "item": "undergarden:blisterberry"
+  },
+  "result": {
+    "id": "undergarden:rotten_blisterberry",
+    "count": 1
+  },
+  "days": 2
+}

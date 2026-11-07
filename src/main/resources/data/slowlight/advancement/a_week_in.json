@@ -1,0 +1,32 @@
+{
+  "parent": "slowlight:patience",
+  "display": {
+    "icon": { "id": "slowlight:slowlight_lantern" },
+    "title": { "translate": "advancement.slowlight.a_week_in.title" },
+    "description": { "translate": "advancement.slowlight.a_week_in.description" },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "rewards": { "experience": 50 },
+  "criteria": {
+    "has_lantern": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "slowlight:slowlight_lantern"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_lantern"
+    ]
+  ]
+}

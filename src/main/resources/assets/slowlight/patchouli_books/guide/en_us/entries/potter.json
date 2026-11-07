@@ -1,0 +1,12 @@
+{
+  "name": "The Potter",
+  "icon": "slowlight:patient_kiln",
+  "category": "slowlight:kilns",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "A villager with no job will take a $(item)Patient Kiln$() as a workstation and become a $(thing)Potter$().$(br2)Potters buy clay, honey and Duskbloom petals; they sell bricks, terracotta and aged goods; and a master Potter parts, at a price, with a $(item)Patience Pottery Sherd$() and the $(item)Patience$() trim template."
+    }
+  ]
+}

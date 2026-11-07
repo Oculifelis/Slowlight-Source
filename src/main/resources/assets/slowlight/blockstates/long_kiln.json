@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=north,lit=false": {
+      "model": "slowlight:block/long_kiln"
+    },
+    "facing=north,lit=true": {
+      "model": "slowlight:block/long_kiln_sealed"
+    },
+    "facing=east,lit=false": {
+      "model": "slowlight:block/long_kiln",
+      "y": 90
+    },
+    "facing=east,lit=true": {
+      "model": "slowlight:block/long_kiln_sealed",
+      "y": 90
+    },
+    "facing=south,lit=false": {
+      "model": "slowlight:block/long_kiln",
+      "y": 180
+    },
+    "facing=south,lit=true": {
+      "model": "slowlight:block/long_kiln_sealed",
+      "y": 180
+    },
+    "facing=west,lit=false": {
+      "model": "slowlight:block/long_kiln",
+      "y": 270
+    },
+    "facing=west,lit=true": {
+      "model": "slowlight:block/long_kiln_sealed",
+      "y": 270
+    }
+  }
+}

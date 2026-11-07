@@ -1,0 +1,6 @@
+{
+  "type": "slowlight:ageing",
+  "ingredient": { "item": "minecraft:pitcher_pod" },
+  "result": { "id": "minecraft:pitcher_plant", "count": 1 },
+  "days": 3
+}

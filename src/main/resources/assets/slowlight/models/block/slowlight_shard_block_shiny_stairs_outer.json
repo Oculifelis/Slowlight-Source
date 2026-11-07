@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "slowlight:block/slowlight_shard_block_shiny",
+    "side": "slowlight:block/slowlight_shard_block_shiny",
+    "top": "slowlight:block/slowlight_shard_block_shiny"
+  }
+}

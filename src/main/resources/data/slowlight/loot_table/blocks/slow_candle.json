@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:block",
+  "random_sequence": "slowlight:blocks/slow_candle",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "slowlight:slow_candle",
+          "functions": [
+            {
+              "function": "minecraft:copy_state",
+              "block": "slowlight:slow_candle",
+              "properties": [
+                "stage"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

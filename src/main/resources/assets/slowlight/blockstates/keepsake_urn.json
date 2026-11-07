@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "sealed=false": {
+      "model": "slowlight:block/keepsake_urn"
+    },
+    "sealed=true": {
+      "model": "slowlight:block/keepsake_urn_sealed"
+    }
+  }
+}

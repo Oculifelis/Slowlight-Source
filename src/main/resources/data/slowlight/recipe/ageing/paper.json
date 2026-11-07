@@ -1,0 +1,16 @@
+{
+  "type": "slowlight:ageing",
+  "ingredient": {
+    "item": "minecraft:sugar_cane"
+  },
+  "result": {
+    "id": "minecraft:paper",
+    "count": 1
+  },
+  "days": 2,
+  "condition": {
+    "sky": "open",
+    "weather": "clear",
+    "time": "day"
+  }
+}

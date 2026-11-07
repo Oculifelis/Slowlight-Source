@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "slowlight:gloamwood_planks_brick_pattern"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "slowlight:blocks/gloamwood_planks_brick_pattern"
+}

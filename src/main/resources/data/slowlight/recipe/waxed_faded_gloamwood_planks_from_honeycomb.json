@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "slowlight_waxed_gloamwood",
+  "ingredients": [
+    {
+      "item": "slowlight:faded_gloamwood_planks"
+    },
+    {
+      "item": "minecraft:honeycomb"
+    }
+  ],
+  "result": {
+    "id": "slowlight:waxed_faded_gloamwood_planks",
+    "count": 1
+  }
+}

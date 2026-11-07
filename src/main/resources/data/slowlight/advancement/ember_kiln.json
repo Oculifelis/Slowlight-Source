@@ -1,0 +1,37 @@
+{
+  "display": {
+    "icon": {
+      "id": "slowlight:ember_kiln"
+    },
+    "title": {
+      "translate": "advancements.slowlight.ember_kiln.title"
+    },
+    "description": {
+      "translate": "advancements.slowlight.ember_kiln.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "kiln": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "slowlight:ember_kiln"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "kiln"
+    ]
+  ],
+  "parent": "slowlight:root"
+}

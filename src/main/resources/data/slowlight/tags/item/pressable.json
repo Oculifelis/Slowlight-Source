@@ -1,0 +1,26 @@
+{
+  "replace": false,
+  "values": [
+    "#minecraft:flowers",
+    {
+      "id": "#c:flowers",
+      "required": false
+    },
+    {
+      "id": "aerialhell:blue_flower",
+      "required": false
+    },
+    {
+      "id": "aerialhell:black_rose",
+      "required": false
+    },
+    {
+      "id": "aerialhell:bellflower",
+      "required": false
+    },
+    {
+      "id": "aerialhell:vine_blossom",
+      "required": false
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "type": "slowlight:ageing",
+  "ingredient": { "item": "minecraft:wet_sponge" },
+  "result": { "id": "minecraft:sponge", "count": 1 },
+  "days": 1,
+  "condition": { "sky": "open", "weather": "clear", "time": "day" }
+}

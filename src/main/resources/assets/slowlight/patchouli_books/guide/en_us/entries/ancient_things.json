@@ -1,0 +1,17 @@
+{
+  "name": "Old Seeds, Buried Things",
+  "icon": "minecraft:brush",
+  "category": "slowlight:waiting",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The seeds a sniffer digs up have slept a long time. In a kiln they wake: $(item)torchflower seeds$() open into a torchflower in two days, a $(item)pitcher pod$() into a pitcher plant in three.$(br2)Sniffers sometimes turn up a $(item)Slowlight Shard$() as well, an amethyst shard that waited underground."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Bury and wait",
+      "text": "Leave $(item)gravel$() or $(item)sand$() in a kiln for a week and it comes back $(l)suspicious$(): place it and brush it, and something will have settled into it while it waited. Flint, bones and nuggets mostly; now and then an emerald, a shard, or a pottery sherd. One of them, the $(item)Patience Pottery Sherd$(), stamps an hourglass on a decorated pot; it turns up, rarely, in trail ruins and desert wells too."
+    }
+  ]
+}

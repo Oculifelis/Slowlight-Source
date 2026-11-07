@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "slowlight:block/gloamwood_planks_brick_paving_slab"
+    },
+    "type=double": {
+      "model": "slowlight:block/gloamwood_planks_brick_paving"
+    },
+    "type=top": {
+      "model": "slowlight:block/gloamwood_planks_brick_paving_slab_top"
+    }
+  }
+}

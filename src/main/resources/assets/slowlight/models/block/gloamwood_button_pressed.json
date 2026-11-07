@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/button_pressed",
+  "textures": {
+    "texture": "slowlight:block/gloamwood_planks"
+  }
+}

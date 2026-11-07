@@ -1,0 +1,21 @@
+{
+  "name": "Patient Kiln",
+  "icon": "slowlight:patient_kiln",
+  "category": "slowlight:kilns",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "A Patient Kiln takes one kind of thing at a time, puts the lid on, and waits. It counts in $(l)world days$(), on the world's clock, so it keeps working whether or not anyone is there to watch.$(br2)Right-click with something it knows to put it in. Right-click again to ask how long is left."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "slowlight:patient_kiln"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "When it is done",
+      "text": "The lid comes off and the finished work stands in the mouth, so you can see it from across the room. Right-click to take it, or let a hopper underneath pull it out.$(br2)A comparator reads 1 to 14 as the days run down, and 15 when something is ready. Sneak and right-click with an empty hand to take back what you put in; the wait so far is lost."
+    }
+  ]
+}

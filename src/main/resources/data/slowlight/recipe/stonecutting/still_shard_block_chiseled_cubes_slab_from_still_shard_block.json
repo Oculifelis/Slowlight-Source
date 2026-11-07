@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "slowlight:still_shard_block"
+  },
+  "result": {
+    "id": "slowlight:still_shard_block_chiseled_cubes_slab",
+    "count": 2
+  }
+}

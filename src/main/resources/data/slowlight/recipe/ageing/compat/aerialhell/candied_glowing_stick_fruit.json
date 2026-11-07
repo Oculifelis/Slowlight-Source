@@ -1,0 +1,17 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "aerialhell"
+    }
+  ],
+  "type": "slowlight:ageing",
+  "ingredient": {
+    "item": "aerialhell:glowing_stick_fruit"
+  },
+  "result": {
+    "id": "slowlight:candied_glowing_stick_fruit",
+    "count": 1
+  },
+  "days": 3
+}

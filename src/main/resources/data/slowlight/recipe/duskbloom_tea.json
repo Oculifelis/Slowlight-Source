@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "type": "neoforge:components",
+      "items": "minecraft:potion",
+      "components": {
+        "minecraft:potion_contents": {
+          "potion": "minecraft:water"
+        }
+      }
+    },
+    {
+      "item": "slowlight:dried_duskbloom_petals"
+    },
+    {
+      "item": "slowlight:dried_duskbloom_petals"
+    }
+  ],
+  "result": {
+    "id": "slowlight:duskbloom_tea",
+    "count": 1
+  }
+}

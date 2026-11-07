@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:archaeology",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "slowlight:patience_pottery_sherd"
+        }
+      ]
+    }
+  ],
+  "random_sequence": "slowlight:archaeology/patience_sherd"
+}

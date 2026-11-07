@@ -1,0 +1,59 @@
+{
+ "small": [
+  "d_small_petals",
+  "small_0",
+  "small_1",
+  "small_2",
+  "small_3",
+  "small_4",
+  "small_5",
+  "small_6",
+  "small_7"
+ ],
+ "mid": [
+  "a_pink_petals",
+  "mid_0",
+  "mid_1",
+  "mid_2",
+  "mid_3",
+  "mid_4",
+  "mid_5",
+  "mid_6",
+  "mid_7"
+ ],
+ "big": [
+  "c_wisteria_petals",
+  "big_0",
+  "big_1",
+  "big_2",
+  "big_3",
+  "big_4",
+  "big_5",
+  "big_6",
+  "big_7"
+ ],
+ "two_small": [
+  "f_glow_petals",
+  "g_wildflowers",
+  "two_small_0",
+  "two_small_1",
+  "two_small_2",
+  "two_small_3",
+  "two_small_4",
+  "two_small_5",
+  "two_small_6",
+  "two_small_7"
+ ],
+ "two_big": [
+  "b_big_petals",
+  "e_mellow_petals",
+  "two_big_0",
+  "two_big_1",
+  "two_big_2",
+  "two_big_3",
+  "two_big_4",
+  "two_big_5",
+  "two_big_6",
+  "two_big_7"
+ ]
+}

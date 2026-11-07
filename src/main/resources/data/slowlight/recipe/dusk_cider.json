@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "slowlight:cider"
+    },
+    {
+      "item": "slowlight:dried_duskbloom_petals"
+    }
+  ],
+  "result": {
+    "id": "slowlight:dusk_cider",
+    "count": 1
+  }
+}

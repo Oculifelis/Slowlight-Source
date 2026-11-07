@@ -1,0 +1,67 @@
+{
+  "display": {
+    "icon": {
+      "id": "slowlight:music_disc_a_week_in"
+    },
+    "title": {
+      "translate": "advancements.slowlight.records.title"
+    },
+    "description": {
+      "translate": "advancements.slowlight.records.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "a": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "slowlight:music_disc_patient_light"
+            ]
+          }
+        ]
+      }
+    },
+    "b": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "slowlight:music_disc_a_week_in"
+            ]
+          }
+        ]
+      }
+    },
+    "c": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "slowlight:music_disc_lantern_hours"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "a"
+    ],
+    [
+      "b"
+    ],
+    [
+      "c"
+    ]
+  ],
+  "parent": "slowlight:root"
+}

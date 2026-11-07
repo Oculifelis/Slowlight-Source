@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "slowlight:slowlight_shard_block",
+    "slowlight:still_shard_block"
+  ]
+}

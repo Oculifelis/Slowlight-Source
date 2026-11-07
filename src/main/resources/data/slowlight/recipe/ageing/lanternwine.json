@@ -1,0 +1,11 @@
+{
+  "type": "slowlight:ageing",
+  "ingredient": {
+    "item": "slowlight:lanternfruit_must"
+  },
+  "result": {
+    "id": "slowlight:lanternwine",
+    "count": 1
+  },
+  "days": 5
+}

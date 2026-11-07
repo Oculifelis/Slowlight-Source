@@ -1,0 +1,15 @@
+{
+  "type": "slowlight:ageing",
+  "ingredient": {
+    "item": "minecraft:chorus_fruit"
+  },
+  "result": {
+    "id": "minecraft:popped_chorus_fruit",
+    "count": 1
+  },
+  "days": 2,
+  "condition": {
+    "sky": "void",
+    "dimension": "minecraft:the_end"
+  }
+}

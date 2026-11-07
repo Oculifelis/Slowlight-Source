@@ -1,0 +1,28 @@
+{
+  "display": {
+    "icon": {
+      "id": "slowlight:sandglass"
+    },
+    "title": {
+      "translate": "advancements.slowlight.sandglass_week.title"
+    },
+    "description": {
+      "translate": "advancements.slowlight.sandglass_week.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "turned": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "turned"
+    ]
+  ],
+  "parent": "slowlight:root"
+}

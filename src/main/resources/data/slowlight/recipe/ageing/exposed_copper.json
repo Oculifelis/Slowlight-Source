@@ -1,0 +1,11 @@
+{
+  "type": "slowlight:ageing",
+  "ingredient": {
+    "item": "minecraft:copper_block"
+  },
+  "result": {
+    "id": "minecraft:exposed_copper",
+    "count": 1
+  },
+  "days": 3
+}

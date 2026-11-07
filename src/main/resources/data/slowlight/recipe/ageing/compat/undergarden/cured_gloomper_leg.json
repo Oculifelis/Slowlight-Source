@@ -1,0 +1,17 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "undergarden"
+    }
+  ],
+  "type": "slowlight:ageing",
+  "ingredient": {
+    "item": "undergarden:gloomper_leg"
+  },
+  "result": {
+    "id": "slowlight:cured_gloomper_leg",
+    "count": 1
+  },
+  "days": 4
+}

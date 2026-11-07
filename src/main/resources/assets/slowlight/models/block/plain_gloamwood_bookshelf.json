@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "slowlight:block/gloamwood_planks",
+    "side": "slowlight:block/plain_gloamwood_bookshelf"
+  }
+}

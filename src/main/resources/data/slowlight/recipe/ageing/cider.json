@@ -1,0 +1,11 @@
+{
+  "type": "slowlight:ageing",
+  "ingredient": {
+    "item": "minecraft:apple"
+  },
+  "result": {
+    "id": "slowlight:cider",
+    "count": 1
+  },
+  "days": 4
+}

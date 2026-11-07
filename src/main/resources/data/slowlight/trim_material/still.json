@@ -1,0 +1,9 @@
+{
+  "asset_name": "still",
+  "description": {
+    "color": "#B8D2CE",
+    "translate": "trim_material.slowlight.still"
+  },
+  "ingredient": "slowlight:still_shard",
+  "item_model_index": 0.8521
+}

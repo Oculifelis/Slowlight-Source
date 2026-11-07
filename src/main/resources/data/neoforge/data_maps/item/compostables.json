@@ -1,0 +1,28 @@
+{
+  "values": {
+    "slowlight:duskbloom_seeds": {
+      "chance": 0.3
+    },
+    "slowlight:duskbloom_petals": {
+      "chance": 0.65
+    },
+    "slowlight:dried_duskbloom_petals": {
+      "chance": 0.5
+    },
+    "slowlight:gloamwood_leaves": {
+      "chance": 0.3
+    },
+    "slowlight:gloamwood_sapling": {
+      "chance": 0.3
+    },
+    "slowlight:lanternfruit": {
+      "chance": 0.65
+    },
+    "slowlight:lanternfruit_seeds": {
+      "chance": 0.3
+    },
+    "slowlight:lanternfruit_peel": {
+      "chance": 0.5
+    }
+  }
+}

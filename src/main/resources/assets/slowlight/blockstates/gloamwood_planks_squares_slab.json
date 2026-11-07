@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "slowlight:block/gloamwood_planks_squares_slab"
+    },
+    "type=double": {
+      "model": "slowlight:block/gloamwood_planks_squares"
+    },
+    "type=top": {
+      "model": "slowlight:block/gloamwood_planks_squares_slab_top"
+    }
+  }
+}

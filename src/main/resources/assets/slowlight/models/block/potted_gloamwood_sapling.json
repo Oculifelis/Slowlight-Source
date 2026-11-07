@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/flower_pot_cross",
+  "textures": {
+    "plant": "slowlight:block/gloamwood_sapling"
+  },
+  "render_type": "minecraft:cutout"
+}

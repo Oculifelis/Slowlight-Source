@@ -1,0 +1,7 @@
+{
+  "type": "slowlight:ageing",
+  "ingredient": { "item": "minecraft:kelp" },
+  "result": { "id": "minecraft:dried_kelp", "count": 1 },
+  "days": 1,
+  "condition": { "sky": "open", "weather": "clear", "time": "day" }
+}
