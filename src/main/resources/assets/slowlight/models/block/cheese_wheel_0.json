@@ -1,0 +1,81 @@
+{
+  "parent": "block/block",
+  "textures": {
+    "particle": "slowlight:block/cheese_wheel_side",
+    "side": "slowlight:block/cheese_wheel_side",
+    "inner": "slowlight:block/cheese_wheel_inner",
+    "top": "slowlight:block/cheese_wheel_top",
+    "bottom": "slowlight:block/cheese_wheel_bottom"
+  },
+  "elements": [
+    {
+      "from": [
+        2,
+        0,
+        2
+      ],
+      "to": [
+        14,
+        6,
+        14
+      ],
+      "faces": {
+        "north": {
+          "texture": "#side",
+          "uv": [
+            2,
+            10,
+            14,
+            16
+          ]
+        },
+        "south": {
+          "texture": "#side",
+          "uv": [
+            2,
+            10,
+            14,
+            16
+          ]
+        },
+        "west": {
+          "texture": "#side",
+          "uv": [
+            2,
+            10,
+            14,
+            16
+          ]
+        },
+        "east": {
+          "texture": "#side",
+          "uv": [
+            2,
+            10,
+            14,
+            16
+          ]
+        },
+        "up": {
+          "texture": "#top",
+          "uv": [
+            2,
+            2,
+            14,
+            14
+          ]
+        },
+        "down": {
+          "texture": "#bottom",
+          "uv": [
+            2,
+            2,
+            14,
+            14
+          ],
+          "cullface": "down"
+        }
+      }
+    }
+  ]
+}

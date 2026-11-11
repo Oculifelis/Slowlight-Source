@@ -271,10 +271,11 @@ public final class ServerChecks {
         // Registry and data checks.
         int ageing = server.getRecipeManager().getAllRecipesFor(SlowlightRecipes.AGEING_TYPE.get()).size();
         // master ships 43; branch rest adds six (still_shard, then fermented_spider_eye, poisonous_potato, bone_meal,
-        // paper, dead_bush)
+        // paper, dead_bush); Waystones add five (chorus pearl, two mosaic glasses and more), nightfall six (cheese, ice,
+        // blue ice, three moon recipes).
         // With KubeJS, src/autotest/kubejs/server_scripts/sltest.js adds two and removes one.
         boolean kubejs = net.neoforged.fml.ModList.get().isLoaded("kubejs");
-        int expected = kubejs ? 50 : 49;
+        int expected = kubejs ? 61 : 60;
         // With Aerial Hell (in libs/ for this test), its compat recipes load too: every file in compat/aerialhell.
         boolean aerialhell = net.neoforged.fml.ModList.get().isLoaded("aerialhell");
         if (aerialhell) {
@@ -320,11 +321,13 @@ public final class ServerChecks {
                 advs++;
             }
         }
-        // master ships 12; branch rest adds four (sandglass_week, keepsake, ember_kiln, still_shard)
-        check("advancements.loaded", advs == 16, advs + " Slowlight advancements (expected 16)");
+        // master ships 12; branch rest adds four (sandglass_week, keepsake, ember_kiln, still_shard); nightfall two
+        check("advancements.loaded", advs == 18, advs + " Slowlight advancements (expected 18)");
         RestChecks.start(server, level, player); // branch rest
         DecorChecks.start(server, level); // decor batch
         CraftsChecks.start(level); // weathering, flower press, slow candle
+        WaysChecks.start(server, level, player); // waystones
+        NightsChecks.start(server, level, player); // cheese, letter, moondial, stats
         player.setGameMode(GameType.SURVIVAL);
         info("scene", "placed");
     }

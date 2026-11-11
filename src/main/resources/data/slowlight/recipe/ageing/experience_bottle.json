@@ -1,0 +1,15 @@
+{
+  "type": "slowlight:ageing",
+  "ingredient": {
+    "item": "minecraft:glass_bottle"
+  },
+  "result": {
+    "id": "minecraft:experience_bottle",
+    "count": 1
+  },
+  "days": 1,
+  "condition": {
+    "sky": "open",
+    "moon": "full"
+  }
+}

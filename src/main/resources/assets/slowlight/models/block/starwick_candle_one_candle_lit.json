@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_candle",
+  "textures": {
+    "all": "slowlight:block/starwick_candle_lit",
+    "particle": "slowlight:block/starwick_candle_lit"
+  }
+}

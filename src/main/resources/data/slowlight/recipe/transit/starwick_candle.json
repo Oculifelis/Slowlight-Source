@@ -1,0 +1,12 @@
+{
+  "type": "slowlight:transit",
+  "ingredient": {
+    "item": "minecraft:candle"
+  },
+  "result": {
+    "id": "slowlight:starwick_candle",
+    "count": 1
+  },
+  "from": "minecraft:the_nether",
+  "to": "minecraft:the_end"
+}

@@ -1,0 +1,14 @@
+{
+  "type": "slowlight:ageing",
+  "ingredient": {
+    "item": "minecraft:cyan_stained_glass"
+  },
+  "result": {
+    "id": "slowlight:warped_mosaic_glass",
+    "count": 1
+  },
+  "days": 1,
+  "condition": {
+    "dimension": "minecraft:the_nether"
+  }
+}

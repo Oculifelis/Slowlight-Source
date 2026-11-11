@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "shape=cage": {
+      "model": "slowlight:block/pearl_lantern_cage"
+    },
+    "shape=cradle": {
+      "model": "slowlight:block/pearl_lantern_cradle"
+    },
+    "shape=spire": {
+      "model": "slowlight:block/pearl_lantern_spire"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "N",
+    "P",
+    "N"
+  ],
+  "key": {
+    "N": {
+      "item": "minecraft:iron_nugget"
+    },
+    "P": {
+      "item": "slowlight:chorus_pearl"
+    }
+  },
+  "result": {
+    "id": "slowlight:pearl_chain",
+    "count": 4
+  }
+}

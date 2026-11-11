@@ -15,11 +15,18 @@ public final class SlowlightClient {
 
     public static void init(IEventBus modBus) {
         modBus.addListener(SlowlightClient::renderers);
+        modBus.addListener(DisplayPedestalRenderer::registerModels);
+        modBus.addListener((net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent event) ->
+                event.registerSpriteSet(dev.slowlight.SlowlightWays.STARWICK_FLAME.get(),
+                        net.minecraft.client.particle.FlameParticle.Provider::new));
+        modBus.addListener((net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent event) ->
+                event.registerSpriteSet(dev.slowlight.SlowlightNights.MOTH.get(), MothParticle.Provider::new));
         // Laid-down Pressed Flowers read their colours from the flowers' icons; read them again after a reload.
         modBus.addListener((net.neoforged.neoforge.client.event.RegisterClientReloadListenersEvent event) ->
                 event.registerReloadListener((net.minecraft.server.packs.resources.ResourceManagerReloadListener) rm -> {
                     FlowerColours.clear();
                     PressedLooks.clear();
+                    DisplayPedestalRenderer.clear();
                 }));
         modBus.addListener((net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent event) ->
                 event.registerItem(new net.neoforged.neoforge.client.extensions.common.IClientItemExtensions() {
@@ -37,5 +44,7 @@ public final class SlowlightClient {
         event.registerBlockEntityRenderer(dev.slowlight.SlowlightCrafts.PRESSED_FLOWERS_BE.get(), PressedFlowersRenderer::new);
         event.registerBlockEntityRenderer(SlowlightBlockEntities.LONG_KILN.get(), PatientKilnRenderer::new);
         event.registerBlockEntityRenderer(SlowlightBlockEntities.EMBER_KILN.get(), PatientKilnRenderer::new);
+        event.registerBlockEntityRenderer(SlowlightBlockEntities.SANDGLASS.get(), SandglassRenderer::new);
+        event.registerBlockEntityRenderer(dev.slowlight.SlowlightWays.DISPLAY_PEDESTAL_BE.get(), DisplayPedestalRenderer::new);
     }
 }

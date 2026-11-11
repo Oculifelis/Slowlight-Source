@@ -26,6 +26,7 @@ public class SlowlightJeiPlugin implements IModPlugin {
     @Override
     public void registerCategories(IRecipeCategoryRegistration registration) {
         registration.addRecipeCategories(new AgeingRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
+        registration.addRecipeCategories(new TransitRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
     }
 
     @Override
@@ -37,6 +38,8 @@ public class SlowlightJeiPlugin implements IModPlugin {
         List<RecipeHolder<AgeingRecipe>> recipes =
                 level.getRecipeManager().getAllRecipesFor(SlowlightRecipes.AGEING_TYPE.get());
         registration.addRecipes(AgeingRecipeCategory.TYPE, recipes);
+        registration.addRecipes(TransitRecipeCategory.TYPE,
+                level.getRecipeManager().getAllRecipesFor(dev.slowlight.SlowlightWays.TRANSIT_TYPE.get()));
     }
 
     @Override
@@ -44,5 +47,6 @@ public class SlowlightJeiPlugin implements IModPlugin {
         registration.addRecipeCatalyst(SlowlightItems.PATIENT_KILN.get(), AgeingRecipeCategory.TYPE);
         registration.addRecipeCatalyst(SlowlightItems.LONG_KILN.get(), AgeingRecipeCategory.TYPE);
         registration.addRecipeCatalyst(SlowlightItems.EMBER_KILN.get(), AgeingRecipeCategory.TYPE);
+        registration.addRecipeCatalyst(dev.slowlight.SlowlightWays.WAYSTONE.get(), TransitRecipeCategory.TYPE);
     }
 }

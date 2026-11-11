@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "HHH",
+    "HHH"
+  ],
+  "key": {
+    "H": {
+      "item": "slowlight:hollowstone"
+    }
+  },
+  "result": {
+    "id": "slowlight:hollowstone_wall",
+    "count": 6
+  }
+}

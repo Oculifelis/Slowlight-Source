@@ -264,6 +264,8 @@ public final class SlowlightItems {
                         // branch rest (end)
                         SlowlightDecor.fillTab(output);
                         SlowlightCrafts.fillTab(output, params);
+                        SlowlightWays.fillTab(output);
+                        SlowlightNights.fillTab(output);
                         output.accept(MUSIC_DISC_PATIENT_LIGHT.get());
                         output.accept(MUSIC_DISC_A_WEEK_IN.get());
                         output.accept(MUSIC_DISC_LANTERN_HOURS.get());

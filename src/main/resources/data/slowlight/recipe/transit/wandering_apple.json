@@ -1,0 +1,12 @@
+{
+  "type": "slowlight:transit",
+  "ingredient": {
+    "item": "minecraft:apple"
+  },
+  "result": {
+    "id": "slowlight:wandering_apple",
+    "count": 1
+  },
+  "from": "minecraft:the_end",
+  "to": "minecraft:overworld"
+}

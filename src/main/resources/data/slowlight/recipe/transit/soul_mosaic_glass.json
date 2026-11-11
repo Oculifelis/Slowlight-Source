@@ -1,0 +1,12 @@
+{
+  "type": "slowlight:transit",
+  "ingredient": {
+    "item": "minecraft:light_blue_stained_glass"
+  },
+  "result": {
+    "id": "slowlight:soul_mosaic_glass",
+    "count": 1
+  },
+  "from": "any",
+  "to": "minecraft:the_nether"
+}

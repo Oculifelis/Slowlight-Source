@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "slowlight:block/pearl_chain",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "slowlight:block/pearl_chain"
+    },
+    "axis=z": {
+      "model": "slowlight:block/pearl_chain",
+      "x": 90
+    }
+  }
+}

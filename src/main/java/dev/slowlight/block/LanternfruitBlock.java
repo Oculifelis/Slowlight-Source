@@ -131,7 +131,15 @@ public class LanternfruitBlock extends Block implements BonemealableBlock {
 
     @Override
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
-        if (state.getValue(AGE) < MAX_AGE || random.nextInt(14) != 0) {
+        if (state.getValue(AGE) < MAX_AGE) {
+            return;
+        }
+        if (random.nextInt(60) == 0 && level.isNight()) {
+            // Ripe fruit glows enough after dark to draw a moth.
+            level.addParticle(dev.slowlight.SlowlightNights.MOTH.get(), pos.getX() + 0.5D, pos.getY() + 0.4D,
+                    pos.getZ() + 0.5D, 0.0D, 0.0D, 0.0D);
+        }
+        if (random.nextInt(14) != 0) {
             return;
         }
         // A spark drifting down off the ripe fruit.

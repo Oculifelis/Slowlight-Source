@@ -134,6 +134,7 @@ public class PatientKilnBlock extends BaseEntityBlock {
             return InteractionResult.sidedSuccess(level.isClientSide);
         }
         if (!level.isClientSide) {
+            kiln.claimedBy(player);
             if (!player.getInventory().add(taken)) {
                 player.drop(taken, false);
             }

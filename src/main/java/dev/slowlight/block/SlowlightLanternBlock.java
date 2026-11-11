@@ -95,7 +95,15 @@ public class SlowlightLanternBlock extends LanternBlock {
 
     @Override
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
-        if (!state.getValue(LIT) || random.nextInt(5) != 0) {
+        if (!state.getValue(LIT)) {
+            return;
+        }
+        if (random.nextInt(40) == 0) {
+            // Now and then a moth comes to the light and circles it a while.
+            level.addParticle(dev.slowlight.SlowlightNights.MOTH.get(), pos.getX() + 0.5D,
+                    pos.getY() + (state.getValue(HANGING) ? 0.35D : 0.5D), pos.getZ() + 0.5D, 0.0D, 0.0D, 0.0D);
+        }
+        if (random.nextInt(5) != 0) {
             return;
         }
         // One slow mote, drifting down out of the case.

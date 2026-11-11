@@ -53,15 +53,19 @@ public class SandglassBlock extends BaseEntityBlock {
     public static final BooleanProperty RUNNING = BooleanProperty.create("running");
     /** On for the few ticks of the pulse when it turns over. */
     public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
+    /** True for the half second it takes to turn over; the renderer draws it tumbling and the model stands aside. */
+    public static final BooleanProperty TURNING = BooleanProperty.create("turning");
 
     public static final int PULSE_TICKS = 4;
+    public static final int TURN_TICKS = 12;
 
     private static final VoxelShape SHAPE = Shapes.or(Block.box(2, 0, 2, 14, 2, 14), Block.box(3, 2, 3, 13, 14, 13),
             Block.box(2, 14, 2, 14, 16, 14));
 
     public SandglassBlock(Properties properties) {
         super(properties);
-        registerDefaultState(stateDefinition.any().setValue(SAND, 0).setValue(RUNNING, false).setValue(POWERED, false));
+        registerDefaultState(stateDefinition.any().setValue(SAND, 0).setValue(RUNNING, false).setValue(POWERED, false)
+                .setValue(TURNING, false));
     }
 
     @Override
@@ -71,7 +75,7 @@ public class SandglassBlock extends BaseEntityBlock {
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(SAND, RUNNING, POWERED);
+        builder.add(SAND, RUNNING, POWERED, TURNING);
     }
 
     @Override
@@ -81,7 +85,7 @@ public class SandglassBlock extends BaseEntityBlock {
 
     @Override
     protected RenderShape getRenderShape(BlockState state) {
-        return RenderShape.MODEL;
+        return state.getValue(TURNING) ? RenderShape.INVISIBLE : RenderShape.MODEL;
     }
 
     @Override
@@ -139,9 +143,14 @@ public class SandglassBlock extends BaseEntityBlock {
 
     @Override
     protected void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
-        // The pulse ends.
+        // The pulse ends first; the turn, scheduled from the same moment, lands a few ticks later.
         if (state.getValue(POWERED)) {
             level.setBlock(pos, state.setValue(POWERED, false), 3);
+            if (state.getValue(TURNING)) {
+                level.scheduleTick(pos, this, TURN_TICKS - PULSE_TICKS);
+            }
+        } else if (state.getValue(TURNING)) {
+            level.setBlock(pos, state.setValue(TURNING, false), 3);
         }
     }
 
@@ -151,7 +160,7 @@ public class SandglassBlock extends BaseEntityBlock {
 
     @Override
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
-        if (!state.getValue(RUNNING) || random.nextInt(5) != 0) {
+        if (!state.getValue(RUNNING) || state.getValue(TURNING) || random.nextInt(5) != 0) {
             return;
         }
         // A grain of light catching in the neck as it falls.

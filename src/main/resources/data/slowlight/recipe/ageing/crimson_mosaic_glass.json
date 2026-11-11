@@ -1,0 +1,14 @@
+{
+  "type": "slowlight:ageing",
+  "ingredient": {
+    "item": "minecraft:red_stained_glass"
+  },
+  "result": {
+    "id": "slowlight:crimson_mosaic_glass",
+    "count": 1
+  },
+  "days": 1,
+  "condition": {
+    "dimension": "minecraft:the_nether"
+  }
+}

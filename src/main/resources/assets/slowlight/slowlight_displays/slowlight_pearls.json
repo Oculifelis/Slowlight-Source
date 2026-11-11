@@ -1,0 +1,8 @@
+{
+  "items": [
+    "slowlight:chorus_pearl",
+    "slowlight:half_pearl",
+    "slowlight:twin_pearl"
+  ],
+  "model": "slowlight:block/display/slowlight_pearls"
+}

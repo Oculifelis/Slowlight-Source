@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    "I",
+    "S",
+    "D"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "S": {
+      "item": "slowlight:slowlight_shard"
+    },
+    "D": {
+      "item": "minecraft:polished_deepslate_slab"
+    }
+  },
+  "result": {
+    "id": "slowlight:moondial",
+    "count": 1
+  }
+}

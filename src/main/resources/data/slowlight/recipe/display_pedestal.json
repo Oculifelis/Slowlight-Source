@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "SSS",
+    " P ",
+    "DDD"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:polished_deepslate_slab"
+    },
+    "P": {
+      "item": "minecraft:polished_deepslate"
+    },
+    "D": {
+      "item": "minecraft:cobbled_deepslate"
+    }
+  },
+  "result": {
+    "id": "slowlight:display_pedestal",
+    "count": 2
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "display": {
+    "icon": {
+      "id": "slowlight:patient_kiln"
+    },
+    "title": {
+      "translate": "advancements.slowlight.hundred_days.title"
+    },
+    "description": {
+      "translate": "advancements.slowlight.hundred_days.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "waited": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "waited"
+    ]
+  ],
+  "parent": "slowlight:a_week_in"
+}

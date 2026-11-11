@@ -1,0 +1,12 @@
+{
+  "type": "slowlight:transit",
+  "ingredient": {
+    "item": "minecraft:glass"
+  },
+  "result": {
+    "id": "minecraft:tinted_glass",
+    "count": 1
+  },
+  "from": "minecraft:the_end",
+  "to": "minecraft:the_nether"
+}

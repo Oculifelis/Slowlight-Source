@@ -145,3 +145,10 @@ tasks.named('processResources', ProcessResources).configure {
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
 }
+
+// LGPL-3.0-or-later code: the licence texts and credits ship in the jar's META-INF
+tasks.named('jar') {
+    from([file('LICENSE'), file('COPYING'), file('CREDITS.md')]) {
+        into 'META-INF'
+    }
+}

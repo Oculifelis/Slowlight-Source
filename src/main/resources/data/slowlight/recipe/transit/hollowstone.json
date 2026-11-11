@@ -1,0 +1,12 @@
+{
+  "type": "slowlight:transit",
+  "ingredient": {
+    "item": "minecraft:stone_bricks"
+  },
+  "result": {
+    "id": "slowlight:hollowstone",
+    "count": 1
+  },
+  "from": "minecraft:the_end",
+  "to": "minecraft:overworld"
+}

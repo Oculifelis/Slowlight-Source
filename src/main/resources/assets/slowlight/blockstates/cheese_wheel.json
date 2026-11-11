@@ -1,0 +1,64 @@
+{
+  "variants": {
+    "facing=north,wedges=0": {
+      "model": "slowlight:block/cheese_wheel_0"
+    },
+    "facing=north,wedges=1": {
+      "model": "slowlight:block/cheese_wheel_1"
+    },
+    "facing=north,wedges=2": {
+      "model": "slowlight:block/cheese_wheel_2"
+    },
+    "facing=north,wedges=3": {
+      "model": "slowlight:block/cheese_wheel_3"
+    },
+    "facing=east,wedges=0": {
+      "model": "slowlight:block/cheese_wheel_0",
+      "y": 90
+    },
+    "facing=east,wedges=1": {
+      "model": "slowlight:block/cheese_wheel_1",
+      "y": 90
+    },
+    "facing=east,wedges=2": {
+      "model": "slowlight:block/cheese_wheel_2",
+      "y": 90
+    },
+    "facing=east,wedges=3": {
+      "model": "slowlight:block/cheese_wheel_3",
+      "y": 90
+    },
+    "facing=south,wedges=0": {
+      "model": "slowlight:block/cheese_wheel_0",
+      "y": 180
+    },
+    "facing=south,wedges=1": {
+      "model": "slowlight:block/cheese_wheel_1",
+      "y": 180
+    },
+    "facing=south,wedges=2": {
+      "model": "slowlight:block/cheese_wheel_2",
+      "y": 180
+    },
+    "facing=south,wedges=3": {
+      "model": "slowlight:block/cheese_wheel_3",
+      "y": 180
+    },
+    "facing=west,wedges=0": {
+      "model": "slowlight:block/cheese_wheel_0",
+      "y": 270
+    },
+    "facing=west,wedges=1": {
+      "model": "slowlight:block/cheese_wheel_1",
+      "y": 270
+    },
+    "facing=west,wedges=2": {
+      "model": "slowlight:block/cheese_wheel_2",
+      "y": 270
+    },
+    "facing=west,wedges=3": {
+      "model": "slowlight:block/cheese_wheel_3",
+      "y": 270
+    }
+  }
+}

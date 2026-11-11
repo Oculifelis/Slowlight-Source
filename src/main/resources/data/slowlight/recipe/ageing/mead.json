@@ -1,6 +1,12 @@
 {
   "type": "slowlight:ageing",
-  "ingredient": { "item": "minecraft:honey_bottle" },
-  "result": { "id": "slowlight:mead", "count": 1 },
-  "days": 2
+  "ingredient": {
+    "item": "minecraft:honey_bottle"
+  },
+  "result": {
+    "id": "slowlight:mead",
+    "count": 1
+  },
+  "days": 2,
+  "cellar_days": 1
 }

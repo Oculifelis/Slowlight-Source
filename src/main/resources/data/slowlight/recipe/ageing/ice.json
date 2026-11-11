@@ -1,0 +1,16 @@
+{
+  "type": "slowlight:ageing",
+  "ingredient": {
+    "item": "minecraft:water_bucket"
+  },
+  "result": {
+    "id": "minecraft:ice",
+    "count": 1
+  },
+  "days": 1,
+  "condition": {
+    "sky": "open",
+    "time": "night",
+    "climate": "cold"
+  }
+}

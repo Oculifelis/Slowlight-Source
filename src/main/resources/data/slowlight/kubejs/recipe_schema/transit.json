@@ -1,0 +1,48 @@
+{
+  "mappings": [
+    "slowlight:transit"
+  ],
+  "keys": [
+    {
+      "name": "result",
+      "role": "output",
+      "type": "kubejs:item_stack"
+    },
+    {
+      "name": "ingredient",
+      "role": "input",
+      "type": "kubejs:ingredient"
+    },
+    {
+      "name": "from",
+      "type": "kubejs:string",
+      "optional": "any"
+    },
+    {
+      "name": "to",
+      "type": "kubejs:string",
+      "optional": "any"
+    },
+    {
+      "name": "days",
+      "type": "kubejs:int",
+      "optional": 0
+    }
+  ],
+  "constructors": [
+    {
+      "keys": [
+        "result",
+        "ingredient",
+        "from",
+        "to"
+      ]
+    },
+    {
+      "keys": [
+        "result",
+        "ingredient"
+      ]
+    }
+  ]
+}

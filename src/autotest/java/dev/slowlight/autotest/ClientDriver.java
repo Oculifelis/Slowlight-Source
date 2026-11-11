@@ -284,6 +284,7 @@ public final class ClientDriver {
                 wait = 5;
             }
             default -> {
+                exportIcons(mc);
                 ServerChecks.info("client", "done");
                 ServerChecks.phase = ServerChecks.DONE;
                 stop(mc);
@@ -383,6 +384,51 @@ public final class ClientDriver {
                 ServerChecks.check("client.aerial_dump." + f[0], false, e.toString());
             }
         }
+    }
+
+    /** Every slowlight item's inventory icon, drawn by the game's own item renderer into a 256 px target (16 px per GUI
+     *  pixel) and saved to run/icons/&lt;id&gt;.png with a clear background: the page pictures come from these. */
+    private static void exportIcons(Minecraft mc) {
+        int size = 256;
+        var target = new com.mojang.blaze3d.pipeline.TextureTarget(size, size, true, Minecraft.ON_OSX);
+        target.setClearColor(0, 0, 0, 0);
+        com.mojang.blaze3d.systems.RenderSystem.backupProjectionMatrix();
+        com.mojang.blaze3d.systems.RenderSystem.setProjectionMatrix(new org.joml.Matrix4f().setOrtho(0, 16, 16, 0, 1000, 21000),
+                com.mojang.blaze3d.vertex.VertexSorting.ORTHOGRAPHIC_Z);
+        var view = com.mojang.blaze3d.systems.RenderSystem.getModelViewStack();
+        view.pushMatrix();
+        view.translation(0, 0, -11000);
+        com.mojang.blaze3d.systems.RenderSystem.applyModelViewMatrix();
+        java.nio.file.Path dir = mc.gameDirectory.toPath().resolve("icons");
+        int n = 0;
+        try {
+            java.nio.file.Files.createDirectories(dir);
+            for (var e : net.minecraft.core.registries.BuiltInRegistries.ITEM.entrySet()) {
+                ResourceLocation id = e.getKey().location();
+                if (!id.getNamespace().equals("slowlight")) continue;
+                target.clear(Minecraft.ON_OSX);
+                target.bindWrite(true);
+                var g = new net.minecraft.client.gui.GuiGraphics(mc, mc.renderBuffers().bufferSource());
+                g.renderItem(new net.minecraft.world.item.ItemStack(e.getValue()), 0, 0);
+                g.flush();
+                try (var img = new com.mojang.blaze3d.platform.NativeImage(size, size, false)) {
+                    com.mojang.blaze3d.systems.RenderSystem.bindTexture(target.getColorTextureId());
+                    img.downloadTexture(0, false);
+                    img.flipY();
+                    img.writeToFile(dir.resolve(id.getPath() + ".png"));
+                }
+                n++;
+            }
+        } catch (java.io.IOException e) {
+            ServerChecks.check("client.icon_export", false, e.toString());
+        } finally {
+            view.popMatrix();
+            com.mojang.blaze3d.systems.RenderSystem.applyModelViewMatrix();
+            com.mojang.blaze3d.systems.RenderSystem.restoreProjectionMatrix();
+            target.destroyBuffers();
+            mc.getMainRenderTarget().bindWrite(true);
+        }
+        ServerChecks.check("client.icon_export", n > 100, n + " item icons saved to " + dir);
     }
 
     private static void shot(Minecraft mc, String name) {

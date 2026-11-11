@@ -38,6 +38,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.ButtonBlock;
+import net.minecraft.world.level.block.state.properties.AttachFace;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 import net.minecraft.world.phys.AABB;
@@ -69,10 +71,12 @@ public final class RestChecks {
     private static final BlockPos RUIN = new BlockPos(50, Y - 1, 8);
     private static final BlockPos SUNDIAL = new BlockPos(56, Y, 4);
     private static final BlockPos VILLAGER = new BlockPos(44, Y, 8);
+    private static final BlockPos BUTTON = new BlockPos(52, Y, 0);
 
     /** Ticks since start(); -1 until ServerChecks starts us. */
     private static int t = -1;
     private static boolean pulsed;
+    private static boolean turning;
     private static long glassShiftedAt;
 
     private RestChecks() {
@@ -117,17 +121,24 @@ public final class RestChecks {
         t++;
         if (t > 35 && t < 75) {
             pulsed |= level.getBlockState(GLASS).getValue(SandglassBlock.POWERED);
+            turning |= level.getBlockState(GLASS).getValue(SandglassBlock.TURNING);
         }
         // ServerChecks uses the player at its ticks 60 and 120 (our 20 and 80); ours stay clear of those.
         if (t == 30) {
             glassFirstClick(level, player);
             urnSetUp(level, player);
             ember(level).offer(new ItemStack(Items.HONEY_BOTTLE));
+            buttonPress(level);
+        } else if (t == 33) {
+            buttonAgain(level);
         } else if (t == 35) {
             // Wind the glass on to a second before the sand runs out, and the first urn's seal to its last second.
             SandglassBlockEntity glass = (SandglassBlockEntity) level.getBlockEntity(GLASS);
             CompoundTag tag = glass.saveWithoutMetadata(level.registryAccess());
-            tag.putLong("StartedAt", level.getGameTime() - AgeingRecipe.TICKS_PER_DAY + 20);
+            // The glass looks at its sand every 20 game ticks, so it runs out on the next such tick: the turn
+            // (pulse 4 ticks, tumble 12) then always finishes well before t=75, whatever time the world started at.
+            long left = 20L - level.getGameTime() % 20L;
+            tag.putLong("StartedAt", level.getGameTime() - AgeingRecipe.TICKS_PER_DAY + left);
             glass.loadWithComponents(tag, level.registryAccess());
             glassShiftedAt = level.getGameTime();
             KeepsakeUrnBlockEntity urn = (KeepsakeUrnBlockEntity) level.getBlockEntity(URN);
@@ -145,6 +156,25 @@ public final class RestChecks {
             info("rest", "done");
             t = -1;
         }
+    }
+
+    // ---- gloamwood button: a 1-tick pulse, pressable again at once ----------------------------------------------
+
+    private static void buttonPress(ServerLevel level) {
+        level.setBlock(BUTTON.below(), Blocks.STONE.defaultBlockState(), 3);
+        BlockState state = SlowlightBlocks.GLOAMWOOD_BUTTON.get().defaultBlockState()
+                .setValue(ButtonBlock.FACE, AttachFace.FLOOR);
+        level.setBlock(BUTTON, state, 3);
+        ((ButtonBlock) state.getBlock()).press(state, level, BUTTON, null);
+        check("button.pressed", level.getBlockState(BUTTON).getValue(ButtonBlock.POWERED), "first press powers it");
+    }
+
+    /** Three ticks on, a wooden button would still be held down for 27 more; ours has popped up and takes a new press. */
+    private static void buttonAgain(ServerLevel level) {
+        BlockState state = level.getBlockState(BUTTON);
+        check("button.one_tick", !state.getValue(ButtonBlock.POWERED), "released after one tick, powered=" + state.getValue(ButtonBlock.POWERED));
+        ((ButtonBlock) state.getBlock()).press(state, level, BUTTON, null);
+        check("button.repress", level.getBlockState(BUTTON).getValue(ButtonBlock.POWERED), "pressed again straight away");
     }
 
     // ---- registries and data ------------------------------------------------------------------------------------
@@ -207,6 +237,8 @@ public final class RestChecks {
         check("sandglass.turns_itself_over", state.getValue(SandglassBlock.SAND) == 7 && !state.getValue(SandglassBlock.POWERED)
                         && glass.comparatorSignal() == 15,
                 "after the turn: " + state + ", signal " + glass.comparatorSignal() + " (wound at " + glassShiftedAt + ")");
+        check("sandglass.turn_animates", turning && !state.getValue(SandglassBlock.TURNING),
+                "TURNING seen while it ran out, cleared by t=75: " + state);
         ServerLevel nether = level.getServer().getLevel(Level.NETHER);
         check("sandglass.lost_in_nether", SandglassBlockEntity.canTell(level) && nether != null && !SandglassBlockEntity.canTell(nether),
                 "overworld tells time, nether does not");

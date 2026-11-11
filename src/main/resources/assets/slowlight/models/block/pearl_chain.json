@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/chain",
+  "textures": {
+    "all": "slowlight:block/pearl_chain",
+    "particle": "slowlight:block/pearl_chain"
+  }
+}

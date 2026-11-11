@@ -22,6 +22,11 @@
       "name": "long_days",
       "type": "kubejs:int",
       "optional": 0
+    },
+    {
+      "name": "cellar_days",
+      "type": "kubejs:int",
+      "optional": 0
     }
   ],
   "constructors": [

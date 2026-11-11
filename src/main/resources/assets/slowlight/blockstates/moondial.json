@@ -1,0 +1,139 @@
+{
+  "variants": {
+    "facing=north,phase=0": {
+      "model": "slowlight:block/moondial_0"
+    },
+    "facing=north,phase=1": {
+      "model": "slowlight:block/moondial_1"
+    },
+    "facing=north,phase=2": {
+      "model": "slowlight:block/moondial_2"
+    },
+    "facing=north,phase=3": {
+      "model": "slowlight:block/moondial_3"
+    },
+    "facing=north,phase=4": {
+      "model": "slowlight:block/moondial_4"
+    },
+    "facing=north,phase=5": {
+      "model": "slowlight:block/moondial_5"
+    },
+    "facing=north,phase=6": {
+      "model": "slowlight:block/moondial_6"
+    },
+    "facing=north,phase=7": {
+      "model": "slowlight:block/moondial_7"
+    },
+    "facing=north,phase=8": {
+      "model": "slowlight:block/moondial_8"
+    },
+    "facing=east,phase=0": {
+      "model": "slowlight:block/moondial_0",
+      "y": 90
+    },
+    "facing=east,phase=1": {
+      "model": "slowlight:block/moondial_1",
+      "y": 90
+    },
+    "facing=east,phase=2": {
+      "model": "slowlight:block/moondial_2",
+      "y": 90
+    },
+    "facing=east,phase=3": {
+      "model": "slowlight:block/moondial_3",
+      "y": 90
+    },
+    "facing=east,phase=4": {
+      "model": "slowlight:block/moondial_4",
+      "y": 90
+    },
+    "facing=east,phase=5": {
+      "model": "slowlight:block/moondial_5",
+      "y": 90
+    },
+    "facing=east,phase=6": {
+      "model": "slowlight:block/moondial_6",
+      "y": 90
+    },
+    "facing=east,phase=7": {
+      "model": "slowlight:block/moondial_7",
+      "y": 90
+    },
+    "facing=east,phase=8": {
+      "model": "slowlight:block/moondial_8",
+      "y": 90
+    },
+    "facing=south,phase=0": {
+      "model": "slowlight:block/moondial_0",
+      "y": 180
+    },
+    "facing=south,phase=1": {
+      "model": "slowlight:block/moondial_1",
+      "y": 180
+    },
+    "facing=south,phase=2": {
+      "model": "slowlight:block/moondial_2",
+      "y": 180
+    },
+    "facing=south,phase=3": {
+      "model": "slowlight:block/moondial_3",
+      "y": 180
+    },
+    "facing=south,phase=4": {
+      "model": "slowlight:block/moondial_4",
+      "y": 180
+    },
+    "facing=south,phase=5": {
+      "model": "slowlight:block/moondial_5",
+      "y": 180
+    },
+    "facing=south,phase=6": {
+      "model": "slowlight:block/moondial_6",
+      "y": 180
+    },
+    "facing=south,phase=7": {
+      "model": "slowlight:block/moondial_7",
+      "y": 180
+    },
+    "facing=south,phase=8": {
+      "model": "slowlight:block/moondial_8",
+      "y": 180
+    },
+    "facing=west,phase=0": {
+      "model": "slowlight:block/moondial_0",
+      "y": 270
+    },
+    "facing=west,phase=1": {
+      "model": "slowlight:block/moondial_1",
+      "y": 270
+    },
+    "facing=west,phase=2": {
+      "model": "slowlight:block/moondial_2",
+      "y": 270
+    },
+    "facing=west,phase=3": {
+      "model": "slowlight:block/moondial_3",
+      "y": 270
+    },
+    "facing=west,phase=4": {
+      "model": "slowlight:block/moondial_4",
+      "y": 270
+    },
+    "facing=west,phase=5": {
+      "model": "slowlight:block/moondial_5",
+      "y": 270
+    },
+    "facing=west,phase=6": {
+      "model": "slowlight:block/moondial_6",
+      "y": 270
+    },
+    "facing=west,phase=7": {
+      "model": "slowlight:block/moondial_7",
+      "y": 270
+    },
+    "facing=west,phase=8": {
+      "model": "slowlight:block/moondial_8",
+      "y": 270
+    }
+  }
+}

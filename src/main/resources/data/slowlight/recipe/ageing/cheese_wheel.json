@@ -1,0 +1,14 @@
+{
+  "type": "slowlight:ageing",
+  "ingredient": {
+    "item": "minecraft:milk_bucket"
+  },
+  "result": {
+    "id": "slowlight:cheese_wheel",
+    "count": 1
+  },
+  "days": 7,
+  "condition": {
+    "light": "dark"
+  }
+}

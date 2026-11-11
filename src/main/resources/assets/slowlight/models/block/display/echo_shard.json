@@ -1,0 +1,164 @@
+{
+  "parent": "minecraft:block/block",
+  "render_type": "minecraft:translucent",
+  "textures": {
+    "s": "slowlight:block/display/echo_shard",
+    "particle": "minecraft:block/polished_deepslate"
+  },
+  "elements": [
+    {
+      "from": [
+        7,
+        13,
+        7
+      ],
+      "to": [
+        9,
+        19,
+        9
+      ],
+      "faces": {
+        "north": {
+          "texture": "#s",
+          "uv": [
+            7,
+            4,
+            9,
+            10
+          ]
+        },
+        "south": {
+          "texture": "#s",
+          "uv": [
+            7,
+            4,
+            9,
+            10
+          ]
+        },
+        "east": {
+          "texture": "#s",
+          "uv": [
+            7,
+            4,
+            9,
+            10
+          ]
+        },
+        "west": {
+          "texture": "#s",
+          "uv": [
+            7,
+            4,
+            9,
+            10
+          ]
+        },
+        "up": {
+          "texture": "#s",
+          "uv": [
+            7,
+            4,
+            9,
+            6
+          ]
+        },
+        "down": {
+          "texture": "#s",
+          "uv": [
+            7,
+            4,
+            9,
+            6
+          ]
+        }
+      },
+      "rotation": {
+        "origin": [
+          8,
+          13,
+          8
+        ],
+        "axis": "z",
+        "angle": -22.5
+      }
+    },
+    {
+      "from": [
+        9,
+        13,
+        8
+      ],
+      "to": [
+        10,
+        17,
+        9
+      ],
+      "faces": {
+        "north": {
+          "texture": "#s",
+          "uv": [
+            8,
+            6,
+            9,
+            10
+          ]
+        },
+        "south": {
+          "texture": "#s",
+          "uv": [
+            8,
+            6,
+            9,
+            10
+          ]
+        },
+        "east": {
+          "texture": "#s",
+          "uv": [
+            8,
+            6,
+            9,
+            10
+          ]
+        },
+        "west": {
+          "texture": "#s",
+          "uv": [
+            8,
+            6,
+            9,
+            10
+          ]
+        },
+        "up": {
+          "texture": "#s",
+          "uv": [
+            8,
+            6,
+            9,
+            7
+          ]
+        },
+        "down": {
+          "texture": "#s",
+          "uv": [
+            8,
+            6,
+            9,
+            7
+          ]
+        }
+      },
+      "rotation": {
+        "origin": [
+          9,
+          13,
+          8
+        ],
+        "axis": "x",
+        "angle": 22.5
+      }
+    }
+  ]
+}

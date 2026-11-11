@@ -85,7 +85,12 @@ public class LongKilnBlockEntity extends PatientKilnBlockEntity {
             items.setStackInSlot(slot, one.copyWithCount(n));
             total -= n;
         }
+        ItemStack remainder = input.getCraftingRemainingItem();
+        int count = input.getCount();
         input.setCount(0);
+        if (!remainder.isEmpty()) {
+            giveBack(level, remainder.copyWithCount(remainder.getCount() * count));
+        }
         setChanged();
         return true;
     }

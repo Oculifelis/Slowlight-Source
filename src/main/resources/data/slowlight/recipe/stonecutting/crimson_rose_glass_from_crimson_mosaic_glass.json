@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "slowlight:crimson_mosaic_glass"
+  },
+  "result": {
+    "id": "slowlight:crimson_rose_glass",
+    "count": 1
+  }
+}

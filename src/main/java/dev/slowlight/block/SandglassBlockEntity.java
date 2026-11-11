@@ -29,6 +29,8 @@ public class SandglassBlockEntity extends BlockEntity {
     private int days;
     /** Game time it last turned over. */
     private long startedAt = -1L;
+    /** Client only: game time the renderer first saw this turn, so the tumble starts from wherever it is seen. */
+    public long turnSeenAt = -1L;
 
     public SandglassBlockEntity(BlockPos pos, BlockState state) {
         super(SlowlightBlockEntities.SANDGLASS.get(), pos, state);
@@ -47,7 +49,11 @@ public class SandglassBlockEntity extends BlockEntity {
         days = days >= MAX_DAYS ? 1 : days + 1;
         startedAt = level.getGameTime();
         setChanged();
-        level.setBlock(pos, state.setValue(SandglassBlock.SAND, 7).setValue(SandglassBlock.RUNNING, true), 3);
+        level.setBlock(pos, state.setValue(SandglassBlock.SAND, 7).setValue(SandglassBlock.RUNNING, true)
+                .setValue(SandglassBlock.TURNING, canTell(level)), 3);
+        if (canTell(level)) {
+            level.scheduleTick(pos, state.getBlock(), SandglassBlock.TURN_TICKS);
+        }
         level.playSound(null, pos, SoundEvents.AMETHYST_BLOCK_CHIME, SoundSource.BLOCKS, 0.6F, 0.7F);
     }
 
@@ -126,7 +132,7 @@ public class SandglassBlockEntity extends BlockEntity {
         startedAt = now - startedAt < total() * 2L ? startedAt + total() : now;
         setChanged();
         level.setBlock(pos, state.setValue(SandglassBlock.SAND, 7).setValue(SandglassBlock.RUNNING, true)
-                .setValue(SandglassBlock.POWERED, true), 3);
+                .setValue(SandglassBlock.POWERED, true).setValue(SandglassBlock.TURNING, true), 3);
         level.scheduleTick(pos, state.getBlock(), SandglassBlock.PULSE_TICKS);
         level.updateNeighbourForOutputSignal(pos, state.getBlock());
         level.playSound(null, pos, SoundEvents.AMETHYST_BLOCK_RESONATE, SoundSource.BLOCKS, 0.8F, 0.6F);

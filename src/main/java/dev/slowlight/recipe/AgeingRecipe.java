@@ -31,12 +31,27 @@ import net.minecraft.world.level.Level;
  *                   {@code days}. Optional in JSON as {@code long_days}, so recipes written before it stay valid.
  * @param condition  what the world has to be like for the days to count (open sky, rain, night...); optional in
  *                   JSON as {@code condition}, and by default the days always count
+ * @param cellarDays days it takes instead in a dark cellar (see {@link AgeingCondition#inCellar}); 0, the default,
+ *                   means a cellar makes no difference. Optional in JSON as {@code cellar_days}. Every kind of kiln
+ *                   scales its own wait by {@code cellarDays / days}.
  */
-public record AgeingRecipe(Ingredient ingredient, ItemStack result, int days, int longDays, AgeingCondition condition)
-        implements Recipe<SingleRecipeInput> {
+public record AgeingRecipe(Ingredient ingredient, ItemStack result, int days, int longDays, AgeingCondition condition,
+                           int cellarDays) implements Recipe<SingleRecipeInput> {
 
     public AgeingRecipe(Ingredient ingredient, ItemStack result, int days, int longDays) {
-        this(ingredient, result, days, longDays, AgeingCondition.ANY);
+        this(ingredient, result, days, longDays, AgeingCondition.ANY, 0);
+    }
+
+    public AgeingRecipe(Ingredient ingredient, ItemStack result, int days, int longDays, AgeingCondition condition) {
+        this(ingredient, result, days, longDays, condition, 0);
+    }
+
+    /** A kiln's own wait for this recipe, shortened when the recipe likes a cellar and the kiln stands in one. */
+    public long scaledForCellar(long ticks, Level level, net.minecraft.core.BlockPos pos) {
+        if (cellarDays <= 0 || cellarDays >= days || !AgeingCondition.inCellar(level, pos)) {
+            return ticks;
+        }
+        return Math.max(1L, ticks * cellarDays / days);
     }
 
     /** Ticks in a Minecraft day. A day is the only unit this recipe speaks in. */
@@ -112,7 +127,9 @@ public record AgeingRecipe(Ingredient ingredient, ItemStack result, int days, in
                 com.mojang.serialization.Codec.intRange(0, 3650).optionalFieldOf("long_days", 0)
                         .forGetter(AgeingRecipe::longDays),
                 AgeingCondition.CODEC.optionalFieldOf("condition", AgeingCondition.ANY)
-                        .forGetter(AgeingRecipe::condition)
+                        .forGetter(AgeingRecipe::condition),
+                com.mojang.serialization.Codec.intRange(0, 365).optionalFieldOf("cellar_days", 0)
+                        .forGetter(AgeingRecipe::cellarDays)
         ).apply(instance, AgeingRecipe::new));
 
         private static final StreamCodec<RegistryFriendlyByteBuf, AgeingRecipe> STREAM_CODEC = StreamCodec.composite(
@@ -121,6 +138,7 @@ public record AgeingRecipe(Ingredient ingredient, ItemStack result, int days, in
                 ByteBufCodecs.VAR_INT, AgeingRecipe::days,
                 ByteBufCodecs.VAR_INT, AgeingRecipe::longDays,
                 AgeingCondition.STREAM_CODEC, AgeingRecipe::condition,
+                ByteBufCodecs.VAR_INT, AgeingRecipe::cellarDays,
                 AgeingRecipe::new
         );
 

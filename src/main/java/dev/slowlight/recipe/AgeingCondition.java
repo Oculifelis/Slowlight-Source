@@ -31,30 +31,32 @@ import net.minecraft.world.level.Level;
  * only exists in that dimension, and there it comes before a recipe for the same item that names none. So cobblestone
  * can turn mossy in the Overworld and to blackstone in the Nether.
  */
-public record AgeingCondition(Sky sky, Weather weather, Time time, Optional<ResourceLocation> dimension) {
-    public static final AgeingCondition ANY = new AgeingCondition(Sky.ANY, Weather.ANY, Time.ANY, Optional.empty());
+public record AgeingCondition(Sky sky, Weather weather, Time time, Moon moon, Climate climate, Light light,
+                               Optional<ResourceLocation> dimension) {
+    public static final AgeingCondition ANY = new AgeingCondition(Sky.ANY, Weather.ANY, Time.ANY);
+    /** The most light a cellar may have, block or sky, just above the kiln. */
+    public static final int CELLAR_LIGHT = 7;
 
     public AgeingCondition(Sky sky, Weather weather, Time time) {
-        this(sky, weather, time, Optional.empty());
+        this(sky, weather, time, Moon.ANY, Climate.ANY, Light.ANY, Optional.empty());
     }
 
     public static final Codec<AgeingCondition> CODEC = RecordCodecBuilder.create(instance -> instance.group(
             Sky.CODEC.optionalFieldOf("sky", Sky.ANY).forGetter(AgeingCondition::sky),
             Weather.CODEC.optionalFieldOf("weather", Weather.ANY).forGetter(AgeingCondition::weather),
             Time.CODEC.optionalFieldOf("time", Time.ANY).forGetter(AgeingCondition::time),
+            Moon.CODEC.optionalFieldOf("moon", Moon.ANY).forGetter(AgeingCondition::moon),
+            Climate.CODEC.optionalFieldOf("climate", Climate.ANY).forGetter(AgeingCondition::climate),
+            Light.CODEC.optionalFieldOf("light", Light.ANY).forGetter(AgeingCondition::light),
             ResourceLocation.CODEC.optionalFieldOf("dimension").forGetter(AgeingCondition::dimension)
     ).apply(instance, AgeingCondition::new));
 
-    public static final StreamCodec<ByteBuf, AgeingCondition> STREAM_CODEC = StreamCodec.composite(
-            ByteBufCodecs.VAR_INT.map(i -> Sky.values()[i], Sky::ordinal), AgeingCondition::sky,
-            ByteBufCodecs.VAR_INT.map(i -> Weather.values()[i], Weather::ordinal), AgeingCondition::weather,
-            ByteBufCodecs.VAR_INT.map(i -> Time.values()[i], Time::ordinal), AgeingCondition::time,
-            ByteBufCodecs.optional(ResourceLocation.STREAM_CODEC), AgeingCondition::dimension,
-            AgeingCondition::new
-    );
+    /** Sent as the JSON form: seven fields is past what a composite stream codec takes, and recipes sync once. */
+    public static final StreamCodec<ByteBuf, AgeingCondition> STREAM_CODEC = ByteBufCodecs.fromCodec(CODEC);
 
     public boolean isAny() {
-        return sky == Sky.ANY && weather == Weather.ANY && time == Time.ANY && dimension.isEmpty();
+        return sky == Sky.ANY && weather == Weather.ANY && time == Time.ANY && moon == Moon.ANY
+                && climate == Climate.ANY && light == Light.ANY && dimension.isEmpty();
     }
 
     /** Whether a recipe with this condition exists at all in this level's dimension. */
@@ -93,11 +95,29 @@ public record AgeingCondition(Sky sky, Weather weather, Time time, Optional<Reso
             }
             default -> { }
         }
-        return switch (time) {
+        boolean timeHolds = switch (time) {
             case DAY -> level.isDay();
             case NIGHT -> !level.isDay();
             default -> true;
         };
+        if (!timeHolds) {
+            return false;
+        }
+        // Phase 0 is the full moon and 4 the new one; either only counts while it is up.
+        if (moon == Moon.FULL && (level.isDay() || level.getMoonPhase() != 0)
+                || moon == Moon.NEW && (level.isDay() || level.getMoonPhase() != 4)) {
+            return false;
+        }
+        if (climate == Climate.COLD && !level.getBiome(pos).value().coldEnoughToSnow(pos)) {
+            return false;
+        }
+        return light != Light.DARK || inCellar(level, pos);
+    }
+
+    /** No sky above the kiln and next to no light: a cellar, a cave, a shut cupboard of a room. */
+    public static boolean inCellar(Level level, BlockPos pos) {
+        BlockPos above = pos.above();
+        return !level.canSeeSky(above) && level.getRawBrightness(above, 0) <= CELLAR_LIGHT;
     }
 
     /** "Open sky, in the rain, at night": what has to be true, for tooltips, Jade and the recipe browser. */
@@ -111,6 +131,15 @@ public record AgeingCondition(Sky sky, Weather weather, Time time, Optional<Reso
         }
         if (time != Time.ANY) {
             parts.add(Component.translatable("slowlight.condition.time." + time.getSerializedName()));
+        }
+        if (moon != Moon.ANY) {
+            parts.add(Component.translatable("slowlight.condition.moon." + moon.getSerializedName()));
+        }
+        if (climate != Climate.ANY) {
+            parts.add(Component.translatable("slowlight.condition.climate." + climate.getSerializedName()));
+        }
+        if (light != Light.ANY) {
+            parts.add(Component.translatable("slowlight.condition.light." + light.getSerializedName()));
         }
         dimension.ifPresent(dim -> parts.add(Component.translatableWithFallback(
                 "slowlight.condition.dimension." + dim.getNamespace() + "." + dim.getPath(),
@@ -145,6 +174,36 @@ public record AgeingCondition(Sky sky, Weather weather, Time time, Optional<Reso
     public enum Time implements StringRepresentable {
         ANY, DAY, NIGHT;
         public static final Codec<Time> CODEC = StringRepresentable.fromEnum(Time::values);
+
+        @Override
+        public String getSerializedName() {
+            return name().toLowerCase(Locale.ROOT);
+        }
+    }
+
+    public enum Moon implements StringRepresentable {
+        ANY, FULL, NEW;
+        public static final Codec<Moon> CODEC = StringRepresentable.fromEnum(Moon::values);
+
+        @Override
+        public String getSerializedName() {
+            return name().toLowerCase(Locale.ROOT);
+        }
+    }
+
+    public enum Climate implements StringRepresentable {
+        ANY, COLD;
+        public static final Codec<Climate> CODEC = StringRepresentable.fromEnum(Climate::values);
+
+        @Override
+        public String getSerializedName() {
+            return name().toLowerCase(Locale.ROOT);
+        }
+    }
+
+    public enum Light implements StringRepresentable {
+        ANY, DARK;
+        public static final Codec<Light> CODEC = StringRepresentable.fromEnum(Light::values);
 
         @Override
         public String getSerializedName() {

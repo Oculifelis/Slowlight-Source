@@ -1,0 +1,28 @@
+{
+  "display": {
+    "icon": {
+      "id": "slowlight:keepsake_urn"
+    },
+    "title": {
+      "translate": "advancements.slowlight.long_seal.title"
+    },
+    "description": {
+      "translate": "advancements.slowlight.long_seal.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "opened": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "opened"
+    ]
+  ],
+  "parent": "slowlight:keepsake"
+}

@@ -142,8 +142,9 @@ public final class SlowlightBlocks {
             () -> new DoorBlock(Gloamwood.SET, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_DOOR).mapColor(WOOD)));
     public static final DeferredBlock<Block> GLOAMWOOD_TRAPDOOR = BLOCKS.register("gloamwood_trapdoor",
             () -> new TrapDoorBlock(Gloamwood.SET, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_TRAPDOOR).mapColor(WOOD)));
+    // 1 tick held: a 1-tick redstone pulse, and it takes the next click straight away (oak holds 30).
     public static final DeferredBlock<Block> GLOAMWOOD_BUTTON = BLOCKS.register("gloamwood_button",
-            () -> new ButtonBlock(Gloamwood.SET, 30, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_BUTTON)));
+            () -> new ButtonBlock(Gloamwood.SET, 1, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_BUTTON)));
     public static final DeferredBlock<Block> GLOAMWOOD_PRESSURE_PLATE = BLOCKS.register("gloamwood_pressure_plate",
             () -> new PressurePlateBlock(Gloamwood.SET,
                     BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PRESSURE_PLATE).mapColor(WOOD)));

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "slowlight:hollowstone"
+  },
+  "result": {
+    "id": "slowlight:hollowstone_wall",
+    "count": 1
+  }
+}

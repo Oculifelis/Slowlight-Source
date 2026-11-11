@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "slowlight:warped_mosaic_glass"
+  },
+  "result": {
+    "id": "slowlight:warped_lattice_glass",
+    "count": 1
+  }
+}

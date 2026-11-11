@@ -67,6 +67,9 @@ public class PatientKilnBlockEntity extends BlockEntity {
     private long needed = 0L;
     /** False while the recipe's condition (rain, open sky, night...) is not met and the wait is standing still. */
     private boolean conditionHolds = true;
+    /** Waiting (ticks) and batches finished since a player last took work out, credited to the next one who does. */
+    private long unclaimedTicks;
+    private int unclaimedBatches;
 
     public PatientKilnBlockEntity(BlockPos pos, BlockState state) {
         this(SlowlightBlockEntities.PATIENT_KILN.get(), pos, state, 1);
@@ -131,8 +134,34 @@ public class PatientKilnBlockEntity extends BlockEntity {
         } else {
             return false;
         }
+        ItemStack remainder = input.getCraftingRemainingItem();
         input.shrink(1);
+        giveBack(level, remainder);
         return true;
+    }
+
+    /**
+     * What a finished ingredient leaves behind (the bucket from a milk bucket): into a free output slot if there is
+     * one, otherwise set down on top of the kiln.
+     */
+    protected void giveBack(Level level, ItemStack remainder) {
+        // Not insertItem: the handler only lets things into the input slot.
+        for (int slot = OUTPUT; slot < outputEnd && !remainder.isEmpty(); slot++) {
+            ItemStack there = items.getStackInSlot(slot);
+            if (there.isEmpty()) {
+                items.setStackInSlot(slot, remainder);
+                remainder = ItemStack.EMPTY;
+            } else if (ItemStack.isSameItemSameComponents(there, remainder)) {
+                int n = Math.min(remainder.getCount(), there.getMaxStackSize() - there.getCount());
+                there.grow(n);
+                remainder.shrink(n);
+                setChanged();
+            }
+        }
+        if (!remainder.isEmpty()) {
+            BlockPos pos = getBlockPos();
+            net.minecraft.world.Containers.dropItemStack(level, pos.getX(), pos.getY() + 1.0, pos.getZ(), remainder);
+        }
     }
 
     /** The recipe this item ages by, if any. */
@@ -325,13 +354,13 @@ public class PatientKilnBlockEntity extends BlockEntity {
                 return;
             }
             kiln.startedAt = level.getGameTime();
-            kiln.needed = kiln.waitTicks(recipe);
+            kiln.needed = recipe.scaledForCellar(kiln.waitTicks(recipe), level, pos);
             kiln.setWorking(level, pos, state, true);
             kiln.setChanged();
             return;
         }
 
-        kiln.needed = kiln.waitTicks(recipe);
+        kiln.needed = recipe.scaledForCellar(kiln.waitTicks(recipe), level, pos);
         // A recipe that wants rain, open sky or night holds its wait while the world is otherwise: the start moves
         // forward with the clock, so the days already counted stay counted.
         boolean holds = recipe.condition().holds(level, pos);
@@ -353,9 +382,21 @@ public class PatientKilnBlockEntity extends BlockEntity {
             return;
         }
 
+        kiln.unclaimedTicks += kiln.needed;
+        kiln.unclaimedBatches++;
         kiln.startedAt = -1L;
         kiln.needed = 0L;
         kiln.setChanged();
+    }
+
+    /** A player took finished work: theirs is the waiting it took (for the statistics and the hundred days). */
+    public void claimedBy(net.minecraft.world.entity.player.Player player) {
+        if (unclaimedBatches > 0 || unclaimedTicks > 0L) {
+            dev.slowlight.SlowlightNights.creditWaiting(player, unclaimedTicks, unclaimedBatches);
+            unclaimedTicks = 0L;
+            unclaimedBatches = 0;
+            setChanged();
+        }
     }
 
     private @Nullable RecipeHolder<AgeingRecipe> recipeFor(ItemStack input, Level level) {
@@ -402,6 +443,8 @@ public class PatientKilnBlockEntity extends BlockEntity {
         tag.putLong("StartedAt", startedAt);
         tag.putLong("Needed", needed);
         tag.putBoolean("Paused", !conditionHolds);
+        tag.putLong("UnclaimedTicks", unclaimedTicks);
+        tag.putInt("UnclaimedBatches", unclaimedBatches);
     }
 
     @Override
@@ -413,6 +456,8 @@ public class PatientKilnBlockEntity extends BlockEntity {
         startedAt = tag.contains("StartedAt") ? tag.getLong("StartedAt") : -1L;
         needed = tag.getLong("Needed");
         conditionHolds = !tag.getBoolean("Paused");
+        unclaimedTicks = tag.getLong("UnclaimedTicks");
+        unclaimedBatches = tag.getInt("UnclaimedBatches");
     }
 
     @Override

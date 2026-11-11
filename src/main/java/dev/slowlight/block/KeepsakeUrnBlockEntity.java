@@ -36,6 +36,9 @@ public class KeepsakeUrnBlockEntity extends BaseContainerBlockEntity implements 
     private static final int[] NO_SLOTS = new int[0];
     private static final int[] ALL_SLOTS = {0, 1, 2, 3, 4, 5, 6, 7, 8};
     private static final ResourceLocation KEEPSAKE = ResourceLocation.fromNamespaceAndPath(Slowlight.MOD_ID, "keepsake");
+    private static final ResourceLocation LONG_SEAL = ResourceLocation.fromNamespaceAndPath(Slowlight.MOD_ID, "long_seal");
+    /** A seal at least this long earns the long-seal advancement when opened. */
+    public static final int LONG_SEAL_DAYS = 30;
 
     private NonNullList<ItemStack> items = NonNullList.withSize(SLOTS, ItemStack.EMPTY);
     /** Days the next seal will hold. */
@@ -44,6 +47,8 @@ public class KeepsakeUrnBlockEntity extends BaseContainerBlockEntity implements 
     private long opensAt = -1L;
     /** Set when a seal ran its full time; the first person to open it afterwards gets the advancement. */
     private boolean ripe;
+    /** Days the seal that just ran out had held, for the long-seal advancement. */
+    private int ranDays;
 
     public KeepsakeUrnBlockEntity(BlockPos pos, BlockState state) {
         super(SlowlightBlockEntities.KEEPSAKE_URN.get(), pos, state);
@@ -95,6 +100,10 @@ public class KeepsakeUrnBlockEntity extends BaseContainerBlockEntity implements 
             if (adv != null) {
                 sp.getAdvancements().award(adv, "opened");
             }
+            sp.awardStat(dev.slowlight.SlowlightNights.URNS_OPENED.get());
+            if (ranDays >= LONG_SEAL_DAYS) {
+                dev.slowlight.SlowlightNights.award(sp, LONG_SEAL, "opened");
+            }
         }
     }
 
@@ -105,6 +114,7 @@ public class KeepsakeUrnBlockEntity extends BaseContainerBlockEntity implements 
         // The wax gives.
         urn.opensAt = -1L;
         urn.ripe = true;
+        urn.ranDays = urn.planned;
         urn.setChanged();
         level.setBlock(pos, state.setValue(KeepsakeUrnBlock.SEALED, false), 3);
         level.playSound(null, pos, SoundEvents.HONEYCOMB_WAX_ON, SoundSource.BLOCKS, 0.8F, 0.6F);
@@ -168,6 +178,7 @@ public class KeepsakeUrnBlockEntity extends BaseContainerBlockEntity implements 
         tag.putInt("Planned", planned);
         tag.putLong("OpensAt", opensAt);
         tag.putBoolean("Ripe", ripe);
+        tag.putInt("RanDays", ranDays);
     }
 
     @Override
@@ -178,5 +189,6 @@ public class KeepsakeUrnBlockEntity extends BaseContainerBlockEntity implements 
         planned = tag.contains("Planned") ? tag.getInt("Planned") : 7;
         opensAt = tag.contains("OpensAt") ? tag.getLong("OpensAt") : -1L;
         ripe = tag.getBoolean("Ripe");
+        ranDays = tag.getInt("RanDays");
     }
 }

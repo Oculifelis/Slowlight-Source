@@ -18,6 +18,8 @@ public class Slowlight {
         SlowlightDecor.init();
         SlowlightWeathering.init();
         SlowlightCrafts.init();
+        SlowlightWays.init();
+        SlowlightNights.init();
         SlowlightBlocks.BLOCKS.register(modBus);
         SlowlightItems.ITEMS.register(modBus);
         SlowlightCrafts.COMPONENTS.register(modBus);
@@ -27,12 +29,18 @@ public class Slowlight {
         SlowlightRecipes.RECIPE_TYPES.register(modBus);
         SlowlightRecipes.RECIPE_SERIALIZERS.register(modBus);
         SlowlightItems.TABS.register(modBus);
+        SlowlightWays.PARTICLES.register(modBus);
+        SlowlightNights.STATS.register(modBus);
+        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(dev.slowlight.item.UnfallingFeatherItem::tick);
         // branch rest
         SlowlightVillagers.POI_TYPES.register(modBus);
         SlowlightVillagers.PROFESSIONS.register(modBus);
         modBus.addListener(Slowlight::registerCapabilities);
         modBus.addListener(Slowlight::signBlocks);
-        modBus.addListener((FMLCommonSetupEvent event) -> event.enqueueWork(Gloamwood::setup));
+        modBus.addListener((FMLCommonSetupEvent event) -> event.enqueueWork(() -> {
+            Gloamwood.setup();
+            SlowlightNights.registerStats();
+        }));
         if (FMLEnvironment.dist == Dist.CLIENT) {
             dev.slowlight.client.SlowlightClient.init(modBus);
         }

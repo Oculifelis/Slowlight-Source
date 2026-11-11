@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "slowlight:slow_candle"
+    "slowlight:slow_candle",
+    "slowlight:starwick_candle"
   ]
 }

@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "slowlight:cheese_wheel"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "slowlight:cheese_wheel",
+          "properties": {
+            "wedges": "0"
+          }
+        }
+      ]
+    }
+  ],
+  "random_sequence": "slowlight:blocks/cheese_wheel"
+}

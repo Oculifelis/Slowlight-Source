@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "active=false,linked=false": {
+      "model": "slowlight:block/waystone"
+    },
+    "active=true,linked=false": {
+      "model": "slowlight:block/waystone"
+    },
+    "active=false,linked=true": {
+      "model": "slowlight:block/waystone_linked"
+    },
+    "active=true,linked=true": {
+      "model": "slowlight:block/waystone_active"
+    }
+  }
+}

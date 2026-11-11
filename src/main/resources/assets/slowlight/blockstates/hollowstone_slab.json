@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "slowlight:block/hollowstone_slab"
+    },
+    "type=double": {
+      "model": "slowlight:block/hollowstone_0"
+    },
+    "type=top": {
+      "model": "slowlight:block/hollowstone_slab_top"
+    }
+  }
+}

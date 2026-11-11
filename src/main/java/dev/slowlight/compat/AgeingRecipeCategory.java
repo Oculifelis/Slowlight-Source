@@ -94,6 +94,15 @@ public class AgeingRecipeCategory implements IRecipeCategory<RecipeHolder<Ageing
                 y += 10;
             }
         }
+        // Quicker in a dark cellar, for the drinks that like one.
+        int cellar = holder.value().cellarDays();
+        if (cellar > 0 && cellar < days) {
+            Component c = Component.translatable("slowlight.jei.cellar", cellar);
+            for (var line : font.split(c, WIDTH)) {
+                graphics.drawString(font, line, (WIDTH - font.width(line)) / 2, y, 0xFF6A5A40, false);
+                y += 10;
+            }
+        }
         // The Long Kiln's wait, which is over a whole stack rather than one; nothing to say for things that do not stack.
         ItemStack[] ins = holder.value().ingredient().getItems();
         if (ins.length > 0 && ins[0].getMaxStackSize() > 1) {

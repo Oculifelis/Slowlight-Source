@@ -77,6 +77,16 @@
     "slowlight:still_shard_block_smooth_slab",
     "slowlight:slowlight_shard_cluster",
     "slowlight:still_shard_cluster",
-    "slowlight:lapse_block"
+    "slowlight:lapse_block",
+    "slowlight:waystone",
+    "slowlight:display_pedestal",
+    "slowlight:pearl_block",
+    "slowlight:pearl_lantern",
+    "slowlight:pearl_chain",
+    "slowlight:hollowstone",
+    "slowlight:hollowstone_stairs",
+    "slowlight:hollowstone_slab",
+    "slowlight:hollowstone_wall",
+    "slowlight:moondial"
   ]
 }

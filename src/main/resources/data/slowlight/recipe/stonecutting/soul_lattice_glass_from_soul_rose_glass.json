@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "slowlight:soul_rose_glass"
+  },
+  "result": {
+    "id": "slowlight:soul_lattice_glass",
+    "count": 1
+  }
+}

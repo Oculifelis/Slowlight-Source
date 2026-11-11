@@ -1,0 +1,104 @@
+{
+  "parent": "block/block",
+  "textures": {
+    "particle": "minecraft:block/polished_deepslate",
+    "side": "minecraft:block/polished_deepslate",
+    "bottom": "minecraft:block/polished_deepslate",
+    "face": "slowlight:block/moondial_face",
+    "moon": "slowlight:block/moondial_moon_2"
+  },
+  "elements": [
+    {
+      "from": [
+        1,
+        0,
+        1
+      ],
+      "to": [
+        15,
+        3,
+        15
+      ],
+      "faces": {
+        "north": {
+          "texture": "#side",
+          "uv": [
+            1,
+            13,
+            15,
+            16
+          ]
+        },
+        "south": {
+          "texture": "#side",
+          "uv": [
+            1,
+            13,
+            15,
+            16
+          ]
+        },
+        "east": {
+          "texture": "#side",
+          "uv": [
+            1,
+            13,
+            15,
+            16
+          ]
+        },
+        "west": {
+          "texture": "#side",
+          "uv": [
+            1,
+            13,
+            15,
+            16
+          ]
+        },
+        "down": {
+          "texture": "#bottom",
+          "uv": [
+            1,
+            1,
+            15,
+            15
+          ],
+          "cullface": "down"
+        },
+        "up": {
+          "texture": "#face",
+          "uv": [
+            1,
+            1,
+            15,
+            15
+          ]
+        }
+      }
+    },
+    {
+      "from": [
+        4,
+        3,
+        4
+      ],
+      "to": [
+        12,
+        3.25,
+        12
+      ],
+      "faces": {
+        "up": {
+          "texture": "#moon",
+          "uv": [
+            4,
+            4,
+            12,
+            12
+          ]
+        }
+      }
+    }
+  ]
+}

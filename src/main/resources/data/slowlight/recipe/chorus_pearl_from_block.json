@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "slowlight:pearl_block"
+    }
+  ],
+  "result": {
+    "id": "slowlight:chorus_pearl",
+    "count": 9
+  }
+}

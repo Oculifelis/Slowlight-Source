@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "H  ",
+    "HH ",
+    "HHH"
+  ],
+  "key": {
+    "H": {
+      "item": "slowlight:hollowstone"
+    }
+  },
+  "result": {
+    "id": "slowlight:hollowstone_stairs",
+    "count": 4
+  }
+}

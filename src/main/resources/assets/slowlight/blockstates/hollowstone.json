@@ -1,0 +1,38 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "slowlight:block/hollowstone_0",
+        "weight": 6
+      },
+      {
+        "model": "slowlight:block/hollowstone_1",
+        "weight": 6
+      },
+      {
+        "model": "slowlight:block/hollowstone_2",
+        "weight": 6
+      },
+      {
+        "model": "slowlight:block/hollowstone_3",
+        "weight": 6
+      },
+      {
+        "model": "slowlight:block/hollowstone_4",
+        "weight": 1
+      },
+      {
+        "model": "slowlight:block/hollowstone_5",
+        "weight": 6
+      },
+      {
+        "model": "slowlight:block/hollowstone_6",
+        "weight": 1
+      },
+      {
+        "model": "slowlight:block/hollowstone_7",
+        "weight": 6
+      }
+    ]
+  }
+}

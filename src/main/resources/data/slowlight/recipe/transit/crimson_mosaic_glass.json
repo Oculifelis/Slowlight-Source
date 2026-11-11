@@ -1,0 +1,12 @@
+{
+  "type": "slowlight:transit",
+  "ingredient": {
+    "item": "minecraft:red_stained_glass"
+  },
+  "result": {
+    "id": "slowlight:crimson_mosaic_glass",
+    "count": 1
+  },
+  "from": "any",
+  "to": "minecraft:the_nether"
+}

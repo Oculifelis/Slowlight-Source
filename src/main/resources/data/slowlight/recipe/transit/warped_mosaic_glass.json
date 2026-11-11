@@ -1,0 +1,12 @@
+{
+  "type": "slowlight:transit",
+  "ingredient": {
+    "item": "minecraft:cyan_stained_glass"
+  },
+  "result": {
+    "id": "slowlight:warped_mosaic_glass",
+    "count": 1
+  },
+  "from": "any",
+  "to": "minecraft:the_nether"
+}

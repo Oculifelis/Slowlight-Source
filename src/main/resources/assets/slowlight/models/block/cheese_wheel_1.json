@@ -1,0 +1,150 @@
+{
+  "parent": "block/block",
+  "textures": {
+    "particle": "slowlight:block/cheese_wheel_side",
+    "side": "slowlight:block/cheese_wheel_side",
+    "inner": "slowlight:block/cheese_wheel_inner",
+    "top": "slowlight:block/cheese_wheel_top",
+    "bottom": "slowlight:block/cheese_wheel_bottom"
+  },
+  "elements": [
+    {
+      "from": [
+        2,
+        0,
+        8
+      ],
+      "to": [
+        14,
+        6,
+        14
+      ],
+      "faces": {
+        "north": {
+          "texture": "#inner",
+          "uv": [
+            2,
+            10,
+            14,
+            16
+          ]
+        },
+        "south": {
+          "texture": "#side",
+          "uv": [
+            2,
+            10,
+            14,
+            16
+          ]
+        },
+        "west": {
+          "texture": "#side",
+          "uv": [
+            8,
+            10,
+            14,
+            16
+          ]
+        },
+        "east": {
+          "texture": "#side",
+          "uv": [
+            8,
+            10,
+            14,
+            16
+          ]
+        },
+        "up": {
+          "texture": "#top",
+          "uv": [
+            2,
+            8,
+            14,
+            14
+          ]
+        },
+        "down": {
+          "texture": "#bottom",
+          "uv": [
+            2,
+            8,
+            14,
+            14
+          ],
+          "cullface": "down"
+        }
+      }
+    },
+    {
+      "from": [
+        2,
+        0,
+        2
+      ],
+      "to": [
+        8,
+        6,
+        8
+      ],
+      "faces": {
+        "north": {
+          "texture": "#side",
+          "uv": [
+            2,
+            10,
+            8,
+            16
+          ]
+        },
+        "south": {
+          "texture": "#inner",
+          "uv": [
+            2,
+            10,
+            8,
+            16
+          ]
+        },
+        "west": {
+          "texture": "#side",
+          "uv": [
+            2,
+            10,
+            8,
+            16
+          ]
+        },
+        "east": {
+          "texture": "#inner",
+          "uv": [
+            2,
+            10,
+            8,
+            16
+          ]
+        },
+        "up": {
+          "texture": "#top",
+          "uv": [
+            2,
+            2,
+            8,
+            8
+          ]
+        },
+        "down": {
+          "texture": "#bottom",
+          "uv": [
+            2,
+            2,
+            8,
+            8
+          ],
+          "cullface": "down"
+        }
+      }
+    }
+  ]
+}
