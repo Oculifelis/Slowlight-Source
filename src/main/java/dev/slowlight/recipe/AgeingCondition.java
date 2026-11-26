@@ -8,12 +8,15 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.tags.TagKey;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 
 /**
  * What the world around a kiln has to be like for the days to count. While it does not hold, the wait stands still
@@ -24,7 +27,8 @@ import net.minecraft.world.level.Level;
  * {@code sky} is {@code open} (nothing but air between the kiln and the sky), {@code covered}, or {@code void}: open to the
  * End's empty sky, which only the End has (nothing above the kiln in a dimension with End skies); {@code weather} is
  * {@code clear}, {@code rain} or {@code thunder} (rain and thunder only count where rain actually falls on the kiln,
- * so under open sky in a biome where it rains); {@code time} is {@code day} or {@code night}. Leaving a field out, or
+ * so under open sky in a biome where it rains); {@code time} is {@code day} or {@code night}; a block in {@code #slowlight:night_lights} one or two blocks above the
+ * kiln counts as night. Leaving a field out, or
  * {@code any}, means it does not matter.
  *
  * <p>{@code dimension} (a dimension id, such as {@code minecraft:the_nether}) is different: a recipe that names one
@@ -97,7 +101,7 @@ public record AgeingCondition(Sky sky, Weather weather, Time time, Moon moon, Cl
         }
         boolean timeHolds = switch (time) {
             case DAY -> level.isDay();
-            case NIGHT -> !level.isDay();
+            case NIGHT -> !level.isDay() || nightLit(level, pos);
             default -> true;
         };
         if (!timeHolds) {
@@ -112,6 +116,15 @@ public record AgeingCondition(Sky sky, Weather weather, Time time, Moon moon, Cl
             return false;
         }
         return light != Light.DARK || inCellar(level, pos);
+    }
+
+    /** Blocks that stand in for the night when hung just above a kiln (one or two blocks up), such as firefly lanterns. */
+    public static final TagKey<Block> NIGHT_LIGHTS = TagKey.create(Registries.BLOCK,
+            ResourceLocation.fromNamespaceAndPath("slowlight", "night_lights"));
+
+    /** A block in #slowlight:night_lights one or two blocks above the kiln: night-only recipes age through the day. */
+    public static boolean nightLit(Level level, BlockPos pos) {
+        return level.getBlockState(pos.above()).is(NIGHT_LIGHTS) || level.getBlockState(pos.above(2)).is(NIGHT_LIGHTS);
     }
 
     /** No sky above the kiln and next to no light: a cellar, a cave, a shut cupboard of a room. */

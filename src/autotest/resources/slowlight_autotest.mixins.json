@@ -4,7 +4,13 @@
   "package": "dev.slowlight.autotest.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [],
-  "client": ["WindowHiddenMixin"],
+  "client": [
+    "NoSoundMixin",
+    "WindowHiddenMixin",
+    "NoGrabMixin"
+  ],
   "server": [],
-  "injectors": { "defaultRequire": 1 }
+  "injectors": {
+    "defaultRequire": 1
+  }
 }

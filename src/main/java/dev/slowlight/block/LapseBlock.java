@@ -106,4 +106,10 @@ public class LapseBlock extends Block {
     protected boolean propagatesSkylightDown(BlockState state, BlockGetter level, BlockPos pos) {
         return state.getValue(LAPSED);
     }
+
+    @Override
+    public void appendHoverText(net.minecraft.world.item.ItemStack stack, net.minecraft.world.item.Item.TooltipContext context,
+                                java.util.List<net.minecraft.network.chat.Component> tooltip, net.minecraft.world.item.TooltipFlag flag) {
+        tooltip.add(net.minecraft.network.chat.Component.translatable(getDescriptionId() + ".tip").withStyle(net.minecraft.ChatFormatting.GRAY));
+    }
 }

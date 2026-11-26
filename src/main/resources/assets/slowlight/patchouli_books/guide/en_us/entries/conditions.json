@@ -12,6 +12,12 @@
       "type": "patchouli:text",
       "title": "Other places",
       "text": "Some recipes belong to one dimension, and there they come first. In $(l)the Nether$() cobblestone darkens to blackstone and sand to soul sand, five days each. In $(l)the End$() obsidian begins to weep in seven days, and chorus fruit pops in two."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Firefly lanterns",
+      "flag": "mod:color",
+      "text": "A $(l)Gloamwood Firefly Lantern$() hung one or two blocks above a kiln counts as night, so night-only recipes keep ageing through the day. Colorfly's own firefly lanterns work the same way.$(br2)Mead left a few nights in a kiln comes out as $(l)Firefly Mead$(), which gives Night Vision and a short glow."
     }
   ]
 }

@@ -266,6 +266,8 @@ public final class SlowlightItems {
                         SlowlightCrafts.fillTab(output, params);
                         SlowlightWays.fillTab(output);
                         SlowlightNights.fillTab(output);
+                        SlowlightLockers.fillTab(output);
+                        SlowlightFireflies.fillTab(output);
                         output.accept(MUSIC_DISC_PATIENT_LIGHT.get());
                         output.accept(MUSIC_DISC_A_WEEK_IN.get());
                         output.accept(MUSIC_DISC_LANTERN_HOURS.get());

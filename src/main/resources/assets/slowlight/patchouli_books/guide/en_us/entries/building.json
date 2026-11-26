@@ -1,0 +1,38 @@
+{
+  "name": "Building Blocks",
+  "icon": "slowlight:pearl_block",
+  "category": "slowlight:waiting",
+  "sortnum": 12,
+  "pages": [
+    {
+      "type": "patchouli:crafting",
+      "recipe": "slowlight:pearl_block",
+      "text": "Nine Chorus Pearls pack into a block, and it crafts back into pearls. With iron nuggets they also make Pearl Lanterns and Pearl Chains."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "slowlight:pearl_lantern",
+      "text": "Sneak-use a Pearl Lantern to change its cage."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "slowlight:slowlight_shard_block",
+      "text": "Shards pack into blocks, and the stonecutter cuts them into patterns."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "slowlight:display_pedestal",
+      "text": "Holds one thing on show."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "slowlight:lapse_block",
+      "text": "Powered, a Lapse Block steps out of the world for three seconds and takes every Lapse Block touching it along."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(item)Hollowstone$() comes from stone bricks sent by Waystone from the End to the Overworld, and has stairs, slabs and walls.$(br2)Three music discs come from leaving vanilla discs in a kiln: mellohi for four days, stal for five, far for seven. Each plays in any jukebox.",
+      "title": "Other Blocks"
+    }
+  ]
+}

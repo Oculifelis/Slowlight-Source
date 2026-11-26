@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "slowlight:block/silvered_gloamwood_planks_diagonal_stripes_slab"
+    },
+    "type=double": {
+      "model": "slowlight:block/silvered_gloamwood_planks_diagonal_stripes"
+    },
+    "type=top": {
+      "model": "slowlight:block/silvered_gloamwood_planks_diagonal_stripes_slab_top"
+    }
+  }
+}

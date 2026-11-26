@@ -1,0 +1,30 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "color"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    " N ",
+    "PBP",
+    " P "
+  ],
+  "key": {
+    "N": {
+      "item": "minecraft:iron_nugget"
+    },
+    "P": {
+      "item": "slowlight:gloamwood_planks"
+    },
+    "B": {
+      "item": "color:greenfly_bottle"
+    }
+  },
+  "result": {
+    "id": "slowlight:greenfly_gloamwood_lantern",
+    "count": 1
+  }
+}

@@ -53,7 +53,7 @@ public class LongKilnBlock extends PatientKilnBlock {
     static {
         for (Direction d : Direction.Plane.HORIZONTAL) {
             VoxelShape body = Shapes.or(box(d, 0, 0, 0, 16, 10, 16), box(d, 2, 10, 0, 14, 13, 16),
-                    box(d, 4, 13, 0, 12, 14, 16), box(d, 6, 10, 11, 10, 16, 15));
+                    box(d, 4, 13, 0, 12, 14, 16), box(d, 6, 10, 6, 10, 16, 10));
             SEALED.put(d, body);
             OPEN.put(d, Shapes.join(body, box(d, 5, 2, 0, 11, 9, 5), BooleanOp.ONLY_FIRST));
         }

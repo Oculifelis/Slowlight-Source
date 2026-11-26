@@ -1,3 +1,22 @@
 {
-  "parent": "slowlight:block/sandglass_5_running"
+  "parent": "slowlight:block/sandglass_item",
+  "display": {
+    "gui": {
+      "rotation": [
+        20,
+        225,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        0.78,
+        0.78,
+        0.78
+      ]
+    }
+  }
 }

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ooo",
+    "o T",
+    "ooo"
+  ],
+  "key": {
+    "o": {
+      "item": "slowlight:gloamwood_planks"
+    },
+    "T": {
+      "item": "slowlight:gloamwood_trapdoor"
+    }
+  },
+  "result": {
+    "id": "slowlight:locker",
+    "count": 1
+  }
+}

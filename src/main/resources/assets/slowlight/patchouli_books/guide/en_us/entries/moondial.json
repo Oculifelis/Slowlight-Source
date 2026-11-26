@@ -1,0 +1,17 @@
+{
+  "name": "The Moondial",
+  "icon": "slowlight:moondial",
+  "category": "slowlight:night",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "patchouli:crafting",
+      "recipe": "slowlight:moondial",
+      "text": "Set it under open sky. At night a $(item)comparator$() reads the moon's phase off it: 1 at full moon, 5 at new moon."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Use it to see the phase by name.$(br2)The signal is weakest at full moon and grows toward new moon, so a comparator set to subtract can pick out one phase. Some kiln recipes count down only on full-moon nights, and this is how to know when to check them."
+    }
+  ]
+}

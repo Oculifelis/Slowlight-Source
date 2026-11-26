@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "slowlight:block/weathered_gloamwood_planks_brick_paving",
+    "side": "slowlight:block/weathered_gloamwood_planks_brick_paving",
+    "top": "slowlight:block/weathered_gloamwood_planks_brick_paving"
+  }
+}

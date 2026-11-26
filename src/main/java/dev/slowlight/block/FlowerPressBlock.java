@@ -30,6 +30,7 @@ import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
@@ -39,20 +40,22 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 /**
  * Two Gloamwood boards and a screw. Click with a flower to put it in; it is pressed in three days. Click with an empty
- * hand to ask how it is doing, or to take the pressed flower out; sneak to take an unfinished flower back.
+ * hand to ask how it is doing, or to take the pressed flower out; sneak to take an unfinished flower back. A
+ * redstone pulse pops a pressed flower out of the front, and hoppers work it like the other stations.
  */
 public class FlowerPressBlock extends BaseEntityBlock {
     public static final MapCodec<FlowerPressBlock> CODEC = simpleCodec(FlowerPressBlock::new);
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
     /** Something is in it: the top board is screwed down. */
     public static final BooleanProperty FULL = BooleanProperty.create("full");
+    public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
 
     /** Boards and posts, then the screw's handle; the outline of tools/make_crafts.py flower_press(). */
     private static final VoxelShape SHAPE = Shapes.or(Block.box(1, 0, 1, 15, 9, 15), Block.box(5, 9, 7.5, 11, 11, 8.5));
 
     public FlowerPressBlock(Properties properties) {
         super(properties);
-        registerDefaultState(stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(FULL, false));
+        registerDefaultState(stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(FULL, false).setValue(POWERED, false));
     }
 
     @Override
@@ -62,12 +65,27 @@ public class FlowerPressBlock extends BaseEntityBlock {
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(FACING, FULL);
+        builder.add(FACING, FULL, POWERED);
     }
 
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
-        return defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());
+        return defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite())
+                .setValue(POWERED, context.getLevel().hasNeighborSignal(context.getClickedPos()));
+    }
+
+    /** On a rising redstone edge a pressed flower drops out of the front. An unfinished one stays in. */
+    @Override
+    protected void neighborChanged(BlockState state, Level level, BlockPos pos, Block block, BlockPos from, boolean moving) {
+        boolean powered = level.hasNeighborSignal(pos);
+        if (level.isClientSide || powered == state.getValue(POWERED)) {
+            return;
+        }
+        level.setBlock(pos, state.setValue(POWERED, powered), 2);
+        if (powered && level.getBlockEntity(pos) instanceof FlowerPressBlockEntity press && press.done()) {
+            popResourceFromFace(level, pos, state.getValue(FACING), press.take());
+            level.playSound(null, pos, SoundEvents.BOOK_PAGE_TURN, SoundSource.BLOCKS, 0.8F, 1.2F);
+        }
     }
 
     @Override

@@ -1,6 +1,9 @@
 {
   "replace": false,
   "values": [
-    "slowlight:gloamwood_wall_sign"
+    "slowlight:gloamwood_wall_sign",
+    "slowlight:faded_gloamwood_wall_sign",
+    "slowlight:weathered_gloamwood_wall_sign",
+    "slowlight:silvered_gloamwood_wall_sign"
   ]
 }

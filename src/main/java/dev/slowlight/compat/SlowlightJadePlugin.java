@@ -6,6 +6,15 @@ import dev.slowlight.block.PatientKilnBlockEntity;
 // branch rest: Sandglass and Keepsake Urn
 import dev.slowlight.block.KeepsakeUrnBlock;
 import dev.slowlight.block.KeepsakeUrnBlockEntity;
+import dev.slowlight.block.FlowerPressBlock;
+import dev.slowlight.block.FlowerPressBlockEntity;
+import dev.slowlight.block.WaystoneBlock;
+import dev.slowlight.block.WaystoneBlockEntity;
+import java.util.List;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.StringTag;
+import net.minecraft.nbt.Tag;
+import net.minecraft.server.level.ServerLevel;
 import dev.slowlight.block.SandglassBlock;
 import dev.slowlight.block.SandglassBlockEntity;
 // end branch rest
@@ -40,6 +49,8 @@ public class SlowlightJadePlugin implements IWailaPlugin {
         // branch rest
         registration.registerBlockDataProvider(StatusProvider.SANDGLASS, SandglassBlockEntity.class);
         registration.registerBlockDataProvider(StatusProvider.URN, KeepsakeUrnBlockEntity.class);
+        registration.registerBlockDataProvider(StatusProvider.PRESS, FlowerPressBlockEntity.class);
+        registration.registerBlockDataProvider(StatusProvider.WAYSTONE, WaystoneBlockEntity.class);
         // end branch rest
     }
 
@@ -49,6 +60,8 @@ public class SlowlightJadePlugin implements IWailaPlugin {
         // branch rest
         registration.registerBlockComponent(StatusProvider.SANDGLASS, SandglassBlock.class);
         registration.registerBlockComponent(StatusProvider.URN, KeepsakeUrnBlock.class);
+        registration.registerBlockComponent(StatusProvider.PRESS, FlowerPressBlock.class);
+        registration.registerBlockComponent(StatusProvider.WAYSTONE, WaystoneBlock.class);
         // end branch rest
     }
 
@@ -92,7 +105,9 @@ public class SlowlightJadePlugin implements IWailaPlugin {
     // the same way the kiln's does.
     public enum StatusProvider implements IBlockComponentProvider, IServerDataProvider<BlockAccessor> {
         SANDGLASS("sandglass"),
-        URN("keepsake_urn");
+        URN("keepsake_urn"),
+        PRESS("flower_press"),
+        WAYSTONE("waystone");
 
         private final ResourceLocation uid;
 
@@ -102,25 +117,33 @@ public class SlowlightJadePlugin implements IWailaPlugin {
 
         @Override
         public void appendServerData(CompoundTag data, BlockAccessor accessor) {
-            Component status = null;
+            List<Component> lines = List.of();
             if (accessor.getBlockEntity() instanceof SandglassBlockEntity glass) {
-                status = glass.status();
+                lines = List.of(glass.status());
             } else if (accessor.getBlockEntity() instanceof KeepsakeUrnBlockEntity urn) {
-                status = urn.status();
+                lines = List.of(urn.status());
+            } else if (accessor.getBlockEntity() instanceof FlowerPressBlockEntity press) {
+                lines = List.of(press.status());
+            } else if (accessor.getBlockEntity() instanceof WaystoneBlockEntity stone
+                    && accessor.getLevel() instanceof ServerLevel server) {
+                lines = stone.jadeLines(server);
             }
-            if (status != null) {
-                data.putString("SlowlightStatus", Component.Serializer.toJson(status, accessor.getLevel().registryAccess()));
+            ListTag out = new ListTag();
+            for (Component line : lines) {
+                out.add(StringTag.valueOf(Component.Serializer.toJson(line, accessor.getLevel().registryAccess())));
+            }
+            if (!out.isEmpty()) {
+                data.put("SlowlightLines", out);
             }
         }
 
         @Override
         public void appendTooltip(ITooltip tooltip, BlockAccessor accessor, IPluginConfig config) {
             CompoundTag data = accessor.getServerData();
-            if (data.contains("SlowlightStatus")) {
-                Component status = Component.Serializer.fromJson(
-                        data.getString("SlowlightStatus"), accessor.getLevel().registryAccess());
-                if (status != null) {
-                    tooltip.add(status);
+            for (Tag line : data.getList("SlowlightLines", Tag.TAG_STRING)) {
+                Component c = Component.Serializer.fromJson(line.getAsString(), accessor.getLevel().registryAccess());
+                if (c != null) {
+                    tooltip.add(c);
                 }
             }
         }

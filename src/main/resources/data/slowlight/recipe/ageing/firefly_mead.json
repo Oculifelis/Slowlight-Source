@@ -1,0 +1,20 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "color"
+    }
+  ],
+  "type": "slowlight:ageing",
+  "ingredient": {
+    "item": "slowlight:mead"
+  },
+  "result": {
+    "id": "slowlight:firefly_mead",
+    "count": 1
+  },
+  "days": 3,
+  "condition": {
+    "time": "night"
+  }
+}

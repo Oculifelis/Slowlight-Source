@@ -3,7 +3,8 @@
   "textures": {
     "o": "minecraft:block/obsidian",
     "c": "minecraft:block/crying_obsidian",
-    "pearl": "slowlight:item/chorus_pearl",
+    "pearl": "slowlight:block/pearl_lantern_pearl",
+    "chain": "slowlight:block/pearl_chain",
     "particle": "minecraft:block/obsidian"
   },
   "elements": [
@@ -481,6 +482,11 @@
             12
           ]
         }
+      },
+      "shade": false,
+      "neoforge_data": {
+        "block_light": 15,
+        "sky_light": 15
       }
     }
   ]

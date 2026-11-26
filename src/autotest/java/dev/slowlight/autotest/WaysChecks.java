@@ -65,6 +65,8 @@ public final class WaysChecks {
             pairAndSend(level, player);
             pedestal(level, player);
             lanternAndCandle(level, player);
+            acrossDimensions(level, player);
+            AutomationChecks.start(level, player);
         } finally {
             player.setGameMode(mode);
             player.getInventory().clearOrCountMatchingItems(s -> BuiltInRegistries.ITEM.getKey(s.getItem())
@@ -94,6 +96,26 @@ public final class WaysChecks {
             ServerChecks.LOG.error("SLTEST FAIL ways.exception :: ways step threw", e);
             t = -1;
         }
+    }
+
+    /** Places and pairs two Waystones for the tick-cost field. */
+    static boolean pairForBench(ServerLevel level, ServerPlayer player, BlockPos a, BlockPos b) {
+        level.setBlock(a, SlowlightWays.WAYSTONE.get().defaultBlockState(), 3);
+        level.setBlock(b, SlowlightWays.WAYSTONE.get().defaultBlockState(), 3);
+        click(level, player, a, new ItemStack(SlowlightWays.TWIN_PEARL.get()), false);
+        ItemStack half = ItemStack.EMPTY;
+        for (ItemStack s : player.getInventory().items) {
+            if (s.is(SlowlightWays.HALF_PEARL.get())) {
+                half = s;
+            }
+        }
+        if (half.isEmpty()) {
+            return false;
+        }
+        click(level, player, b, half.copy(), false);
+        half.setCount(0);
+        return level.getBlockEntity(a) instanceof WaystoneBlockEntity wa && level.getBlockEntity(b) instanceof WaystoneBlockEntity wb
+                && wa.pair() != null && wa.pair().equals(wb.pair());
     }
 
     private static void click(ServerLevel level, ServerPlayer player, BlockPos pos, ItemStack stack, boolean sneak) {
@@ -162,6 +184,49 @@ public final class WaysChecks {
         // Bring the shipment's day forward so the twin collects it within the test.
         List<ItemStack> items = net.collect(a.pair(), b.here(), Long.MAX_VALUE);
         net.send(new WaystoneNetwork.Shipment(a.pair(), a.here(), items, now));
+    }
+
+    // SL42: a send across dimensions takes ACROSS_DAYS and the transit recipe turns the items on the way.
+    private static void acrossDimensions(ServerLevel level, ServerPlayer player) {
+        ServerLevel end = level.getServer().getLevel(Level.END);
+        if (end == null) {
+            check("ways.across_dimensions", false, "no End level");
+            return;
+        }
+        BlockPos here = new BlockPos(76, Y, 24);
+        BlockPos there = new BlockPos(40, 70, 0);
+        end.setChunkForced(there.getX() >> 4, there.getZ() >> 4, true);
+        level.setBlock(here, SlowlightWays.WAYSTONE.get().defaultBlockState(), 3);
+        end.setBlock(there, SlowlightWays.WAYSTONE.get().defaultBlockState(), 3);
+        WaystoneBlockEntity a = (WaystoneBlockEntity) level.getBlockEntity(here);
+        WaystoneBlockEntity b = (WaystoneBlockEntity) end.getBlockEntity(there);
+        WaystoneNetwork net = WaystoneNetwork.get(level.getServer());
+        java.util.UUID pair = java.util.UUID.randomUUID();
+        try {
+            a.setPair(pair);
+            b.setPair(pair);
+            net.join(pair, a.here());
+            net.join(pair, b.here());
+            player.getInventory().add(new ItemStack(SlowlightWays.CHORUS_PEARL.get()));
+            long now = WaystoneNetwork.now(level.getServer());
+            ItemStack glass = new ItemStack(Items.GLASS, 4);
+            click(level, player, here, glass, false);
+            var out = net.outgoing(pair, a.here());
+            boolean turned = out.isPresent() && out.get().items().size() == 1
+                    && BuiltInRegistries.ITEM.getKey(out.get().items().get(0).getItem()).toString().equals("slowlight:starglass")
+                    && out.get().items().get(0).getCount() == 4;
+            check("ways.across_dimensions", glass.isEmpty() && turned
+                            && out.get().arriveAt() == now + WaystoneBlock.ACROSS_DAYS * AgeingRecipe.TICKS_PER_DAY,
+                    "Overworld to End: 4 glass ships as " + out.map(WaystoneNetwork.Shipment::items)
+                            + ", due in " + out.map(o -> (o.arriveAt() - now) / AgeingRecipe.TICKS_PER_DAY) + " days");
+        } finally {
+            net.collect(pair, b.here(), Long.MAX_VALUE);
+            net.leave(pair, a.here());
+            net.leave(pair, b.here());
+            level.setBlock(here, Blocks.AIR.defaultBlockState(), 3);
+            end.setBlock(there, Blocks.AIR.defaultBlockState(), 3);
+            end.setChunkForced(there.getX() >> 4, there.getZ() >> 4, false);
+        }
     }
 
     private static int pearls(ServerPlayer player) {

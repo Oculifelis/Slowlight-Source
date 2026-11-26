@@ -20,7 +20,7 @@ import net.minecraft.world.level.block.state.properties.AttachFace;
 import net.minecraft.world.level.gameevent.GameEvent;
 
 /** A flower kept flat between boards for a few days. Which flower is in its pressed_from component; the client draws
- * it pressed flat (dev.slowlight.client.PressedFlowerRenderer). Used on the top of a block it is laid on the ground,
+ * it as a few loose petals tinted from that flower (dev.slowlight.client.FlowerColours#petalsTint). Used on the top of a block it is laid on the ground,
  * on a side it goes on the wall; used again on the same spot, up to four share the block, like Pink Petals. */
 public class PressedFlowerItem extends Item {
     public PressedFlowerItem(Properties properties) {

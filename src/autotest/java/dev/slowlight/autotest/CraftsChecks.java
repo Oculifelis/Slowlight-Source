@@ -16,7 +16,10 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.item.DoubleHighBlockItem;
 import net.minecraft.world.item.HoneycombItem;
+import net.minecraft.world.level.block.DoorBlock;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.block.state.properties.AttachFace;
@@ -57,6 +60,9 @@ public final class CraftsChecks {
     /** Then a second look, straight down at the flowers on the ground. */
     public static volatile boolean clientWantsGround;
     public static volatile boolean groundReady;
+    /** Then the weathered logs and signs. */
+    public static volatile boolean clientWantsStages;
+    public static volatile boolean stagesReady;
 
     private CraftsChecks() {
     }
@@ -80,6 +86,36 @@ public final class CraftsChecks {
                 "a honeycomb waxes each step, and waxed ones stay");
         check("weathering.planks_tag", block("silvered_gloamwood_planks").defaultBlockState().is(BlockTags.PLANKS),
                 "weathered planks are still #planks");
+        check("weathering.rest_of_set", WeatheringCopper.getNext(block("gloamwood_fence")).orElse(null) == block("faded_gloamwood_fence")
+                        && WeatheringCopper.getNext(block("weathered_gloamwood_planks_bricks_slab")).orElse(null)
+                                == block("silvered_gloamwood_planks_bricks_slab")
+                        && WeatheringCopper.getPrevious(block("faded_gloamwood_door")).orElse(null) == block("gloamwood_door")
+                        && HoneycombItem.getWaxed(block("silvered_gloamwood_trapdoor").defaultBlockState())
+                                .map(BlockState::getBlock).orElse(null) == block("waxed_silvered_gloamwood_trapdoor")
+                        && HoneycombItem.getWaxed(block("gloamwood_button").defaultBlockState())
+                                .map(BlockState::getBlock).orElse(null) == block("waxed_gloamwood_button")
+                        && WeatheringCopper.getNext(block("waxed_faded_gloamwood_pressure_plate")).isEmpty()
+                        && block("faded_gloamwood_planks_bricks").defaultBlockState().is(BlockTags.PLANKS)
+                        && block("weathered_gloamwood_fence_gate").defaultBlockState().is(BlockTags.FENCE_GATES),
+                "plank patterns, fence, gate, door, trapdoor, button and plate step, scrape and wax like the planks");
+        check("weathering.door_item", block("faded_gloamwood_door").asItem() instanceof DoubleHighBlockItem,
+                "the weathered door items place both halves");
+        // A honeycomb on a Faded door's lower half (sneaking) waxes both halves.
+        BlockPos doorAt = new BlockPos(84, Y, 12);
+        level.setBlock(doorAt.below(), Blocks.STONE.defaultBlockState(), 3);
+        BlockState door = block("faded_gloamwood_door").defaultBlockState();
+        level.setBlock(doorAt, door.setValue(DoorBlock.HALF, DoubleBlockHalf.LOWER), 3);
+        level.setBlock(doorAt.above(), door.setValue(DoorBlock.HALF, DoubleBlockHalf.UPPER), 3);
+        FakePlayer waxer = FakePlayerFactory.getMinecraft(level);
+        ItemStack comb = new ItemStack(Items.HONEYCOMB);
+        waxer.setItemInHand(InteractionHand.MAIN_HAND, comb);
+        waxer.setShiftKeyDown(true); // a plain click opens a door, as with copper ones
+        waxer.gameMode.useItemOn(waxer, level, comb, InteractionHand.MAIN_HAND,
+                new BlockHitResult(Vec3.atCenterOf(doorAt), Direction.NORTH, doorAt, false));
+        check("weathering.door_halves", level.getBlockState(doorAt).getBlock() == block("waxed_faded_gloamwood_door")
+                        && level.getBlockState(doorAt.above()).getBlock() == block("waxed_faded_gloamwood_door"),
+                "a honeycomb on a Faded door's lower half: lower " + BuiltInRegistries.BLOCK.getKey(level.getBlockState(doorAt).getBlock())
+                        + ", upper " + BuiltInRegistries.BLOCK.getKey(level.getBlockState(doorAt.above()).getBlock()));
 
         // One plank in the open, one shut in stone: give each a few hundred random ticks.
         level.setBlock(OUT, planks.defaultBlockState(), 3);
@@ -101,12 +137,103 @@ public final class CraftsChecks {
                 "2000 random ticks in the open: now " + BuiltInRegistries.BLOCK.getKey(level.getBlockState(OUT).getBlock()));
         check("weathering.indoors_keeps", level.getBlockState(IN).getBlock() == planks,
                 "2000 random ticks shut in stone: still " + BuiltInRegistries.BLOCK.getKey(level.getBlockState(IN).getBlock()));
+        // A fence in the same open spot ages too: the rest of the set ticks as the planks do.
+        Block fence = block("gloamwood_fence");
+        level.setBlock(OUT, fence.defaultBlockState(), 3);
+        for (int i = 0; i < 2000; i++) {
+            BlockState s = level.getBlockState(OUT);
+            if (s.isRandomlyTicking()) {
+                s.randomTick(level, OUT, level.random);
+            }
+        }
+        check("weathering.fence_outdoors", level.getBlockState(OUT).getBlock() != fence,
+                "2000 random ticks in the open: now " + BuiltInRegistries.BLOCK.getKey(level.getBlockState(OUT).getBlock()));
+
+        // Logs, wood and signs weather too (SL72).
+        check("weathering.logs", WeatheringCopper.getNext(block("gloamwood_log")).orElse(null) == block("faded_gloamwood_log")
+                        && WeatheringCopper.getNext(block("weathered_stripped_gloamwood_wood")).orElse(null)
+                                == block("silvered_stripped_gloamwood_wood")
+                        && WeatheringCopper.getPrevious(block("faded_gloamwood_wood")).orElse(null) == block("gloamwood_wood")
+                        && HoneycombItem.getWaxed(block("faded_gloamwood_log").defaultBlockState())
+                                .map(BlockState::getBlock).orElse(null) == block("waxed_faded_gloamwood_log")
+                        && WeatheringCopper.getNext(block("waxed_faded_gloamwood_log")).isEmpty()
+                        && block("silvered_gloamwood_log").defaultBlockState().is(BlockTags.LOGS)
+                        && block("waxed_silvered_stripped_gloamwood_log").defaultBlockState().is(BlockTags.LOGS_THAT_BURN)
+                        && WeatheringCopper.getNext(block("gloamwood_hanging_sign")).orElse(null) == block("faded_gloamwood_hanging_sign")
+                        && WeatheringCopper.getNext(block("weathered_gloamwood_wall_sign")).orElse(null) == block("silvered_gloamwood_wall_sign"),
+                "logs, wood, stripped ones and signs step, wax and stay #logs");
+        // An axe strips a Faded log to a Faded stripped log, and then scrapes that back a step.
+        BlockPos logAt = new BlockPos(86, Y, 12);
+        FakePlayer axer = FakePlayerFactory.getMinecraft(level);
+        axer.setShiftKeyDown(false);
+        ItemStack axe = new ItemStack(Items.IRON_AXE);
+        axer.setItemInHand(InteractionHand.MAIN_HAND, axe);
+        BlockHitResult logHit = new BlockHitResult(Vec3.atCenterOf(logAt), Direction.UP, logAt, false);
+        level.setBlock(logAt, block("faded_gloamwood_log").defaultBlockState()
+                .setValue(net.minecraft.world.level.block.RotatedPillarBlock.AXIS, Direction.Axis.X), 3);
+        axer.gameMode.useItemOn(axer, level, axe, InteractionHand.MAIN_HAND, logHit);
+        BlockState stripped = level.getBlockState(logAt);
+        axer.gameMode.useItemOn(axer, level, axe, InteractionHand.MAIN_HAND, logHit);
+        BlockState scraped = level.getBlockState(logAt);
+        level.setBlock(logAt, block("waxed_faded_gloamwood_log").defaultBlockState(), 3);
+        axer.gameMode.useItemOn(axer, level, axe, InteractionHand.MAIN_HAND, logHit);
+        BlockState waxedStripped = level.getBlockState(logAt);
+        check("weathering.log_axe", stripped.getBlock() == block("faded_stripped_gloamwood_log")
+                        && stripped.getValue(net.minecraft.world.level.block.RotatedPillarBlock.AXIS) == Direction.Axis.X
+                        && scraped.getBlock() == block("stripped_gloamwood_log")
+                        && waxedStripped.getBlock() == block("waxed_faded_stripped_gloamwood_log"),
+                "axe on a Faded log: " + BuiltInRegistries.BLOCK.getKey(stripped.getBlock()) + ", then "
+                        + BuiltInRegistries.BLOCK.getKey(scraped.getBlock()) + "; on a waxed one: "
+                        + BuiltInRegistries.BLOCK.getKey(waxedStripped.getBlock()));
+        // A sign in the open ages and keeps its writing (a plain one, since the plain planks shut in at IN hold back older stages); a waxed one does not age; an axe takes the wax, then a step.
+        BlockPos waxedAt = new BlockPos(88, Y, 12);
+        for (BlockPos p : new BlockPos[]{OUT, waxedAt}) {
+            level.setBlock(p.below(), Blocks.STONE.defaultBlockState(), 3);
+        }
+        level.setBlock(OUT, block("gloamwood_sign").defaultBlockState(), 3);
+        level.setBlock(waxedAt, block("weathered_gloamwood_sign").defaultBlockState(), 3);
+        for (BlockPos p : new BlockPos[]{OUT, waxedAt}) {
+            if (level.getBlockEntity(p) instanceof net.minecraft.world.level.block.entity.SignBlockEntity sign) {
+                sign.setText(new net.minecraft.world.level.block.entity.SignText()
+                        .setMessage(0, net.minecraft.network.chat.Component.literal("Slowlight")), true);
+                sign.setWaxed(p == waxedAt);
+            }
+        }
+        for (int i = 0; i < 2000; i++) {
+            for (BlockPos p : new BlockPos[]{OUT, waxedAt}) {
+                BlockState s = level.getBlockState(p);
+                if (s.isRandomlyTicking()) {
+                    s.randomTick(level, p, level.random);
+                }
+            }
+        }
+        String text = level.getBlockEntity(OUT) instanceof net.minecraft.world.level.block.entity.SignBlockEntity sign
+                ? sign.getFrontText().getMessage(0, false).getString() : "(no sign)";
+        check("weathering.sign_ages", level.getBlockState(OUT).getBlock() != block("gloamwood_sign") && text.equals("Slowlight"),
+                "2000 random ticks in the open: now " + BuiltInRegistries.BLOCK.getKey(level.getBlockState(OUT).getBlock())
+                        + ", reading '" + text + "'");
+        check("weathering.sign_wax_keeps", level.getBlockState(waxedAt).getBlock() == block("weathered_gloamwood_sign"),
+                "a waxed sign after 2000 random ticks: " + BuiltInRegistries.BLOCK.getKey(level.getBlockState(waxedAt).getBlock()));
+        BlockHitResult signHit = new BlockHitResult(Vec3.atCenterOf(waxedAt), Direction.SOUTH, waxedAt, false);
+        axer.gameMode.useItemOn(axer, level, axe, InteractionHand.MAIN_HAND, signHit);
+        boolean waxOff = level.getBlockEntity(waxedAt) instanceof net.minecraft.world.level.block.entity.SignBlockEntity s1
+                && !s1.isWaxed() && level.getBlockState(waxedAt).getBlock() == block("weathered_gloamwood_sign");
+        axer.gameMode.useItemOn(axer, level, axe, InteractionHand.MAIN_HAND, signHit);
+        String after = level.getBlockEntity(waxedAt) instanceof net.minecraft.world.level.block.entity.SignBlockEntity s2
+                ? s2.getFrontText().getMessage(0, false).getString() : "(no sign)";
+        check("weathering.sign_axe", waxOff && level.getBlockState(waxedAt).getBlock() == block("faded_gloamwood_sign")
+                        && after.equals("Slowlight"),
+                "axe on a waxed Weathered sign: wax off " + waxOff + ", then "
+                        + BuiltInRegistries.BLOCK.getKey(level.getBlockState(waxedAt).getBlock()) + " reading '" + after + "'");
 
         // The press: a poppy goes in, dirt does not; then three days are skipped.
         level.setBlock(PRESS, SlowlightCrafts.FLOWER_PRESS.get().defaultBlockState(), 3);
         FlowerPressBlockEntity press = (FlowerPressBlockEntity) level.getBlockEntity(PRESS);
         check("press.only_flowers", !press.insert(new ItemStack(Items.DIRT)) && press.insert(new ItemStack(Items.POPPY)),
                 "#slowlight:pressable takes a poppy and not dirt");
+        // The autotest pack adds fern to #slowlight:pressable; the shipped tag doesn't list it.
+        check("press.tag_from_pack", new ItemStack(Items.FERN).is(SlowlightCrafts.PRESSABLE),
+                "a pack's entry in #slowlight:pressable is accepted (fern)");
         CompoundTag tag = press.saveWithoutMetadata(level.registryAccess());
         tag.putLong("Since", level.getGameTime() - 3 * DAY - 1);
         press.loadWithComponents(tag, level.registryAccess());
@@ -215,6 +342,10 @@ public final class CraftsChecks {
             }
             groundReady = true;
         }
+        if (clientWantsStages) {
+            clientWantsStages = false;
+            buildStages(event.getServer().overworld());
+        }
         if (t < 0 || ++t != 45) {
             return;
         }
@@ -292,5 +423,53 @@ public final class CraftsChecks {
             p.connection.teleport(63.5, Y + 1, z + 5.0, 180F, 36F);
         }
         viewReady = true;
+    }
+
+    /** The weathered logs and signs, by daylight: one column per step (log, stripped log, stripped wood, wood), a wall
+     * sign and a wall hanging sign on each, a standing sign and a hanging sign in front. */
+    private static void buildStages(ServerLevel level) {
+        String[] pre = {"", "faded_", "weathered_", "silvered_"};
+        String[] word = {"Gloamwood", "Faded", "Weathered", "Silvered"};
+        int z = 44;
+        for (int x = 54; x <= 72; x++) {
+            for (int dz = -2; dz <= 8; dz++) {
+                level.setBlock(new BlockPos(x, Y - 1, z + dz), Blocks.GRASS_BLOCK.defaultBlockState(), 3);
+                for (int y = Y; y <= Y + 5; y++) {
+                    level.setBlock(new BlockPos(x, y, z + dz), Blocks.AIR.defaultBlockState(), 3);
+                }
+            }
+        }
+        for (int i = 0; i < 4; i++) {
+            int x = 57 + i * 3;
+            String[] column = {"gloamwood_wood", "gloamwood_log", "stripped_gloamwood_log", "stripped_gloamwood_wood"};
+            for (int j = 0; j < column.length; j++) {
+                level.setBlock(new BlockPos(x, Y + j, z), block(pre[i] + column[j]).defaultBlockState(), 3);
+            }
+            level.setBlock(new BlockPos(x + 1, Y, z), block(pre[i] + "stripped_gloamwood_log").defaultBlockState()
+                    .setValue(net.minecraft.world.level.block.RotatedPillarBlock.AXIS, Direction.Axis.Z), 3);
+            BlockPos wall = new BlockPos(x, Y + 1, z + 1);
+            level.setBlock(wall, block(pre[i] + "gloamwood_wall_sign").defaultBlockState()
+                    .setValue(net.minecraft.world.level.block.WallSignBlock.FACING, Direction.SOUTH), 3);
+            BlockPos hangWall = new BlockPos(x + 1, Y + 3, z);
+            level.setBlock(hangWall, block(pre[i] + "gloamwood_wall_hanging_sign").defaultBlockState()
+                    .setValue(net.minecraft.world.level.block.WallHangingSignBlock.FACING, Direction.SOUTH), 3);
+            BlockPos stand = new BlockPos(x, Y, z + 3);
+            level.setBlock(stand, block(pre[i] + "gloamwood_sign").defaultBlockState(), 3);
+            BlockPos beam = new BlockPos(x + 1, Y + 3, z + 3);
+            level.setBlock(beam, block(pre[i] + "stripped_gloamwood_log").defaultBlockState()
+                    .setValue(net.minecraft.world.level.block.RotatedPillarBlock.AXIS, Direction.Axis.X), 3);
+            BlockPos hang = new BlockPos(x + 1, Y + 2, z + 3);
+            level.setBlock(hang, block(pre[i] + "gloamwood_hanging_sign").defaultBlockState(), 3);
+            for (BlockPos p : new BlockPos[]{wall, hangWall, stand, hang}) {
+                if (level.getBlockEntity(p) instanceof net.minecraft.world.level.block.entity.SignBlockEntity sign) {
+                    sign.setText(new net.minecraft.world.level.block.entity.SignText()
+                            .setMessage(1, net.minecraft.network.chat.Component.literal(word[i])), true);
+                }
+            }
+        }
+        for (var p : level.getServer().getPlayerList().getPlayers()) {
+            p.connection.teleport(62.5, Y + 1.5, z + 9.5, 180F, 12F);
+        }
+        stagesReady = true;
     }
 }

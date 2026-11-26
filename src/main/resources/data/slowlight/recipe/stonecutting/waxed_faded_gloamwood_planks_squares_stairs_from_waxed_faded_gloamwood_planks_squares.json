@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "slowlight:waxed_faded_gloamwood_planks_squares"
+  },
+  "result": {
+    "id": "slowlight:waxed_faded_gloamwood_planks_squares_stairs",
+    "count": 1
+  }
+}

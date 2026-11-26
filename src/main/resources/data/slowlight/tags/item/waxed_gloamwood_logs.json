@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "slowlight:waxed_gloamwood_log",
+    "slowlight:waxed_gloamwood_wood",
+    "slowlight:waxed_stripped_gloamwood_log",
+    "slowlight:waxed_stripped_gloamwood_wood"
+  ]
+}

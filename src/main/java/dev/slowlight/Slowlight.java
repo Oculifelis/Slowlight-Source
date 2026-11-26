@@ -1,5 +1,6 @@
 package dev.slowlight;
 
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
@@ -20,6 +21,8 @@ public class Slowlight {
         SlowlightCrafts.init();
         SlowlightWays.init();
         SlowlightNights.init();
+        SlowlightLockers.init();
+        SlowlightFireflies.init();
         SlowlightBlocks.BLOCKS.register(modBus);
         SlowlightItems.ITEMS.register(modBus);
         SlowlightCrafts.COMPONENTS.register(modBus);
@@ -29,9 +32,12 @@ public class Slowlight {
         SlowlightRecipes.RECIPE_TYPES.register(modBus);
         SlowlightRecipes.RECIPE_SERIALIZERS.register(modBus);
         SlowlightItems.TABS.register(modBus);
+        SlowlightLockers.MENUS.register(modBus);
+        modBus.addListener(SlowlightLockers::registerDataMaps);
         SlowlightWays.PARTICLES.register(modBus);
         SlowlightNights.STATS.register(modBus);
         net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(dev.slowlight.item.UnfallingFeatherItem::tick);
+        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener(dev.slowlight.block.WaystoneBlock::nameTag);
         // branch rest
         SlowlightVillagers.POI_TYPES.register(modBus);
         SlowlightVillagers.PROFESSIONS.register(modBus);
@@ -76,6 +82,14 @@ public class Slowlight {
                 (be, side) -> side == null ? new net.neoforged.neoforge.items.wrapper.InvWrapper(be)
                         : new net.neoforged.neoforge.items.wrapper.SidedInvWrapper(be, side)
         );
+        // Every station takes from above and the sides and gives from below.
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, SlowlightWays.WAYSTONE_BE.get(),
+                (be, side) -> be.itemHandler(side));
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, SlowlightWays.DISPLAY_PEDESTAL_BE.get(),
+                (be, side) -> be.itemHandler(side));
+        // A locked locker lets nothing in or out.
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, SlowlightLockers.LOCKER_BE.get(),
+                (be, side) -> be.itemHandler());
     }
 
     /** Gloamwood's signs are vanilla signs; the vanilla sign block entities only have to be told they may sit in them. */
@@ -83,5 +97,7 @@ public class Slowlight {
         event.modify(BlockEntityType.SIGN, SlowlightBlocks.GLOAMWOOD_SIGN.get(), SlowlightBlocks.GLOAMWOOD_WALL_SIGN.get());
         event.modify(BlockEntityType.HANGING_SIGN, SlowlightBlocks.GLOAMWOOD_HANGING_SIGN.get(),
                 SlowlightBlocks.GLOAMWOOD_WALL_HANGING_SIGN.get());
+        event.modify(BlockEntityType.SIGN, SlowlightWeathering.SIGNS.stream().map(b -> b.get()).toArray(Block[]::new));
+        event.modify(BlockEntityType.HANGING_SIGN, SlowlightWeathering.HANGING_SIGNS.stream().map(b -> b.get()).toArray(Block[]::new));
     }
 }

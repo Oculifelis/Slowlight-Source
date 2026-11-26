@@ -1,0 +1,28 @@
+{
+  "name": "Waystones",
+  "icon": "slowlight:waystone",
+  "category": "slowlight:waiting",
+  "sortnum": 8,
+  "pages": [
+    {
+      "type": "patchouli:crafting",
+      "recipe": "slowlight:waystone",
+      "text": "A slow post. A stack put in one stone turns up at its pair a day later, or three days later in another dimension."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Leave two $(item)Chorus Pearls$() lying on the ground together and in about a minute they fuse into a $(item)Twin Pearl$(). Set it in a Waystone: the stone keeps one half and hands you the other. Set that $(item)Half Pearl$() in a second Waystone and the two are paired.$(br2)Break one stone of a pair and it drops a Half Pearl that still points to the other.$(br2)Sneak and use a renamed $(item)Name Tag$() on a stone to give it that name.",
+      "title": "Pairing"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Each shipment burns one Chorus Pearl and carries one stack. A pair has room for one shipment at a time; use the stone to see when it arrives.$(br2)Some things change on the way. Glass sent from the Overworld to the End arrives as $(item)Starglass$(). Stained glass sent into the Nether comes out as $(item)mosaic glass$(). Stone bricks sent from the End to the Overworld arrive as $(item)Hollowstone$().",
+      "title": "Sending"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "A feather sent out of the End becomes an $(item)Unfalling Feather$(): carry it, or wear it as a charm with Curios, and you drift down instead of falling. Sneak to drop normally.$(br2)An apple sent from the End to the Overworld becomes a $(item)Wandering Apple$(), which lifts you up to open sky when you eat it.$(br2)A candle sent from the Nether to the End becomes a $(item)Starwick Candle$().",
+      "title": "Changed on the Way"
+    }
+  ]
+}

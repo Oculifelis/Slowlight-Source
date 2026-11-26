@@ -1,0 +1,22 @@
+{
+  "trader": "slowlight:potter",
+  "level": 4,
+  "wants": {
+    "id": "minecraft:emerald",
+    "count": 6
+  },
+  "gives": {
+    "one_of": [
+      "minecraft:arms_up_pottery_sherd",
+      "minecraft:brewer_pottery_sherd",
+      "minecraft:heart_pottery_sherd",
+      "minecraft:howl_pottery_sherd",
+      "minecraft:sheaf_pottery_sherd",
+      "minecraft:friend_pottery_sherd"
+    ],
+    "count": 1
+  },
+  "max_uses": 4,
+  "xp": 15,
+  "price_multiplier": 0.05
+}

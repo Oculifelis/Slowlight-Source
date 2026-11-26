@@ -1,0 +1,19 @@
+{
+  "trader": "slowlight:potter",
+  "level": 5,
+  "wants": {
+    "id": "minecraft:emerald",
+    "count": 24
+  },
+  "wants_also": {
+    "id": "slowlight:slowlight_shard",
+    "count": 1
+  },
+  "gives": {
+    "id": "slowlight:patience_armor_trim_smithing_template",
+    "count": 1
+  },
+  "max_uses": 2,
+  "xp": 30,
+  "price_multiplier": 0.05
+}

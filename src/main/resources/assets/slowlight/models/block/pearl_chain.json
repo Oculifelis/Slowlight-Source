@@ -1,5 +1,6 @@
 {
   "parent": "minecraft:block/chain",
+  "render_type": "minecraft:cutout",
   "textures": {
     "all": "slowlight:block/pearl_chain",
     "particle": "slowlight:block/pearl_chain"

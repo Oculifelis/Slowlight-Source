@@ -7,6 +7,9 @@ import net.minecraft.advancements.AdvancementHolder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
+import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
@@ -31,6 +34,8 @@ public class SandglassBlockEntity extends BlockEntity {
     private long startedAt = -1L;
     /** Client only: game time the renderer first saw this turn, so the tumble starts from wherever it is seen. */
     public long turnSeenAt = -1L;
+    /** Client only: game time the turn was seen to end, while the landed glass is still drawn by the renderer. */
+    public long landedAt = -1L;
 
     public SandglassBlockEntity(BlockPos pos, BlockState state) {
         super(SlowlightBlockEntities.SANDGLASS.get(), pos, state);
@@ -38,6 +43,25 @@ public class SandglassBlockEntity extends BlockEntity {
 
     public int days() {
         return days;
+    }
+
+    /**
+     * Client side, for the renderer: how much of this turn's sand is still on top, from 1 just turned to 0 run out,
+     * read from the clock every frame so the sand sinks a hair at a time (the reviewer 2026-11-16). Where days cannot be
+     * kept it follows the tumbling SAND state instead. -1 when the glass is idle.
+     */
+    public float sandOnTop(float partialTick) {
+        if (level == null) {
+            return -1.0F;
+        }
+        if (!canTell(level)) {
+            return getBlockState().getValue(SandglassBlock.SAND) / 7.0F;
+        }
+        if (days <= 0 || startedAt < 0L) {
+            return -1.0F;
+        }
+        double elapsed = level.getGameTime() - startedAt + (double) partialTick;
+        return (float) Math.max(0.0D, Math.min(1.0D, 1.0D - elapsed / total()));
     }
 
     private long total() {
@@ -49,6 +73,7 @@ public class SandglassBlockEntity extends BlockEntity {
         days = days >= MAX_DAYS ? 1 : days + 1;
         startedAt = level.getGameTime();
         setChanged();
+        level.sendBlockUpdated(pos, state, state, 3);
         level.setBlock(pos, state.setValue(SandglassBlock.SAND, 7).setValue(SandglassBlock.RUNNING, true)
                 .setValue(SandglassBlock.TURNING, canTell(level)), 3);
         if (canTell(level)) {
@@ -131,6 +156,7 @@ public class SandglassBlockEntity extends BlockEntity {
         // Keep the beat steady when it is only a tick or two late; after an unloaded stretch start afresh from now.
         startedAt = now - startedAt < total() * 2L ? startedAt + total() : now;
         setChanged();
+        level.sendBlockUpdated(pos, state, state, 3);
         level.setBlock(pos, state.setValue(SandglassBlock.SAND, 7).setValue(SandglassBlock.RUNNING, true)
                 .setValue(SandglassBlock.POWERED, true).setValue(SandglassBlock.TURNING, true), 3);
         level.scheduleTick(pos, state.getBlock(), SandglassBlock.PULSE_TICKS);
@@ -144,6 +170,19 @@ public class SandglassBlockEntity extends BlockEntity {
                 }
             }
         }
+    }
+
+    @Override
+    public CompoundTag getUpdateTag(HolderLookup.Provider registries) {
+        CompoundTag tag = super.getUpdateTag(registries);
+        tag.putInt("Days", days);
+        tag.putLong("StartedAt", startedAt);
+        return tag;
+    }
+
+    @Override
+    public Packet<ClientGamePacketListener> getUpdatePacket() {
+        return ClientboundBlockEntityDataPacket.create(this);
     }
 
     @Override

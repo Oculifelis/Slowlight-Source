@@ -38,6 +38,11 @@ configurations {
 // mod loses that one integration rather than failing to build at all.
 def jadeJar = file("libs/${jade_file}")
 def hasJade = jadeJar.exists()
+// -Pbare runs dev with Slowlight alone: no JEI, Patchouli, Jade, KubeJS or Aerial Hell at runtime (they still compile).
+def bare = project.hasProperty('bare')
+if (bare) {
+    logger.lifecycle("Slowlight: bare run, no optional mods at runtime.")
+}
 if (!hasJade) {
     logger.lifecycle("Slowlight: libs/${jade_file} not found, building without the Jade integration.")
     sourceSets.main.java.exclude '**/compat/SlowlightJadePlugin.java'
@@ -47,15 +52,17 @@ dependencies {
     // Both integrations are optional and compiled against APIs only, so the mod runs with neither.
     compileOnly "mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"
     compileOnly "mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}"
-    localRuntime "mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}"
-    // The guide book is data only (patchouli_books/), so Patchouli is needed at runtime in dev to test it, never to build.
-    localRuntime "vazkii.patchouli:Patchouli:${patchouli_version}"
     if (hasJade) {
         compileOnly files(jadeJar)
     }
+    if (!bare) {
+    localRuntime "mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}"
+    // The guide book is data only (patchouli_books/), so Patchouli is needed at runtime in dev to test it, never to build.
+    localRuntime "vazkii.patchouli:Patchouli:${patchouli_version}"
     // KubeJS and Rhino, when their jars are in libs/ (taken from an instance, not committed), run in dev so the
     // autotest can check the script route: src/autotest/kubejs/ is copied into run/kubejs/ by run_client_test.sh.
     localRuntime fileTree('libs') { include 'kubejs-*.jar', 'rhino-*.jar', 'aerialhell-*.jar' }
+    }
 }
 
 // The automated play-test: a second mod, loaded only by `runClient -Pautotest=1` (tools/run_client_test.sh).
@@ -106,7 +113,7 @@ neoForge.addModdingDependenciesTo(sourceSets.autotest)
 dependencies {
     autotestCompileOnly "mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"
     autotestCompileOnly "mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}"
-    if (hasJade) {
+    if (hasJade && !bare) {
         localRuntime files(jadeJar)
     }
 }

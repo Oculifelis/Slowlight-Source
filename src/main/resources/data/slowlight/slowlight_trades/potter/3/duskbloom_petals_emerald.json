@@ -1,0 +1,15 @@
+{
+  "trader": "slowlight:potter",
+  "level": 3,
+  "wants": {
+    "id": "slowlight:duskbloom_petals",
+    "count": 8
+  },
+  "gives": {
+    "id": "minecraft:emerald",
+    "count": 1
+  },
+  "max_uses": 12,
+  "xp": 20,
+  "price_multiplier": 0.05
+}

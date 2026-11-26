@@ -8,26 +8,20 @@ import dev.slowlight.block.SandglassBlock;
 import dev.slowlight.block.SundialBlock;
 import dev.slowlight.block.GloamwoodSaplingBlock;
 import dev.slowlight.block.LanternfruitBlock;
-import dev.slowlight.block.StrippableLogBlock;
 import dev.slowlight.block.LongKilnBlock;
 import dev.slowlight.block.PatientKilnBlock;
 import dev.slowlight.block.SlowlightLanternBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.ButtonBlock;
-import net.minecraft.world.level.block.CeilingHangingSignBlock;
 import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.FenceBlock;
 import net.minecraft.world.level.block.FenceGateBlock;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.PressurePlateBlock;
-import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.StairBlock;
-import net.minecraft.world.level.block.StandingSignBlock;
 import net.minecraft.world.level.block.TrapDoorBlock;
-import net.minecraft.world.level.block.WallHangingSignBlock;
-import net.minecraft.world.level.block.WallSignBlock;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.WeatheringCopper;
 import net.minecraft.world.level.block.SoundType;
@@ -115,16 +109,17 @@ public final class SlowlightBlocks {
     private static final MapColor WOOD = MapColor.TERRACOTTA_LIGHT_BLUE;
 
     public static final DeferredBlock<Block> STRIPPED_GLOAMWOOD_LOG = BLOCKS.register("stripped_gloamwood_log",
-            () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_LOG).mapColor(WOOD)));
+            () -> new GloamWeathering.Log(WeatheringCopper.WeatherState.UNAFFECTED, null, BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_LOG).mapColor(WOOD)));
     public static final DeferredBlock<Block> STRIPPED_GLOAMWOOD_WOOD = BLOCKS.register("stripped_gloamwood_wood",
-            () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_WOOD).mapColor(WOOD)));
+            () -> new GloamWeathering.Log(WeatheringCopper.WeatherState.UNAFFECTED, null, BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_WOOD).mapColor(WOOD)));
     public static final DeferredBlock<Block> GLOAMWOOD_LOG = BLOCKS.register("gloamwood_log",
-            () -> new StrippableLogBlock(STRIPPED_GLOAMWOOD_LOG,
+            () -> new GloamWeathering.Log(WeatheringCopper.WeatherState.UNAFFECTED, STRIPPED_GLOAMWOOD_LOG,
                     BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG).mapColor(state -> BARK)));
     public static final DeferredBlock<Block> GLOAMWOOD_WOOD = BLOCKS.register("gloamwood_wood",
-            () -> new StrippableLogBlock(STRIPPED_GLOAMWOOD_WOOD,
+            () -> new GloamWeathering.Log(WeatheringCopper.WeatherState.UNAFFECTED, STRIPPED_GLOAMWOOD_WOOD,
                     BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD).mapColor(BARK)));
-    // The first of the weathering steps (SlowlightWeathering has the rest): out in the open they silver like copper.
+    // From the logs down these are the first of the weathering steps (SlowlightWeathering has the rest): out in the
+    // open they silver like copper.
     public static final DeferredBlock<Block> GLOAMWOOD_PLANKS = BLOCKS.register("gloamwood_planks",
             () -> new GloamWeathering.Planks(WeatheringCopper.WeatherState.UNAFFECTED,
                     BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS).mapColor(WOOD)));
@@ -135,29 +130,29 @@ public final class SlowlightBlocks {
             () -> new GloamWeathering.Slab(WeatheringCopper.WeatherState.UNAFFECTED,
                     BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SLAB).mapColor(WOOD)));
     public static final DeferredBlock<Block> GLOAMWOOD_FENCE = BLOCKS.register("gloamwood_fence",
-            () -> new FenceBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_FENCE).mapColor(WOOD)));
+            () -> new GloamWeathering.Fence(WeatheringCopper.WeatherState.UNAFFECTED, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_FENCE).mapColor(WOOD)));
     public static final DeferredBlock<Block> GLOAMWOOD_FENCE_GATE = BLOCKS.register("gloamwood_fence_gate",
-            () -> new FenceGateBlock(Gloamwood.WOOD, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_FENCE_GATE).mapColor(WOOD)));
+            () -> new GloamWeathering.Gate(WeatheringCopper.WeatherState.UNAFFECTED, Gloamwood.WOOD, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_FENCE_GATE).mapColor(WOOD)));
     public static final DeferredBlock<Block> GLOAMWOOD_DOOR = BLOCKS.register("gloamwood_door",
-            () -> new DoorBlock(Gloamwood.SET, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_DOOR).mapColor(WOOD)));
+            () -> new GloamWeathering.Door(WeatheringCopper.WeatherState.UNAFFECTED, Gloamwood.SET, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_DOOR).mapColor(WOOD)));
     public static final DeferredBlock<Block> GLOAMWOOD_TRAPDOOR = BLOCKS.register("gloamwood_trapdoor",
-            () -> new TrapDoorBlock(Gloamwood.SET, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_TRAPDOOR).mapColor(WOOD)));
+            () -> new GloamWeathering.TrapDoor(WeatheringCopper.WeatherState.UNAFFECTED, Gloamwood.SET, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_TRAPDOOR).mapColor(WOOD)));
     // 1 tick held: a 1-tick redstone pulse, and it takes the next click straight away (oak holds 30).
     public static final DeferredBlock<Block> GLOAMWOOD_BUTTON = BLOCKS.register("gloamwood_button",
-            () -> new ButtonBlock(Gloamwood.SET, 1, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_BUTTON)));
+            () -> new GloamWeathering.Button(WeatheringCopper.WeatherState.UNAFFECTED, Gloamwood.SET, 1, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_BUTTON)));
     public static final DeferredBlock<Block> GLOAMWOOD_PRESSURE_PLATE = BLOCKS.register("gloamwood_pressure_plate",
-            () -> new PressurePlateBlock(Gloamwood.SET,
+            () -> new GloamWeathering.Plate(WeatheringCopper.WeatherState.UNAFFECTED, Gloamwood.SET,
                     BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PRESSURE_PLATE).mapColor(WOOD)));
     public static final DeferredBlock<Block> GLOAMWOOD_SIGN = BLOCKS.register("gloamwood_sign",
-            () -> new StandingSignBlock(Gloamwood.WOOD, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SIGN).mapColor(WOOD)));
+            () -> new GloamWeathering.Sign(WeatheringCopper.WeatherState.UNAFFECTED, Gloamwood.WOOD, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SIGN).mapColor(WOOD)));
     public static final DeferredBlock<Block> GLOAMWOOD_WALL_SIGN = BLOCKS.register("gloamwood_wall_sign",
-            () -> new WallSignBlock(Gloamwood.WOOD, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WALL_SIGN).mapColor(WOOD)
+            () -> new GloamWeathering.WallSign(WeatheringCopper.WeatherState.UNAFFECTED, Gloamwood.WOOD, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WALL_SIGN).mapColor(WOOD)
                     .dropsLike(GLOAMWOOD_SIGN.get())));
     public static final DeferredBlock<Block> GLOAMWOOD_HANGING_SIGN = BLOCKS.register("gloamwood_hanging_sign",
-            () -> new CeilingHangingSignBlock(Gloamwood.WOOD,
+            () -> new GloamWeathering.HangingSign(WeatheringCopper.WeatherState.UNAFFECTED, Gloamwood.WOOD,
                     BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_HANGING_SIGN).mapColor(WOOD)));
     public static final DeferredBlock<Block> GLOAMWOOD_WALL_HANGING_SIGN = BLOCKS.register("gloamwood_wall_hanging_sign",
-            () -> new WallHangingSignBlock(Gloamwood.WOOD,
+            () -> new GloamWeathering.WallHangingSign(WeatheringCopper.WeatherState.UNAFFECTED, Gloamwood.WOOD,
                     BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WALL_HANGING_SIGN).mapColor(WOOD)
                     .dropsLike(GLOAMWOOD_HANGING_SIGN.get())));
     public static final DeferredBlock<Block> GLOAMWOOD_LEAVES = BLOCKS.register("gloamwood_leaves",

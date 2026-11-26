@@ -1,0 +1,32 @@
+{
+  "name": "Gloamwood and Lanternfruit",
+  "icon": "slowlight:gloamwood_sapling",
+  "category": "slowlight:night",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "A blue-grey tree with a full set of wood. Sniffers dig up its saplings, and $(item)Lanternfruit Seeds$() left a week in a kiln grow into one.$(br2)$(item)Lanternfruit$() hangs under the leaves and glows from within when ripe. After dark, moths come to it."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "slowlight:gloamwood_planks",
+      "text": "Gloamwood planks, stairs and slabs left under open sky fade, then weather, then turn silver, a patch at a time, the way copper does."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Honeycomb waxes them where they stand, and an axe scrapes them back.$(br2)The stonecutter cuts the planks into nineteen patterns, each with stairs and slabs.",
+      "title": "Weathering"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "slowlight:lanternfruit_must",
+      "text": "Two fruit, sugar and a glass bottle. Five days in a kiln turns the must into $(item)Lanternwine$(), or three in a dark cellar."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "slowlight:lanternfruit_lamp",
+      "text": "Crafting with Lanternfruit leaves the peel behind. Four peels around a torch make a lamp. Three days in a kiln candies the fruit."
+    }
+  ]
+}

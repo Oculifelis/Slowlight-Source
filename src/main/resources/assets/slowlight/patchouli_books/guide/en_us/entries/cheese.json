@@ -1,0 +1,17 @@
+{
+  "name": "Cheese and Cured Foods",
+  "icon": "slowlight:cheese_wheel",
+  "category": "slowlight:kilns",
+  "sortnum": 5,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "A bucket of milk left seven days in a kiln, somewhere dark, comes out a $(item)Cheese Wheel$(). The days only count while no light reaches it.$(br2)Place the wheel and eat it a wedge at a time."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Cooked cod and salmon cure in three days and keep you fed longer than fresh fish.$(br2)With other mods installed there is more to cure: hydra chops, gwiblings, dweller steaks, phantom and turtle meat. JEI shows every recipe and its days.",
+      "title": "Cured Foods"
+    }
+  ]
+}

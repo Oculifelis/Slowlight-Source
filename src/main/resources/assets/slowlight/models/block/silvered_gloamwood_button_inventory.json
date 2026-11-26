@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/button_inventory",
+  "textures": {
+    "texture": "slowlight:block/silvered_gloamwood_planks"
+  }
+}

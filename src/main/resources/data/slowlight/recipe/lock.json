@@ -1,0 +1,24 @@
+{
+  "type": "slowlight:keyed",
+  "category": "misc",
+  "pattern": [
+    " c ",
+    "cKc",
+    "cIc"
+  ],
+  "key": {
+    "c": {
+      "item": "minecraft:copper_ingot"
+    },
+    "K": {
+      "item": "slowlight:key"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "id": "slowlight:lock",
+    "count": 1
+  }
+}

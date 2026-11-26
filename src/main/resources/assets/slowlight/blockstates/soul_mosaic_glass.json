@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "slowlight:block/soul_mosaic_glass"
+      "model": "slowlight:block/soul_mosaic_glass_connected"
     }
   }
 }

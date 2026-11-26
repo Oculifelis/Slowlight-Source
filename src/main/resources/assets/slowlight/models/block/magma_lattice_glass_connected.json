@@ -1,0 +1,14 @@
+{
+  "loader": "slowlight:connected",
+  "parent": "minecraft:block/block",
+  "render_type": "minecraft:translucent",
+  "pattern": 1,
+  "textures": {
+    "isolated": "slowlight:block/magma_lattice_glass",
+    "all": "slowlight:block/magma_lattice_glass_ctm_all",
+    "h": "slowlight:block/magma_lattice_glass_ctm_h",
+    "v": "slowlight:block/magma_lattice_glass_ctm_v",
+    "inner": "slowlight:block/magma_lattice_glass_ctm_inner",
+    "particle": "slowlight:block/magma_lattice_glass"
+  }
+}

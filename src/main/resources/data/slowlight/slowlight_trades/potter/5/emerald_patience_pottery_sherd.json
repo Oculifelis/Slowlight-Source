@@ -1,0 +1,15 @@
+{
+  "trader": "slowlight:potter",
+  "level": 5,
+  "wants": {
+    "id": "minecraft:emerald",
+    "count": 12
+  },
+  "gives": {
+    "id": "slowlight:patience_pottery_sherd",
+    "count": 1
+  },
+  "max_uses": 3,
+  "xp": 30,
+  "price_multiplier": 0.05
+}

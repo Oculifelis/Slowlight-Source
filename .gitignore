@@ -5,3 +5,5 @@ run-server/
 repo/
 *.log
 libs/
+
+/VISION.md

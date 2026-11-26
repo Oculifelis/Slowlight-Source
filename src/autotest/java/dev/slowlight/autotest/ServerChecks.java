@@ -151,6 +151,18 @@ public final class ServerChecks {
 
     private static void step(MinecraftServer server, ServerLevel level, ServerPlayer player) {
         ticks++;
+        if (RestartChecks.RESTART) {
+            RestartChecks.readBack(level, ticks);
+            return;
+        }
+        RestartChecks.probe(server, level);
+        EdgeChecks.step(level);
+        TickCostChecks.step(level, player, ticks);
+        ReloadChecks.step(level, ticks);
+        TradeChecks.reloadStep(server, level, player);
+        if (ticks == 45) {
+            TradeChecks.run(level, player);
+        }
         if (ticks == 40) {
             setScene(server, level, player);
         } else if (ticks == 60) {
@@ -317,17 +329,22 @@ public final class ServerChecks {
                 "sherd maps to " + net.minecraft.world.level.block.entity.DecoratedPotPatterns.getPatternFromItem(SlowlightItems.PATIENCE_POTTERY_SHERD.get()));
         int advs = 0;
         for (var holder : server.getAdvancements().getAllAdvancements()) {
-            if (holder.id().getNamespace().equals("slowlight")) {
+            if (holder.id().getNamespace().equals("slowlight") && !holder.id().getPath().startsWith("recipes/")) {
                 advs++;
             }
         }
-        // master ships 12; branch rest adds four (sandglass_week, keepsake, ember_kiln, still_shard); nightfall two
+        // master ships 12; branch rest adds four (sandglass_week, keepsake, ember_kiln, still_shard); nightfall two (recipe-book unlocks under recipes/ not counted)
         check("advancements.loaded", advs == 18, advs + " Slowlight advancements (expected 18)");
         RestChecks.start(server, level, player); // branch rest
+        LockerChecks.run(level, player);
         DecorChecks.start(server, level); // decor batch
         CraftsChecks.start(level); // weathering, flower press, slow candle
+        HeatChecks.run(level); // ember kiln heat tag
+        OverrideChecks.run(level.getServer()); // datapack override
         WaysChecks.start(server, level, player); // waystones
         NightsChecks.start(server, level, player); // cheese, letter, moondial, stats
+        FireflyChecks.start(server, level, player); // Colorfly lanterns and mead
+        EdgeChecks.run(level, player); // break, blow up, full inventory, save round trips
         player.setGameMode(GameType.SURVIVAL);
         info("scene", "placed");
     }
@@ -625,9 +642,10 @@ public final class ServerChecks {
                 "event.custom slowlight:ageing rotten_flesh -> leather, 3 days: " + custom.map(h -> h.value().toString()).orElse("missing"));
         var schema = recipes.byKey(ResourceLocation.parse("sltest:kjs_schema"));
         check("kubejs.schema", schema.isPresent() && schema.get().value() instanceof AgeingRecipe r
-                        && r.result().is(Items.BONE_MEAL) && r.result().getCount() == 4 && r.days() == 2
+                        && r.result().is(Items.BONE_MEAL) && r.result().getCount() == 4 && r.days() == 2 && r.longDays() == 5
+                        && r.condition().weather() == dev.slowlight.recipe.AgeingCondition.Weather.RAIN
                         && r.ingredient().test(new ItemStack(Items.BONE_BLOCK)),
-                "event.recipes.slowlight.ageing bone_block -> 4 bone_meal, 2 days: " + schema.map(h -> h.value().toString()).orElse("missing"));
+                "event.recipes.slowlight.ageing bone_block -> 4 bone_meal, 2 days, longDays 5, condition rain: " + schema.map(h -> h.value().toString()).orElse("missing"));
         check("kubejs.remove", recipes.byKey(ResourceLocation.parse("slowlight:ageing/blue_dye")).isEmpty(),
                 "event.remove output minecraft:blue_dye took slowlight:ageing/blue_dye out");
     }

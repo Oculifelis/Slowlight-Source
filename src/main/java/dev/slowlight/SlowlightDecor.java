@@ -1,5 +1,6 @@
 package dev.slowlight;
 
+import dev.slowlight.block.GloamWeathering;
 import dev.slowlight.block.LapseBlock;
 import dev.slowlight.item.MeadItem;
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.level.block.WeatheringCopper;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 import net.neoforged.fml.ModList;
@@ -116,11 +118,11 @@ public final class SlowlightDecor {
             food("aerialhell", "volucite_aerial_berry_preserve", 6, 0.6F),
             food("aerialhell", "vibrant_aerial_berry_preserve", 8, 0.8F),
             food("aerialhell", "shadow_fruit_preserve", 6, 0.6F),
-            food("aerialhell", "candied_glowing_stick_fruit", 5, 0.6F),
-            food("aerialhell", "stellar_rock_sugar", 2, 0.2F),
-            food("aerialhell", "cured_phantom_meat", 7, 0.9F),
-            food("aerialhell", "cured_turtle_meat", 7, 0.9F),
-            food("aerialhell", "stellar_rusk", 5, 0.6F),
+            borrowed("aerialhell", "candied_glowing_stick_fruit", 5, 0.6F),
+            borrowed("aerialhell", "stellar_rock_sugar", 2, 0.2F),
+            borrowed("aerialhell", "cured_phantom_meat", 7, 0.9F),
+            borrowed("aerialhell", "cured_turtle_meat", 7, 0.9F),
+            borrowed("aerialhell", "stellar_rusk", 5, 0.6F),
             // Aechor petals steeped two days: a light tea, and a moment of the Aether's slow fall.
             new CompatFood("aether", SlowlightItems.ITEMS.register("aechor_petal_tea",
                     () -> new MeadItem(new Item.Properties().stacksTo(16).food(new FoodProperties.Builder()
@@ -143,11 +145,18 @@ public final class SlowlightDecor {
 
     /** Each variant: the block, its stairs and its slab, named the way Rechiseled names its own. */
     private static void variants(String base, List<String> names, Supplier<BlockBehaviour.Properties> props) {
+        // Gloamwood patterns weather like the planks; SlowlightWeathering has their later steps.
+        boolean wood = base.equals("gloamwood_planks");
+        WeatheringCopper.WeatherState age = WeatheringCopper.WeatherState.UNAFFECTED;
         for (String v : names) {
-            DeferredBlock<Block> block = solid(base + "_" + v, props);
-            item(SlowlightBlocks.BLOCKS.register(base + "_" + v + "_stairs",
-                    () -> new StairBlock(block.get().defaultBlockState(), props.get())));
-            item(SlowlightBlocks.BLOCKS.register(base + "_" + v + "_slab", () -> new SlabBlock(props.get())));
+            DeferredBlock<Block> block = wood
+                    ? item(SlowlightBlocks.BLOCKS.register(base + "_" + v, () -> new GloamWeathering.Planks(age, props.get())))
+                    : solid(base + "_" + v, props);
+            item(SlowlightBlocks.BLOCKS.register(base + "_" + v + "_stairs", () -> wood
+                    ? new GloamWeathering.Stairs(age, block.get().defaultBlockState(), props.get())
+                    : new StairBlock(block.get().defaultBlockState(), props.get())));
+            item(SlowlightBlocks.BLOCKS.register(base + "_" + v + "_slab",
+                    () -> wood ? new GloamWeathering.Slab(age, props.get()) : new SlabBlock(props.get())));
         }
     }
 
@@ -168,6 +177,12 @@ public final class SlowlightDecor {
     private static CompatFood food(String mod, String name, int nutrition, float saturation) {
         return new CompatFood(mod, SlowlightItems.ITEMS.registerSimpleItem(name, new Item.Properties()
                 .food(new FoodProperties.Builder().nutrition(nutrition).saturationModifier(saturation).build())));
+    }
+
+    /** A food whose icon is recoloured from its mod's own texture: without that mod it would have no icon, so it is
+     *  only registered when the mod is there (fillTab never reaches its empty item, as the mod is not loaded). */
+    private static CompatFood borrowed(String mod, String name, int nutrition, float saturation) {
+        return ModList.get().isLoaded(mod) ? food(mod, name, nutrition, saturation) : new CompatFood(mod, null);
     }
 
     static void fillTab(CreativeModeTab.Output output) {

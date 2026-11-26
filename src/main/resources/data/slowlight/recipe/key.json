@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    ".o",
+    ".o",
+    " o"
+  ],
+  "key": {
+    ".": {
+      "item": "minecraft:gold_nugget"
+    },
+    "o": {
+      "item": "minecraft:copper_ingot"
+    }
+  },
+  "result": {
+    "id": "slowlight:key",
+    "count": 1
+  }
+}

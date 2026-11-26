@@ -6,6 +6,6 @@ ServerEvents.recipes(event => {
     result: { id: 'minecraft:leather' },
     days: 3
   }).id('sltest:kjs_custom')
-  event.recipes.slowlight.ageing('4x minecraft:bone_meal', 'minecraft:bone_block', 2).id('sltest:kjs_schema')
+  event.recipes.slowlight.ageing('4x minecraft:bone_meal', 'minecraft:bone_block', 2).longDays(5).condition({ weather: 'rain' }).id('sltest:kjs_schema')
   event.remove({ type: 'slowlight:ageing', output: 'minecraft:blue_dye' })
 })

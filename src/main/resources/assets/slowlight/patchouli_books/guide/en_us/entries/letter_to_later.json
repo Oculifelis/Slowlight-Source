@@ -1,0 +1,17 @@
+{
+  "name": "Letter to Later",
+  "icon": "slowlight:letter_to_later",
+  "category": "slowlight:waiting",
+  "sortnum": 10,
+  "pages": [
+    {
+      "type": "patchouli:crafting",
+      "recipe": "slowlight:letter_to_later",
+      "text": "A signed book and a honeycomb, anywhere in the grid."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Sneak and use the letter to pick how long it keeps, from a day to a year. Use it again to seal it.$(br2)Until those days have passed the wax holds and it will not open. After that, use it once more to get your book back. Write one to yourself, or leave one in a chest for a friend."
+    }
+  ]
+}

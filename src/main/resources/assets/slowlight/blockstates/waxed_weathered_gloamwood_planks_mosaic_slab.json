@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "slowlight:block/waxed_weathered_gloamwood_planks_mosaic_slab"
+    },
+    "type=double": {
+      "model": "slowlight:block/waxed_weathered_gloamwood_planks_mosaic"
+    },
+    "type=top": {
+      "model": "slowlight:block/waxed_weathered_gloamwood_planks_mosaic_slab_top"
+    }
+  }
+}

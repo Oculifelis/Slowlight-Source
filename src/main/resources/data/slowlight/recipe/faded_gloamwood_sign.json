@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "wooden_sign",
+  "key": {
+    "#": [
+      {
+        "item": "slowlight:faded_gloamwood_planks"
+      },
+      {
+        "item": "slowlight:waxed_faded_gloamwood_planks"
+      }
+    ],
+    "X": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "###",
+    "###",
+    " X "
+  ],
+  "result": {
+    "count": 3,
+    "id": "slowlight:faded_gloamwood_sign"
+  }
+}

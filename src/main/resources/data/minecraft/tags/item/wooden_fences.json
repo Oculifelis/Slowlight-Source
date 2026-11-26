@@ -1,6 +1,13 @@
 {
   "replace": false,
   "values": [
-    "slowlight:gloamwood_fence"
+    "slowlight:gloamwood_fence",
+    "slowlight:waxed_gloamwood_fence",
+    "slowlight:faded_gloamwood_fence",
+    "slowlight:waxed_faded_gloamwood_fence",
+    "slowlight:weathered_gloamwood_fence",
+    "slowlight:waxed_weathered_gloamwood_fence",
+    "slowlight:silvered_gloamwood_fence",
+    "slowlight:waxed_silvered_gloamwood_fence"
   ]
 }

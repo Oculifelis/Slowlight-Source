@@ -1,0 +1,12 @@
+{
+  "values": {
+    "slowlight:locker": {
+      "columns": 9,
+      "rows": 3
+    },
+    "slowlight:reinforced_locker": {
+      "columns": 13,
+      "rows": 3
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "slowlight:block/weathered_gloamwood_planks_crate_slab"
+    },
+    "type=double": {
+      "model": "slowlight:block/weathered_gloamwood_planks_crate"
+    },
+    "type=top": {
+      "model": "slowlight:block/weathered_gloamwood_planks_crate_slab_top"
+    }
+  }
+}

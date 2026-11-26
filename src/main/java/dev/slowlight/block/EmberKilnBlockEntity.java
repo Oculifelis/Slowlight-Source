@@ -3,6 +3,10 @@ package dev.slowlight.block;
 import dev.slowlight.SlowlightBlockEntities;
 import dev.slowlight.recipe.AgeingRecipe;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
@@ -12,6 +16,9 @@ import net.minecraft.world.level.block.state.BlockState;
  * so the Nether), and there it needs half the days. Anywhere else it holds what it is given and waits for the heat.
  */
 public class EmberKilnBlockEntity extends PatientKilnBlockEntity {
+    /** Biomes where it works as if in the Nether. Ships empty; a pack fills it. */
+    public static final TagKey<Biome> HEAT = TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("slowlight", "ember_kiln_heat"));
+
     public EmberKilnBlockEntity(BlockPos pos, BlockState state) {
         super(SlowlightBlockEntities.EMBER_KILN.get(), pos, state, 1);
     }
@@ -20,9 +27,14 @@ public class EmberKilnBlockEntity extends PatientKilnBlockEntity {
         return level.dimensionType().ultraWarm();
     }
 
+    /** Hot by its dimension, or in a biome a pack lists in {@code #slowlight:ember_kiln_heat}. */
+    public static boolean hotEnough(Level level, BlockPos pos) {
+        return hotEnough(level) || level.getBiome(pos).is(HEAT);
+    }
+
     @Override
     protected boolean readyToStart(Level level) {
-        return hotEnough(level);
+        return hotEnough(level, worldPosition);
     }
 
     @Override
@@ -32,7 +44,7 @@ public class EmberKilnBlockEntity extends PatientKilnBlockEntity {
 
     @Override
     public Component status() {
-        if (level != null && !hotEnough(level) && !working().isEmpty() && !underWay()) {
+        if (level != null && !hotEnough(level, worldPosition) && !working().isEmpty() && !underWay()) {
             return Component.translatable("block.slowlight.ember_kiln.cold");
         }
         return super.status();

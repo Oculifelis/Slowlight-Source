@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "slowlight:greenfly_gloamwood_lantern",
+    "slowlight:bluefly_gloamwood_lantern",
+    {
+      "id": "color:greenfly_lantern",
+      "required": false
+    },
+    {
+      "id": "color:bluefly_lantern",
+      "required": false
+    }
+  ]
+}

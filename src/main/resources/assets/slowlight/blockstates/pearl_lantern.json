@@ -1,13 +1,118 @@
 {
   "variants": {
-    "shape=cage": {
+    "hanging=false,shape=cage,wall=none": {
       "model": "slowlight:block/pearl_lantern_cage"
     },
-    "shape=cradle": {
+    "hanging=false,shape=cage,wall=north": {
+      "model": "slowlight:block/pearl_lantern_cage_wall",
+      "y": 0
+    },
+    "hanging=false,shape=cage,wall=east": {
+      "model": "slowlight:block/pearl_lantern_cage_wall",
+      "y": 90
+    },
+    "hanging=false,shape=cage,wall=south": {
+      "model": "slowlight:block/pearl_lantern_cage_wall",
+      "y": 180
+    },
+    "hanging=false,shape=cage,wall=west": {
+      "model": "slowlight:block/pearl_lantern_cage_wall",
+      "y": 270
+    },
+    "hanging=true,shape=cage,wall=none": {
+      "model": "slowlight:block/pearl_lantern_cage_hanging"
+    },
+    "hanging=true,shape=cage,wall=north": {
+      "model": "slowlight:block/pearl_lantern_cage_wall",
+      "y": 0
+    },
+    "hanging=true,shape=cage,wall=east": {
+      "model": "slowlight:block/pearl_lantern_cage_wall",
+      "y": 90
+    },
+    "hanging=true,shape=cage,wall=south": {
+      "model": "slowlight:block/pearl_lantern_cage_wall",
+      "y": 180
+    },
+    "hanging=true,shape=cage,wall=west": {
+      "model": "slowlight:block/pearl_lantern_cage_wall",
+      "y": 270
+    },
+    "hanging=false,shape=cradle,wall=none": {
       "model": "slowlight:block/pearl_lantern_cradle"
     },
-    "shape=spire": {
+    "hanging=false,shape=cradle,wall=north": {
+      "model": "slowlight:block/pearl_lantern_cradle_wall",
+      "y": 0
+    },
+    "hanging=false,shape=cradle,wall=east": {
+      "model": "slowlight:block/pearl_lantern_cradle_wall",
+      "y": 90
+    },
+    "hanging=false,shape=cradle,wall=south": {
+      "model": "slowlight:block/pearl_lantern_cradle_wall",
+      "y": 180
+    },
+    "hanging=false,shape=cradle,wall=west": {
+      "model": "slowlight:block/pearl_lantern_cradle_wall",
+      "y": 270
+    },
+    "hanging=true,shape=cradle,wall=none": {
+      "model": "slowlight:block/pearl_lantern_cradle_hanging"
+    },
+    "hanging=true,shape=cradle,wall=north": {
+      "model": "slowlight:block/pearl_lantern_cradle_wall",
+      "y": 0
+    },
+    "hanging=true,shape=cradle,wall=east": {
+      "model": "slowlight:block/pearl_lantern_cradle_wall",
+      "y": 90
+    },
+    "hanging=true,shape=cradle,wall=south": {
+      "model": "slowlight:block/pearl_lantern_cradle_wall",
+      "y": 180
+    },
+    "hanging=true,shape=cradle,wall=west": {
+      "model": "slowlight:block/pearl_lantern_cradle_wall",
+      "y": 270
+    },
+    "hanging=false,shape=spire,wall=none": {
       "model": "slowlight:block/pearl_lantern_spire"
+    },
+    "hanging=false,shape=spire,wall=north": {
+      "model": "slowlight:block/pearl_lantern_spire_wall",
+      "y": 0
+    },
+    "hanging=false,shape=spire,wall=east": {
+      "model": "slowlight:block/pearl_lantern_spire_wall",
+      "y": 90
+    },
+    "hanging=false,shape=spire,wall=south": {
+      "model": "slowlight:block/pearl_lantern_spire_wall",
+      "y": 180
+    },
+    "hanging=false,shape=spire,wall=west": {
+      "model": "slowlight:block/pearl_lantern_spire_wall",
+      "y": 270
+    },
+    "hanging=true,shape=spire,wall=none": {
+      "model": "slowlight:block/pearl_lantern_spire_hanging"
+    },
+    "hanging=true,shape=spire,wall=north": {
+      "model": "slowlight:block/pearl_lantern_spire_wall",
+      "y": 0
+    },
+    "hanging=true,shape=spire,wall=east": {
+      "model": "slowlight:block/pearl_lantern_spire_wall",
+      "y": 90
+    },
+    "hanging=true,shape=spire,wall=south": {
+      "model": "slowlight:block/pearl_lantern_spire_wall",
+      "y": 180
+    },
+    "hanging=true,shape=spire,wall=west": {
+      "model": "slowlight:block/pearl_lantern_spire_wall",
+      "y": 270
     }
   }
 }

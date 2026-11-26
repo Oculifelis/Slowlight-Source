@@ -57,7 +57,8 @@ public final class ClientDriver {
         }
         Minecraft mc = Minecraft.getInstance();
         if (startedAt != 0 && System.nanoTime() - startedAt > TIMEOUT_NANOS) {
-            ServerChecks.fail("timeout", "client driver ran out of time at step " + step + ", server phase " + ServerChecks.phase);
+            ServerChecks.fail("timeout", "client driver ran out of time at step " + step + ", server phase " + ServerChecks.phase
+                    + ", screen " + (mc.screen == null ? "none" : mc.screen.getClass().getSimpleName()));
             stop(mc);
             return;
         }
@@ -86,6 +87,16 @@ public final class ClientDriver {
                 mc.options.renderDistance().set(5);
                 mc.options.simulationDistance().set(5);
                 LevelStorageSource source = mc.getLevelSource();
+                if (RestartChecks.RESTART) {
+                    // Second launch of the restart test: open the world the first launch saved, never a new one.
+                    if (!source.levelExists(WORLD)) {
+                        ServerChecks.fail("restart.world_kept", "no saved sltest world to reopen");
+                        stop(mc);
+                        return;
+                    }
+                    mc.createWorldOpenFlows().openWorld(WORLD, () -> mc.setScreen(title));
+                    return;
+                }
                 if (source.levelExists(WORLD)) {
                     try (LevelStorageSource.LevelStorageAccess access = source.createAccess(WORLD)) {
                         access.deleteLevel();
@@ -106,6 +117,14 @@ public final class ClientDriver {
         }
         if (wait > 0) {
             wait--;
+            return;
+        }
+        if (RestartChecks.RESTART) {
+            if (RestartChecks.done) {
+                ServerChecks.info("client", "done");
+                ServerChecks.phase = ServerChecks.DONE;
+                stop(mc);
+            }
             return;
         }
         switch (step) {
@@ -137,10 +156,16 @@ public final class ClientDriver {
             }
             case 3 -> {
                 mc.options.hideGui = false;
-                if (AutotestJeiPlugin.runtime == null) {
+                if (!net.neoforged.fml.ModList.get().isLoaded("jei")) {
+                    // A bare run (-Pbare) has no JEI; the plugin class must not even load.
+                    ServerChecks.info("jei", "JEI not loaded, its pages are skipped");
+                    step = 5;
+                } else if (AutotestJeiPlugin.runtime == null) {
                     ServerChecks.fail("jei.runtime", "JEI runtime never became available");
                     step = 5;
                 } else {
+                    AutotestJeiPlugin.checkInfoPages();
+                    TipChecks.run(mc);
                     AutotestJeiPlugin.runtime.getRecipesGui().showTypes(List.of(AgeingRecipeCategory.TYPE));
                     step = 4;
                     wait = 60;
@@ -280,10 +305,126 @@ public final class ClientDriver {
                             + (l.twoTone() ? " two-tone" : "") + " glow " + l.glow() + " look "
                             + dev.slowlight.client.PressedLooks.of(f, l));
                 }
+                CraftsChecks.clientWantsStages = true;
+                step = 200;
+                wait = 5;
+            }
+            case 200 -> {
+                if (CraftsChecks.stagesReady) {
+                    step = 201;
+                    wait = 80;
+                }
+            }
+            case 201 -> {
+                shot(mc, "10b_gloam_stages");
+                GlassChecks.clientWantsWall = true;
+                step = 86;
+                wait = 5;
+            }
+            case 86 -> {
+                if (GlassChecks.wallReady) {
+                    step = 87;
+                    wait = 80;
+                }
+            }
+            case 87 -> {
+                shot(mc, "11_glass_layouts");
+                GlassChecks.clientWantsSandglass = true;
+                step = 88;
+                wait = 5;
+            }
+            case 88 -> {
+                if (GlassChecks.sandglassReady) {
+                    step = 89;
+                    wait = 60;
+                }
+            }
+            case 89 -> {
+                shot(mc, "12_turn_00");
+                GlassChecks.clientWantsTurn = true;
+                turnFrame = 1;
+                step = 90;
+            }
+            case 90 -> {
+                // one picture a tick through the turn and a little after, for the flip gif
+                shot(mc, String.format("12_turn_%02d", turnFrame));
+                if (++turnFrame > dev.slowlight.block.SandglassBlock.TURN_TICKS + 8) {
+                    turnFrame = 0;
+                    GlassChecks.drainWant = DRAIN[0];
+                    step = 98;
+                    wait = 40;
+                }
+            }
+            case 98 -> {
+                // the sand across the whole timer for the gif, four of the points a few hundredths apart inside one of the old eighths
+                if (GlassChecks.drainWant < 0.0F) {
+                    float want = DRAIN[turnFrame];
+                    float seen = mc.level.getBlockEntity(GlassChecks.SANDGLASS)
+                            instanceof dev.slowlight.block.SandglassBlockEntity g ? g.sandOnTop(0.0F) : -1.0F;
+                    ServerChecks.check("sandglass.drain_" + turnFrame, Math.abs(seen - (1.0F - want)) < 0.02F,
+                            "client sees " + seen + " of the sand on top, " + (1.0F - want) + " expected");
+                    shot(mc, "12_drain_" + turnFrame);
+                    if (++turnFrame < DRAIN.length) {
+                        GlassChecks.drainWant = DRAIN[turnFrame];
+                        wait = 40;
+                    } else {
+                        JadeScenes.want = 1;
+                        step = 92;
+                    }
+                }
+            }
+            case 92 -> {
+                if (JadeScenes.ready == 1) {
+                    mc.options.hideGui = false;
+                    step = 93;
+                    wait = 60;
+                }
+            }
+            case 93 -> {
+                shot(mc, "13_press_jade");
+                JadeScenes.want = 2;
+                step = 94;
+            }
+            case 94 -> {
+                if (JadeScenes.ready == 2) {
+                    step = 95;
+                    wait = 60;
+                }
+            }
+            case 95 -> {
+                shot(mc, "14_waystone_jade");
+                mc.options.hideGui = true;
+                JadeScenes.want = 3;
+                step = 96;
+            }
+            case 96 -> {
+                if (JadeScenes.ready == 3) {
+                    step = 97;
+                    wait = 60;
+                }
+            }
+            case 97 -> {
+                shot(mc, "15_lanterns");
                 step = 9;
                 wait = 5;
             }
+            case 9 -> {
+                TradeChecks.wantReload = true;
+                step = 91;
+                wait = 5;
+            }
+            case 91 -> {
+                if (TradeChecks.reloadChecked) {
+                    step = 10;
+                    wait = 5;
+                }
+            }
             default -> {
+                // Last: a sealed urn and a running sandglass are placed and the world saved, for the restart launch.
+                if (!RestartChecks.probed) {
+                    RestartChecks.wantProbe = true;
+                    return;
+                }
                 exportIcons(mc);
                 ServerChecks.info("client", "done");
                 ServerChecks.phase = ServerChecks.DONE;
@@ -430,6 +571,9 @@ public final class ClientDriver {
         }
         ServerChecks.check("client.icon_export", n > 100, n + " item icons saved to " + dir);
     }
+
+    private static int turnFrame;
+    private static final float[] DRAIN = {0.12F, 0.25F, 0.38F, 0.41F, 0.44F, 0.47F, 0.62F, 0.75F, 0.88F, 0.97F};
 
     private static void shot(Minecraft mc, String name) {
         String file = "sltest_" + name + ".png";

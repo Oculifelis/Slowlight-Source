@@ -1,6 +1,13 @@
 {
   "replace": false,
   "values": [
-    "slowlight:gloamwood_button"
+    "slowlight:gloamwood_button",
+    "slowlight:waxed_gloamwood_button",
+    "slowlight:faded_gloamwood_button",
+    "slowlight:waxed_faded_gloamwood_button",
+    "slowlight:weathered_gloamwood_button",
+    "slowlight:waxed_weathered_gloamwood_button",
+    "slowlight:silvered_gloamwood_button",
+    "slowlight:waxed_silvered_gloamwood_button"
   ]
 }

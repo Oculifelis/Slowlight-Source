@@ -1,0 +1,15 @@
+{
+  "trader": "slowlight:potter",
+  "level": 1,
+  "wants": {
+    "id": "minecraft:clay_ball",
+    "count": 10
+  },
+  "gives": {
+    "id": "minecraft:emerald",
+    "count": 1
+  },
+  "max_uses": 16,
+  "xp": 2,
+  "price_multiplier": 0.05
+}

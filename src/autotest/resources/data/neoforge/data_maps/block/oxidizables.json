@@ -1,0 +1,6 @@
+{
+  "values": {
+    "slowlight:gloamwood_slab": { "next_oxidation_stage": "minecraft:smooth_stone_slab" },
+    "minecraft:cut_sandstone": { "next_oxidation_stage": "minecraft:smooth_sandstone" }
+  }
+}

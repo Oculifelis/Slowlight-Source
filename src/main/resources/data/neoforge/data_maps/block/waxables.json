@@ -35,6 +35,810 @@
     },
     "slowlight:silvered_gloamwood_slab": {
       "waxed": "slowlight:waxed_silvered_gloamwood_slab"
+    },
+    "slowlight:gloamwood_planks_beams": {
+      "waxed": "slowlight:waxed_gloamwood_planks_beams"
+    },
+    "slowlight:gloamwood_planks_beams_stairs": {
+      "waxed": "slowlight:waxed_gloamwood_planks_beams_stairs"
+    },
+    "slowlight:gloamwood_planks_beams_slab": {
+      "waxed": "slowlight:waxed_gloamwood_planks_beams_slab"
+    },
+    "slowlight:gloamwood_planks_brick_pattern": {
+      "waxed": "slowlight:waxed_gloamwood_planks_brick_pattern"
+    },
+    "slowlight:gloamwood_planks_brick_pattern_stairs": {
+      "waxed": "slowlight:waxed_gloamwood_planks_brick_pattern_stairs"
+    },
+    "slowlight:gloamwood_planks_brick_pattern_slab": {
+      "waxed": "slowlight:waxed_gloamwood_planks_brick_pattern_slab"
+    },
+    "slowlight:gloamwood_planks_brick_paving": {
+      "waxed": "slowlight:waxed_gloamwood_planks_brick_paving"
+    },
+    "slowlight:gloamwood_planks_brick_paving_stairs": {
+      "waxed": "slowlight:waxed_gloamwood_planks_brick_paving_stairs"
+    },
+    "slowlight:gloamwood_planks_brick_paving_slab": {
+      "waxed": "slowlight:waxed_gloamwood_planks_brick_paving_slab"
+    },
+    "slowlight:gloamwood_planks_bricks": {
+      "waxed": "slowlight:waxed_gloamwood_planks_bricks"
+    },
+    "slowlight:gloamwood_planks_bricks_stairs": {
+      "waxed": "slowlight:waxed_gloamwood_planks_bricks_stairs"
+    },
+    "slowlight:gloamwood_planks_bricks_slab": {
+      "waxed": "slowlight:waxed_gloamwood_planks_bricks_slab"
+    },
+    "slowlight:gloamwood_planks_crate": {
+      "waxed": "slowlight:waxed_gloamwood_planks_crate"
+    },
+    "slowlight:gloamwood_planks_crate_stairs": {
+      "waxed": "slowlight:waxed_gloamwood_planks_crate_stairs"
+    },
+    "slowlight:gloamwood_planks_crate_slab": {
+      "waxed": "slowlight:waxed_gloamwood_planks_crate_slab"
+    },
+    "slowlight:gloamwood_planks_diagonal_stripes": {
+      "waxed": "slowlight:waxed_gloamwood_planks_diagonal_stripes"
+    },
+    "slowlight:gloamwood_planks_diagonal_stripes_stairs": {
+      "waxed": "slowlight:waxed_gloamwood_planks_diagonal_stripes_stairs"
+    },
+    "slowlight:gloamwood_planks_diagonal_stripes_slab": {
+      "waxed": "slowlight:waxed_gloamwood_planks_diagonal_stripes_slab"
+    },
+    "slowlight:gloamwood_planks_diagonal_tiles": {
+      "waxed": "slowlight:waxed_gloamwood_planks_diagonal_tiles"
+    },
+    "slowlight:gloamwood_planks_diagonal_tiles_stairs": {
+      "waxed": "slowlight:waxed_gloamwood_planks_diagonal_tiles_stairs"
+    },
+    "slowlight:gloamwood_planks_diagonal_tiles_slab": {
+      "waxed": "slowlight:waxed_gloamwood_planks_diagonal_tiles_slab"
+    },
+    "slowlight:gloamwood_planks_dotted": {
+      "waxed": "slowlight:waxed_gloamwood_planks_dotted"
+    },
+    "slowlight:gloamwood_planks_dotted_stairs": {
+      "waxed": "slowlight:waxed_gloamwood_planks_dotted_stairs"
+    },
+    "slowlight:gloamwood_planks_dotted_slab": {
+      "waxed": "slowlight:waxed_gloamwood_planks_dotted_slab"
+    },
+    "slowlight:gloamwood_planks_flooring": {
+      "waxed": "slowlight:waxed_gloamwood_planks_flooring"
+    },
+    "slowlight:gloamwood_planks_flooring_stairs": {
+      "waxed": "slowlight:waxed_gloamwood_planks_flooring_stairs"
+    },
+    "slowlight:gloamwood_planks_flooring_slab": {
+      "waxed": "slowlight:waxed_gloamwood_planks_flooring_slab"
+    },
+    "slowlight:gloamwood_planks_large_tiles": {
+      "waxed": "slowlight:waxed_gloamwood_planks_large_tiles"
+    },
+    "slowlight:gloamwood_planks_large_tiles_stairs": {
+      "waxed": "slowlight:waxed_gloamwood_planks_large_tiles_stairs"
+    },
+    "slowlight:gloamwood_planks_large_tiles_slab": {
+      "waxed": "slowlight:waxed_gloamwood_planks_large_tiles_slab"
+    },
+    "slowlight:gloamwood_planks_mosaic": {
+      "waxed": "slowlight:waxed_gloamwood_planks_mosaic"
+    },
+    "slowlight:gloamwood_planks_mosaic_stairs": {
+      "waxed": "slowlight:waxed_gloamwood_planks_mosaic_stairs"
+    },
+    "slowlight:gloamwood_planks_mosaic_slab": {
+      "waxed": "slowlight:waxed_gloamwood_planks_mosaic_slab"
+    },
+    "slowlight:gloamwood_planks_pattern": {
+      "waxed": "slowlight:waxed_gloamwood_planks_pattern"
+    },
+    "slowlight:gloamwood_planks_pattern_stairs": {
+      "waxed": "slowlight:waxed_gloamwood_planks_pattern_stairs"
+    },
+    "slowlight:gloamwood_planks_pattern_slab": {
+      "waxed": "slowlight:waxed_gloamwood_planks_pattern_slab"
+    },
+    "slowlight:gloamwood_planks_rotated_bricks": {
+      "waxed": "slowlight:waxed_gloamwood_planks_rotated_bricks"
+    },
+    "slowlight:gloamwood_planks_rotated_bricks_stairs": {
+      "waxed": "slowlight:waxed_gloamwood_planks_rotated_bricks_stairs"
+    },
+    "slowlight:gloamwood_planks_rotated_bricks_slab": {
+      "waxed": "slowlight:waxed_gloamwood_planks_rotated_bricks_slab"
+    },
+    "slowlight:gloamwood_planks_small_bricks": {
+      "waxed": "slowlight:waxed_gloamwood_planks_small_bricks"
+    },
+    "slowlight:gloamwood_planks_small_bricks_stairs": {
+      "waxed": "slowlight:waxed_gloamwood_planks_small_bricks_stairs"
+    },
+    "slowlight:gloamwood_planks_small_bricks_slab": {
+      "waxed": "slowlight:waxed_gloamwood_planks_small_bricks_slab"
+    },
+    "slowlight:gloamwood_planks_small_tiles": {
+      "waxed": "slowlight:waxed_gloamwood_planks_small_tiles"
+    },
+    "slowlight:gloamwood_planks_small_tiles_stairs": {
+      "waxed": "slowlight:waxed_gloamwood_planks_small_tiles_stairs"
+    },
+    "slowlight:gloamwood_planks_small_tiles_slab": {
+      "waxed": "slowlight:waxed_gloamwood_planks_small_tiles_slab"
+    },
+    "slowlight:gloamwood_planks_squares": {
+      "waxed": "slowlight:waxed_gloamwood_planks_squares"
+    },
+    "slowlight:gloamwood_planks_squares_stairs": {
+      "waxed": "slowlight:waxed_gloamwood_planks_squares_stairs"
+    },
+    "slowlight:gloamwood_planks_squares_slab": {
+      "waxed": "slowlight:waxed_gloamwood_planks_squares_slab"
+    },
+    "slowlight:gloamwood_planks_tiles": {
+      "waxed": "slowlight:waxed_gloamwood_planks_tiles"
+    },
+    "slowlight:gloamwood_planks_tiles_stairs": {
+      "waxed": "slowlight:waxed_gloamwood_planks_tiles_stairs"
+    },
+    "slowlight:gloamwood_planks_tiles_slab": {
+      "waxed": "slowlight:waxed_gloamwood_planks_tiles_slab"
+    },
+    "slowlight:gloamwood_planks_wavy": {
+      "waxed": "slowlight:waxed_gloamwood_planks_wavy"
+    },
+    "slowlight:gloamwood_planks_wavy_stairs": {
+      "waxed": "slowlight:waxed_gloamwood_planks_wavy_stairs"
+    },
+    "slowlight:gloamwood_planks_wavy_slab": {
+      "waxed": "slowlight:waxed_gloamwood_planks_wavy_slab"
+    },
+    "slowlight:gloamwood_planks_woven": {
+      "waxed": "slowlight:waxed_gloamwood_planks_woven"
+    },
+    "slowlight:gloamwood_planks_woven_stairs": {
+      "waxed": "slowlight:waxed_gloamwood_planks_woven_stairs"
+    },
+    "slowlight:gloamwood_planks_woven_slab": {
+      "waxed": "slowlight:waxed_gloamwood_planks_woven_slab"
+    },
+    "slowlight:gloamwood_fence": {
+      "waxed": "slowlight:waxed_gloamwood_fence"
+    },
+    "slowlight:gloamwood_fence_gate": {
+      "waxed": "slowlight:waxed_gloamwood_fence_gate"
+    },
+    "slowlight:gloamwood_door": {
+      "waxed": "slowlight:waxed_gloamwood_door"
+    },
+    "slowlight:gloamwood_trapdoor": {
+      "waxed": "slowlight:waxed_gloamwood_trapdoor"
+    },
+    "slowlight:gloamwood_button": {
+      "waxed": "slowlight:waxed_gloamwood_button"
+    },
+    "slowlight:gloamwood_pressure_plate": {
+      "waxed": "slowlight:waxed_gloamwood_pressure_plate"
+    },
+    "slowlight:faded_gloamwood_planks_beams": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_beams"
+    },
+    "slowlight:faded_gloamwood_planks_beams_stairs": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_beams_stairs"
+    },
+    "slowlight:faded_gloamwood_planks_beams_slab": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_beams_slab"
+    },
+    "slowlight:faded_gloamwood_planks_brick_pattern": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_brick_pattern"
+    },
+    "slowlight:faded_gloamwood_planks_brick_pattern_stairs": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_brick_pattern_stairs"
+    },
+    "slowlight:faded_gloamwood_planks_brick_pattern_slab": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_brick_pattern_slab"
+    },
+    "slowlight:faded_gloamwood_planks_brick_paving": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_brick_paving"
+    },
+    "slowlight:faded_gloamwood_planks_brick_paving_stairs": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_brick_paving_stairs"
+    },
+    "slowlight:faded_gloamwood_planks_brick_paving_slab": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_brick_paving_slab"
+    },
+    "slowlight:faded_gloamwood_planks_bricks": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_bricks"
+    },
+    "slowlight:faded_gloamwood_planks_bricks_stairs": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_bricks_stairs"
+    },
+    "slowlight:faded_gloamwood_planks_bricks_slab": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_bricks_slab"
+    },
+    "slowlight:faded_gloamwood_planks_crate": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_crate"
+    },
+    "slowlight:faded_gloamwood_planks_crate_stairs": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_crate_stairs"
+    },
+    "slowlight:faded_gloamwood_planks_crate_slab": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_crate_slab"
+    },
+    "slowlight:faded_gloamwood_planks_diagonal_stripes": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_diagonal_stripes"
+    },
+    "slowlight:faded_gloamwood_planks_diagonal_stripes_stairs": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_diagonal_stripes_stairs"
+    },
+    "slowlight:faded_gloamwood_planks_diagonal_stripes_slab": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_diagonal_stripes_slab"
+    },
+    "slowlight:faded_gloamwood_planks_diagonal_tiles": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_diagonal_tiles"
+    },
+    "slowlight:faded_gloamwood_planks_diagonal_tiles_stairs": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_diagonal_tiles_stairs"
+    },
+    "slowlight:faded_gloamwood_planks_diagonal_tiles_slab": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_diagonal_tiles_slab"
+    },
+    "slowlight:faded_gloamwood_planks_dotted": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_dotted"
+    },
+    "slowlight:faded_gloamwood_planks_dotted_stairs": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_dotted_stairs"
+    },
+    "slowlight:faded_gloamwood_planks_dotted_slab": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_dotted_slab"
+    },
+    "slowlight:faded_gloamwood_planks_flooring": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_flooring"
+    },
+    "slowlight:faded_gloamwood_planks_flooring_stairs": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_flooring_stairs"
+    },
+    "slowlight:faded_gloamwood_planks_flooring_slab": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_flooring_slab"
+    },
+    "slowlight:faded_gloamwood_planks_large_tiles": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_large_tiles"
+    },
+    "slowlight:faded_gloamwood_planks_large_tiles_stairs": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_large_tiles_stairs"
+    },
+    "slowlight:faded_gloamwood_planks_large_tiles_slab": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_large_tiles_slab"
+    },
+    "slowlight:faded_gloamwood_planks_mosaic": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_mosaic"
+    },
+    "slowlight:faded_gloamwood_planks_mosaic_stairs": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_mosaic_stairs"
+    },
+    "slowlight:faded_gloamwood_planks_mosaic_slab": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_mosaic_slab"
+    },
+    "slowlight:faded_gloamwood_planks_pattern": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_pattern"
+    },
+    "slowlight:faded_gloamwood_planks_pattern_stairs": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_pattern_stairs"
+    },
+    "slowlight:faded_gloamwood_planks_pattern_slab": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_pattern_slab"
+    },
+    "slowlight:faded_gloamwood_planks_rotated_bricks": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_rotated_bricks"
+    },
+    "slowlight:faded_gloamwood_planks_rotated_bricks_stairs": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_rotated_bricks_stairs"
+    },
+    "slowlight:faded_gloamwood_planks_rotated_bricks_slab": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_rotated_bricks_slab"
+    },
+    "slowlight:faded_gloamwood_planks_small_bricks": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_small_bricks"
+    },
+    "slowlight:faded_gloamwood_planks_small_bricks_stairs": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_small_bricks_stairs"
+    },
+    "slowlight:faded_gloamwood_planks_small_bricks_slab": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_small_bricks_slab"
+    },
+    "slowlight:faded_gloamwood_planks_small_tiles": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_small_tiles"
+    },
+    "slowlight:faded_gloamwood_planks_small_tiles_stairs": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_small_tiles_stairs"
+    },
+    "slowlight:faded_gloamwood_planks_small_tiles_slab": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_small_tiles_slab"
+    },
+    "slowlight:faded_gloamwood_planks_squares": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_squares"
+    },
+    "slowlight:faded_gloamwood_planks_squares_stairs": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_squares_stairs"
+    },
+    "slowlight:faded_gloamwood_planks_squares_slab": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_squares_slab"
+    },
+    "slowlight:faded_gloamwood_planks_tiles": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_tiles"
+    },
+    "slowlight:faded_gloamwood_planks_tiles_stairs": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_tiles_stairs"
+    },
+    "slowlight:faded_gloamwood_planks_tiles_slab": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_tiles_slab"
+    },
+    "slowlight:faded_gloamwood_planks_wavy": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_wavy"
+    },
+    "slowlight:faded_gloamwood_planks_wavy_stairs": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_wavy_stairs"
+    },
+    "slowlight:faded_gloamwood_planks_wavy_slab": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_wavy_slab"
+    },
+    "slowlight:faded_gloamwood_planks_woven": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_woven"
+    },
+    "slowlight:faded_gloamwood_planks_woven_stairs": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_woven_stairs"
+    },
+    "slowlight:faded_gloamwood_planks_woven_slab": {
+      "waxed": "slowlight:waxed_faded_gloamwood_planks_woven_slab"
+    },
+    "slowlight:faded_gloamwood_fence": {
+      "waxed": "slowlight:waxed_faded_gloamwood_fence"
+    },
+    "slowlight:faded_gloamwood_fence_gate": {
+      "waxed": "slowlight:waxed_faded_gloamwood_fence_gate"
+    },
+    "slowlight:faded_gloamwood_door": {
+      "waxed": "slowlight:waxed_faded_gloamwood_door"
+    },
+    "slowlight:faded_gloamwood_trapdoor": {
+      "waxed": "slowlight:waxed_faded_gloamwood_trapdoor"
+    },
+    "slowlight:faded_gloamwood_button": {
+      "waxed": "slowlight:waxed_faded_gloamwood_button"
+    },
+    "slowlight:faded_gloamwood_pressure_plate": {
+      "waxed": "slowlight:waxed_faded_gloamwood_pressure_plate"
+    },
+    "slowlight:weathered_gloamwood_planks_beams": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_beams"
+    },
+    "slowlight:weathered_gloamwood_planks_beams_stairs": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_beams_stairs"
+    },
+    "slowlight:weathered_gloamwood_planks_beams_slab": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_beams_slab"
+    },
+    "slowlight:weathered_gloamwood_planks_brick_pattern": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_brick_pattern"
+    },
+    "slowlight:weathered_gloamwood_planks_brick_pattern_stairs": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_brick_pattern_stairs"
+    },
+    "slowlight:weathered_gloamwood_planks_brick_pattern_slab": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_brick_pattern_slab"
+    },
+    "slowlight:weathered_gloamwood_planks_brick_paving": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_brick_paving"
+    },
+    "slowlight:weathered_gloamwood_planks_brick_paving_stairs": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_brick_paving_stairs"
+    },
+    "slowlight:weathered_gloamwood_planks_brick_paving_slab": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_brick_paving_slab"
+    },
+    "slowlight:weathered_gloamwood_planks_bricks": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_bricks"
+    },
+    "slowlight:weathered_gloamwood_planks_bricks_stairs": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_bricks_stairs"
+    },
+    "slowlight:weathered_gloamwood_planks_bricks_slab": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_bricks_slab"
+    },
+    "slowlight:weathered_gloamwood_planks_crate": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_crate"
+    },
+    "slowlight:weathered_gloamwood_planks_crate_stairs": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_crate_stairs"
+    },
+    "slowlight:weathered_gloamwood_planks_crate_slab": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_crate_slab"
+    },
+    "slowlight:weathered_gloamwood_planks_diagonal_stripes": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_diagonal_stripes"
+    },
+    "slowlight:weathered_gloamwood_planks_diagonal_stripes_stairs": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_diagonal_stripes_stairs"
+    },
+    "slowlight:weathered_gloamwood_planks_diagonal_stripes_slab": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_diagonal_stripes_slab"
+    },
+    "slowlight:weathered_gloamwood_planks_diagonal_tiles": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_diagonal_tiles"
+    },
+    "slowlight:weathered_gloamwood_planks_diagonal_tiles_stairs": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_diagonal_tiles_stairs"
+    },
+    "slowlight:weathered_gloamwood_planks_diagonal_tiles_slab": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_diagonal_tiles_slab"
+    },
+    "slowlight:weathered_gloamwood_planks_dotted": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_dotted"
+    },
+    "slowlight:weathered_gloamwood_planks_dotted_stairs": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_dotted_stairs"
+    },
+    "slowlight:weathered_gloamwood_planks_dotted_slab": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_dotted_slab"
+    },
+    "slowlight:weathered_gloamwood_planks_flooring": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_flooring"
+    },
+    "slowlight:weathered_gloamwood_planks_flooring_stairs": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_flooring_stairs"
+    },
+    "slowlight:weathered_gloamwood_planks_flooring_slab": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_flooring_slab"
+    },
+    "slowlight:weathered_gloamwood_planks_large_tiles": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_large_tiles"
+    },
+    "slowlight:weathered_gloamwood_planks_large_tiles_stairs": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_large_tiles_stairs"
+    },
+    "slowlight:weathered_gloamwood_planks_large_tiles_slab": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_large_tiles_slab"
+    },
+    "slowlight:weathered_gloamwood_planks_mosaic": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_mosaic"
+    },
+    "slowlight:weathered_gloamwood_planks_mosaic_stairs": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_mosaic_stairs"
+    },
+    "slowlight:weathered_gloamwood_planks_mosaic_slab": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_mosaic_slab"
+    },
+    "slowlight:weathered_gloamwood_planks_pattern": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_pattern"
+    },
+    "slowlight:weathered_gloamwood_planks_pattern_stairs": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_pattern_stairs"
+    },
+    "slowlight:weathered_gloamwood_planks_pattern_slab": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_pattern_slab"
+    },
+    "slowlight:weathered_gloamwood_planks_rotated_bricks": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_rotated_bricks"
+    },
+    "slowlight:weathered_gloamwood_planks_rotated_bricks_stairs": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_rotated_bricks_stairs"
+    },
+    "slowlight:weathered_gloamwood_planks_rotated_bricks_slab": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_rotated_bricks_slab"
+    },
+    "slowlight:weathered_gloamwood_planks_small_bricks": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_small_bricks"
+    },
+    "slowlight:weathered_gloamwood_planks_small_bricks_stairs": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_small_bricks_stairs"
+    },
+    "slowlight:weathered_gloamwood_planks_small_bricks_slab": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_small_bricks_slab"
+    },
+    "slowlight:weathered_gloamwood_planks_small_tiles": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_small_tiles"
+    },
+    "slowlight:weathered_gloamwood_planks_small_tiles_stairs": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_small_tiles_stairs"
+    },
+    "slowlight:weathered_gloamwood_planks_small_tiles_slab": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_small_tiles_slab"
+    },
+    "slowlight:weathered_gloamwood_planks_squares": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_squares"
+    },
+    "slowlight:weathered_gloamwood_planks_squares_stairs": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_squares_stairs"
+    },
+    "slowlight:weathered_gloamwood_planks_squares_slab": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_squares_slab"
+    },
+    "slowlight:weathered_gloamwood_planks_tiles": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_tiles"
+    },
+    "slowlight:weathered_gloamwood_planks_tiles_stairs": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_tiles_stairs"
+    },
+    "slowlight:weathered_gloamwood_planks_tiles_slab": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_tiles_slab"
+    },
+    "slowlight:weathered_gloamwood_planks_wavy": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_wavy"
+    },
+    "slowlight:weathered_gloamwood_planks_wavy_stairs": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_wavy_stairs"
+    },
+    "slowlight:weathered_gloamwood_planks_wavy_slab": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_wavy_slab"
+    },
+    "slowlight:weathered_gloamwood_planks_woven": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_woven"
+    },
+    "slowlight:weathered_gloamwood_planks_woven_stairs": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_woven_stairs"
+    },
+    "slowlight:weathered_gloamwood_planks_woven_slab": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_planks_woven_slab"
+    },
+    "slowlight:weathered_gloamwood_fence": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_fence"
+    },
+    "slowlight:weathered_gloamwood_fence_gate": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_fence_gate"
+    },
+    "slowlight:weathered_gloamwood_door": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_door"
+    },
+    "slowlight:weathered_gloamwood_trapdoor": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_trapdoor"
+    },
+    "slowlight:weathered_gloamwood_button": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_button"
+    },
+    "slowlight:weathered_gloamwood_pressure_plate": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_pressure_plate"
+    },
+    "slowlight:silvered_gloamwood_planks_beams": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_beams"
+    },
+    "slowlight:silvered_gloamwood_planks_beams_stairs": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_beams_stairs"
+    },
+    "slowlight:silvered_gloamwood_planks_beams_slab": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_beams_slab"
+    },
+    "slowlight:silvered_gloamwood_planks_brick_pattern": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_brick_pattern"
+    },
+    "slowlight:silvered_gloamwood_planks_brick_pattern_stairs": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_brick_pattern_stairs"
+    },
+    "slowlight:silvered_gloamwood_planks_brick_pattern_slab": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_brick_pattern_slab"
+    },
+    "slowlight:silvered_gloamwood_planks_brick_paving": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_brick_paving"
+    },
+    "slowlight:silvered_gloamwood_planks_brick_paving_stairs": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_brick_paving_stairs"
+    },
+    "slowlight:silvered_gloamwood_planks_brick_paving_slab": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_brick_paving_slab"
+    },
+    "slowlight:silvered_gloamwood_planks_bricks": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_bricks"
+    },
+    "slowlight:silvered_gloamwood_planks_bricks_stairs": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_bricks_stairs"
+    },
+    "slowlight:silvered_gloamwood_planks_bricks_slab": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_bricks_slab"
+    },
+    "slowlight:silvered_gloamwood_planks_crate": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_crate"
+    },
+    "slowlight:silvered_gloamwood_planks_crate_stairs": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_crate_stairs"
+    },
+    "slowlight:silvered_gloamwood_planks_crate_slab": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_crate_slab"
+    },
+    "slowlight:silvered_gloamwood_planks_diagonal_stripes": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_diagonal_stripes"
+    },
+    "slowlight:silvered_gloamwood_planks_diagonal_stripes_stairs": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_diagonal_stripes_stairs"
+    },
+    "slowlight:silvered_gloamwood_planks_diagonal_stripes_slab": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_diagonal_stripes_slab"
+    },
+    "slowlight:silvered_gloamwood_planks_diagonal_tiles": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_diagonal_tiles"
+    },
+    "slowlight:silvered_gloamwood_planks_diagonal_tiles_stairs": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_diagonal_tiles_stairs"
+    },
+    "slowlight:silvered_gloamwood_planks_diagonal_tiles_slab": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_diagonal_tiles_slab"
+    },
+    "slowlight:silvered_gloamwood_planks_dotted": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_dotted"
+    },
+    "slowlight:silvered_gloamwood_planks_dotted_stairs": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_dotted_stairs"
+    },
+    "slowlight:silvered_gloamwood_planks_dotted_slab": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_dotted_slab"
+    },
+    "slowlight:silvered_gloamwood_planks_flooring": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_flooring"
+    },
+    "slowlight:silvered_gloamwood_planks_flooring_stairs": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_flooring_stairs"
+    },
+    "slowlight:silvered_gloamwood_planks_flooring_slab": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_flooring_slab"
+    },
+    "slowlight:silvered_gloamwood_planks_large_tiles": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_large_tiles"
+    },
+    "slowlight:silvered_gloamwood_planks_large_tiles_stairs": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_large_tiles_stairs"
+    },
+    "slowlight:silvered_gloamwood_planks_large_tiles_slab": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_large_tiles_slab"
+    },
+    "slowlight:silvered_gloamwood_planks_mosaic": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_mosaic"
+    },
+    "slowlight:silvered_gloamwood_planks_mosaic_stairs": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_mosaic_stairs"
+    },
+    "slowlight:silvered_gloamwood_planks_mosaic_slab": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_mosaic_slab"
+    },
+    "slowlight:silvered_gloamwood_planks_pattern": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_pattern"
+    },
+    "slowlight:silvered_gloamwood_planks_pattern_stairs": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_pattern_stairs"
+    },
+    "slowlight:silvered_gloamwood_planks_pattern_slab": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_pattern_slab"
+    },
+    "slowlight:silvered_gloamwood_planks_rotated_bricks": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_rotated_bricks"
+    },
+    "slowlight:silvered_gloamwood_planks_rotated_bricks_stairs": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_rotated_bricks_stairs"
+    },
+    "slowlight:silvered_gloamwood_planks_rotated_bricks_slab": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_rotated_bricks_slab"
+    },
+    "slowlight:silvered_gloamwood_planks_small_bricks": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_small_bricks"
+    },
+    "slowlight:silvered_gloamwood_planks_small_bricks_stairs": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_small_bricks_stairs"
+    },
+    "slowlight:silvered_gloamwood_planks_small_bricks_slab": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_small_bricks_slab"
+    },
+    "slowlight:silvered_gloamwood_planks_small_tiles": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_small_tiles"
+    },
+    "slowlight:silvered_gloamwood_planks_small_tiles_stairs": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_small_tiles_stairs"
+    },
+    "slowlight:silvered_gloamwood_planks_small_tiles_slab": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_small_tiles_slab"
+    },
+    "slowlight:silvered_gloamwood_planks_squares": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_squares"
+    },
+    "slowlight:silvered_gloamwood_planks_squares_stairs": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_squares_stairs"
+    },
+    "slowlight:silvered_gloamwood_planks_squares_slab": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_squares_slab"
+    },
+    "slowlight:silvered_gloamwood_planks_tiles": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_tiles"
+    },
+    "slowlight:silvered_gloamwood_planks_tiles_stairs": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_tiles_stairs"
+    },
+    "slowlight:silvered_gloamwood_planks_tiles_slab": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_tiles_slab"
+    },
+    "slowlight:silvered_gloamwood_planks_wavy": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_wavy"
+    },
+    "slowlight:silvered_gloamwood_planks_wavy_stairs": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_wavy_stairs"
+    },
+    "slowlight:silvered_gloamwood_planks_wavy_slab": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_wavy_slab"
+    },
+    "slowlight:silvered_gloamwood_planks_woven": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_woven"
+    },
+    "slowlight:silvered_gloamwood_planks_woven_stairs": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_woven_stairs"
+    },
+    "slowlight:silvered_gloamwood_planks_woven_slab": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_planks_woven_slab"
+    },
+    "slowlight:silvered_gloamwood_fence": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_fence"
+    },
+    "slowlight:silvered_gloamwood_fence_gate": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_fence_gate"
+    },
+    "slowlight:silvered_gloamwood_door": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_door"
+    },
+    "slowlight:silvered_gloamwood_trapdoor": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_trapdoor"
+    },
+    "slowlight:silvered_gloamwood_button": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_button"
+    },
+    "slowlight:silvered_gloamwood_pressure_plate": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_pressure_plate"
+    },
+    "slowlight:gloamwood_log": {
+      "waxed": "slowlight:waxed_gloamwood_log"
+    },
+    "slowlight:gloamwood_wood": {
+      "waxed": "slowlight:waxed_gloamwood_wood"
+    },
+    "slowlight:stripped_gloamwood_log": {
+      "waxed": "slowlight:waxed_stripped_gloamwood_log"
+    },
+    "slowlight:stripped_gloamwood_wood": {
+      "waxed": "slowlight:waxed_stripped_gloamwood_wood"
+    },
+    "slowlight:faded_gloamwood_log": {
+      "waxed": "slowlight:waxed_faded_gloamwood_log"
+    },
+    "slowlight:faded_gloamwood_wood": {
+      "waxed": "slowlight:waxed_faded_gloamwood_wood"
+    },
+    "slowlight:faded_stripped_gloamwood_log": {
+      "waxed": "slowlight:waxed_faded_stripped_gloamwood_log"
+    },
+    "slowlight:faded_stripped_gloamwood_wood": {
+      "waxed": "slowlight:waxed_faded_stripped_gloamwood_wood"
+    },
+    "slowlight:weathered_gloamwood_log": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_log"
+    },
+    "slowlight:weathered_gloamwood_wood": {
+      "waxed": "slowlight:waxed_weathered_gloamwood_wood"
+    },
+    "slowlight:weathered_stripped_gloamwood_log": {
+      "waxed": "slowlight:waxed_weathered_stripped_gloamwood_log"
+    },
+    "slowlight:weathered_stripped_gloamwood_wood": {
+      "waxed": "slowlight:waxed_weathered_stripped_gloamwood_wood"
+    },
+    "slowlight:silvered_gloamwood_log": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_log"
+    },
+    "slowlight:silvered_gloamwood_wood": {
+      "waxed": "slowlight:waxed_silvered_gloamwood_wood"
+    },
+    "slowlight:silvered_stripped_gloamwood_log": {
+      "waxed": "slowlight:waxed_silvered_stripped_gloamwood_log"
+    },
+    "slowlight:silvered_stripped_gloamwood_wood": {
+      "waxed": "slowlight:waxed_silvered_stripped_gloamwood_wood"
     }
   }
 }

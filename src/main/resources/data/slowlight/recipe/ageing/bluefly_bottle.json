@@ -1,0 +1,8 @@
+{
+  "neoforge:conditions": [ { "type": "neoforge:mod_loaded", "modid": "color" } ],
+  "type": "slowlight:ageing",
+  "ingredient": { "item": "color:greenfly_bottle" },
+  "result": { "id": "color:bluefly_bottle", "count": 1 },
+  "days": 3,
+  "condition": { "light": "dark" }
+}

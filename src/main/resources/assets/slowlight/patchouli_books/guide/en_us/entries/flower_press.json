@@ -1,0 +1,17 @@
+{
+  "name": "The Flower Press",
+  "icon": "slowlight:flower_press",
+  "category": "slowlight:waiting",
+  "sortnum": 9,
+  "pages": [
+    {
+      "type": "patchouli:crafting",
+      "recipe": "slowlight:flower_press",
+      "text": "Put any flower in. Three days later it comes out a $(item)Pressed Flower$()."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "A hopper above or beside the press feeds it, and one below takes the pressed flowers out. A $(item)comparator$() reads how far along it is, and a redstone pulse pops a pressed flower out of the front.$(br2)A Pressed Flower keeps the look of the flower it was. Use it on the ground or on a wall to lay it there; up to four share one spot. Flowers that glowed still glow."
+    }
+  ]
+}

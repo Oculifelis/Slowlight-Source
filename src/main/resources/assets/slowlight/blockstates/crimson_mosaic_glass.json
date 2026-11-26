@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "slowlight:block/crimson_mosaic_glass"
+      "model": "slowlight:block/crimson_mosaic_glass_connected"
     }
   }
 }

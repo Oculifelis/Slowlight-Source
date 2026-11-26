@@ -1,0 +1,6 @@
+{
+  "type": "slowlight:ageing",
+  "ingredient": { "item": "minecraft:coarse_dirt" },
+  "result": { "id": "minecraft:podzol", "count": 1 },
+  "days": 9
+}

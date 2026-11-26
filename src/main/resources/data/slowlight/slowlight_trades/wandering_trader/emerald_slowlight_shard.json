@@ -1,0 +1,15 @@
+{
+  "trader": "minecraft:wandering_trader",
+  "rare": true,
+  "wants": {
+    "id": "minecraft:emerald",
+    "count": 6
+  },
+  "gives": {
+    "id": "slowlight:slowlight_shard",
+    "count": 1
+  },
+  "max_uses": 4,
+  "xp": 1,
+  "price_multiplier": 0.05
+}

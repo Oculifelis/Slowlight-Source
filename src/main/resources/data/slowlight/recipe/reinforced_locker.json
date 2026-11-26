@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "c#c",
+    "#L#",
+    "cBc"
+  ],
+  "key": {
+    "c": {
+      "item": "minecraft:copper_ingot"
+    },
+    "#": {
+      "item": "slowlight:gloamwood_log"
+    },
+    "L": {
+      "item": "slowlight:locker"
+    },
+    "B": {
+      "item": "minecraft:copper_block"
+    }
+  },
+  "result": {
+    "id": "slowlight:reinforced_locker",
+    "count": 1
+  }
+}

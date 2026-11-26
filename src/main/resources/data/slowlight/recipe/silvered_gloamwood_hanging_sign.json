@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "hanging_sign",
+  "key": {
+    "#": [
+      {
+        "item": "slowlight:silvered_stripped_gloamwood_log"
+      },
+      {
+        "item": "slowlight:waxed_silvered_stripped_gloamwood_log"
+      }
+    ],
+    "X": {
+      "item": "minecraft:chain"
+    }
+  },
+  "pattern": [
+    "X X",
+    "###",
+    "###"
+  ],
+  "result": {
+    "count": 6,
+    "id": "slowlight:silvered_gloamwood_hanging_sign"
+  }
+}

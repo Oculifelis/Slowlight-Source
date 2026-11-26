@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "slowlight:block/magma_rose_glass"
+      "model": "slowlight:block/magma_rose_glass_connected"
     }
   }
 }

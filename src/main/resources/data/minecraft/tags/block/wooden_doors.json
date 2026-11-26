@@ -1,6 +1,13 @@
 {
   "replace": false,
   "values": [
-    "slowlight:gloamwood_door"
+    "slowlight:gloamwood_door",
+    "slowlight:waxed_gloamwood_door",
+    "slowlight:faded_gloamwood_door",
+    "slowlight:waxed_faded_gloamwood_door",
+    "slowlight:weathered_gloamwood_door",
+    "slowlight:waxed_weathered_gloamwood_door",
+    "slowlight:silvered_gloamwood_door",
+    "slowlight:waxed_silvered_gloamwood_door"
   ]
 }

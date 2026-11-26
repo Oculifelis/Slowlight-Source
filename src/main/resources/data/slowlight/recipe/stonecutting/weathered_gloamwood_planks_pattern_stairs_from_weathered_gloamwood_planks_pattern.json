@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "slowlight:weathered_gloamwood_planks_pattern"
+  },
+  "result": {
+    "id": "slowlight:weathered_gloamwood_planks_pattern_stairs",
+    "count": 1
+  }
+}

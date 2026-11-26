@@ -1,0 +1,15 @@
+{
+  "trader": "minecraft:wandering_trader",
+  "rare": false,
+  "wants": {
+    "id": "minecraft:emerald",
+    "count": 5
+  },
+  "gives": {
+    "id": "slowlight:gloamwood_sapling",
+    "count": 1
+  },
+  "max_uses": 8,
+  "xp": 1,
+  "price_multiplier": 0.05
+}

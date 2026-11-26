@@ -12,6 +12,7 @@ import java.util.UUID;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.GlobalPos;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
@@ -25,6 +26,7 @@ import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.BlockGetter;
@@ -111,6 +113,28 @@ public class WaystoneBlock extends BaseEntityBlock {
         }
     }
 
+    /**
+     * Sneak-using a named name tag on a stone names it. Sneaking with an item in hand skips the block's own use, so
+     * this runs from the click event. The name shows in Jade and when the stone is checked by hand.
+     */
+    public static void nameTag(net.neoforged.neoforge.event.entity.player.PlayerInteractEvent.RightClickBlock event) {
+        Player player = event.getEntity();
+        ItemStack stack = event.getItemStack();
+        Level level = event.getLevel();
+        if (!player.isSecondaryUseActive() || !stack.is(Items.NAME_TAG) || !stack.has(DataComponents.CUSTOM_NAME)
+                || !(level.getBlockEntity(event.getPos()) instanceof WaystoneBlockEntity stone)) {
+            return;
+        }
+        event.setCanceled(true);
+        event.setCancellationResult(InteractionResult.sidedSuccess(level.isClientSide));
+        if (level instanceof ServerLevel server) {
+            stone.setName(stack.getHoverName().copy());
+            stack.consume(1, player);
+            player.displayClientMessage(Component.translatable("block.slowlight.waystone.named", stone.name()), true);
+            server.playSound(null, event.getPos(), SoundEvents.AMETHYST_BLOCK_RESONATE, SoundSource.BLOCKS, 1.0F, 1.2F);
+        }
+    }
+
     @Override
     protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos,
                                               Player player, InteractionHand hand, BlockHitResult hit) {
@@ -176,7 +200,7 @@ public class WaystoneBlock extends BaseEntityBlock {
                     WaystoneBlockEntity.when(out.get().arriveAt() - now)), true);
             return ItemInteractionResult.CONSUME;
         }
-        if (!player.hasInfiniteMaterials() && !payPearl(player, stack)) {
+        if (!player.hasInfiniteMaterials() && !payPearl(player, stack) && !stone.usePearl()) {
             say(player, "block.slowlight.waystone.needs_pearl");
             return ItemInteractionResult.CONSUME;
         }
@@ -184,7 +208,21 @@ public class WaystoneBlock extends BaseEntityBlock {
         if (sent.isEmpty()) {
             return ItemInteractionResult.CONSUME;
         }
-        GlobalPos to = partner.get();
+        long ticks = dispatch(server, pos, state, stone, partner.get(), sent);
+        player.displayClientMessage(Component.translatable("block.slowlight.waystone.sent",
+                WaystoneBlockEntity.when(ticks)), true);
+        return ItemInteractionResult.CONSUME;
+    }
+
+    /**
+     * Sends a stack to the twin stone. A transit recipe may turn it into something else on the way and set the days;
+     * otherwise it takes a day, or three across dimensions. Returns how many ticks it takes. The caller has already
+     * checked the twin is there and nothing else is on the way, and paid the pearl.
+     */
+    static long dispatch(ServerLevel server, BlockPos pos, BlockState state, WaystoneBlockEntity stone, GlobalPos to,
+                         ItemStack sent) {
+        GlobalPos here = stone.here();
+        long now = WaystoneNetwork.now(server.getServer());
         Optional<TransitRecipe> route = TransitRecipe.find(server.getRecipeManager(), sent, server, here.dimension(),
                 to.dimension());
         List<ItemStack> items = new ArrayList<>();
@@ -204,12 +242,10 @@ public class WaystoneBlock extends BaseEntityBlock {
             items.add(sent);
         }
         long ticks = (long) days * AgeingRecipe.TICKS_PER_DAY;
-        net.send(new WaystoneNetwork.Shipment(stone.pair(), here, items, now + ticks));
+        WaystoneNetwork.get(server.getServer()).send(new WaystoneNetwork.Shipment(stone.pair(), here, items, now + ticks));
         pulse(server, pos, state);
         server.playSound(null, pos, SoundEvents.CHORUS_FRUIT_TELEPORT, SoundSource.BLOCKS, 1.0F, 1.1F);
-        player.displayClientMessage(Component.translatable("block.slowlight.waystone.sent",
-                WaystoneBlockEntity.when(ticks)), true);
-        return ItemInteractionResult.CONSUME;
+        return ticks;
     }
 
     /** Burns one Chorus Pearl from the inventory, taking it from the stack being sent only if there is no other. */
@@ -247,11 +283,15 @@ public class WaystoneBlock extends BaseEntityBlock {
             server.playSound(null, pos, SoundEvents.ITEM_PICKUP, SoundSource.PLAYERS, 0.4F, 1.0F);
             return InteractionResult.CONSUME;
         }
-        player.displayClientMessage(status(server, stone), true);
+        Component msg = status(server, stone);
+        if (stone.name() != null) {
+            msg = Component.translatable("block.slowlight.waystone.named_status", stone.name(), msg);
+        }
+        player.displayClientMessage(msg, true);
         return InteractionResult.CONSUME;
     }
 
-    private static Component status(ServerLevel server, WaystoneBlockEntity stone) {
+    static Component status(ServerLevel server, WaystoneBlockEntity stone) {
         if (stone.pair() == null) {
             return Component.translatable("block.slowlight.waystone.unlinked");
         }
@@ -282,6 +322,9 @@ public class WaystoneBlock extends BaseEntityBlock {
         if (!state.is(newState.getBlock()) && level instanceof ServerLevel server
                 && level.getBlockEntity(pos) instanceof WaystoneBlockEntity stone) {
             for (ItemStack item : stone.takeArrived()) {
+                Containers.dropItemStack(level, pos.getX(), pos.getY(), pos.getZ(), item);
+            }
+            for (ItemStack item : stone.takeStored()) {
                 Containers.dropItemStack(level, pos.getX(), pos.getY(), pos.getZ(), item);
             }
             UUID pair = stone.pair();

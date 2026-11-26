@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/pressure_plate_down",
+  "textures": {
+    "texture": "slowlight:block/faded_gloamwood_planks"
+  }
+}

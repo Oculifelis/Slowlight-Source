@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "slowlight:block/warped_rose_glass"
+      "model": "slowlight:block/warped_rose_glass_connected"
     }
   }
 }

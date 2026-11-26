@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "slowlight:block/waxed_faded_stripped_gloamwood_wood",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "slowlight:block/waxed_faded_stripped_gloamwood_wood"
+    },
+    "axis=z": {
+      "model": "slowlight:block/waxed_faded_stripped_gloamwood_wood",
+      "x": 90
+    }
+  }
+}

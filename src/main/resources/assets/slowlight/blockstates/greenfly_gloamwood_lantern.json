@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "hanging=false": { "model": "slowlight:block/greenfly_gloamwood_lantern" },
+    "hanging=true": { "model": "slowlight:block/greenfly_gloamwood_lantern_hanging" }
+  }
+}

@@ -6,7 +6,7 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "The End has no day and no weather, only an empty sky. Some recipes want just that: a kiln in the End with nothing above it.$(br2)An $(item)ender pearl$() left ten days there goes quiet and still: a $(item)Still Shard$(), which trims armour in a pale pearl grey.$(br2)Obsidian left there a week starts to weep into $(item)crying obsidian$(), and chorus fruit pops in two days, but only under that empty sky."
+      "text": "The End has no day and no weather, only an empty sky. Some recipes want just that: a kiln in the End with nothing above it.$(br2)An $(item)ender pearl$() left ten days there goes quiet and still: a $(item)Still Shard$(), which trims armor in a pale pearl gray.$(br2)Obsidian left there a week starts to weep into $(item)crying obsidian$(), and chorus fruit pops in two days, but only under that empty sky."
     },
     {
       "type": "patchouli:text",

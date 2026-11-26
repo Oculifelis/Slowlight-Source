@@ -1,0 +1,21 @@
+{
+  "type": "slowlight:keyed",
+  "category": "misc",
+  "pattern": [
+    "K",
+    "o",
+    "o"
+  ],
+  "key": {
+    "K": {
+      "item": "slowlight:key"
+    },
+    "o": {
+      "item": "minecraft:copper_ingot"
+    }
+  },
+  "result": {
+    "id": "slowlight:key",
+    "count": 1
+  }
+}

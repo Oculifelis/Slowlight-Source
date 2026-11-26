@@ -1,6 +1,13 @@
 {
   "replace": false,
   "values": [
-    "slowlight:gloamwood_pressure_plate"
+    "slowlight:gloamwood_pressure_plate",
+    "slowlight:waxed_gloamwood_pressure_plate",
+    "slowlight:faded_gloamwood_pressure_plate",
+    "slowlight:waxed_faded_gloamwood_pressure_plate",
+    "slowlight:weathered_gloamwood_pressure_plate",
+    "slowlight:waxed_weathered_gloamwood_pressure_plate",
+    "slowlight:silvered_gloamwood_pressure_plate",
+    "slowlight:waxed_silvered_gloamwood_pressure_plate"
   ]
 }

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "slowlight:block/weathered_gloamwood_planks_rotated_bricks_slab"
+    },
+    "type=double": {
+      "model": "slowlight:block/weathered_gloamwood_planks_rotated_bricks"
+    },
+    "type=top": {
+      "model": "slowlight:block/weathered_gloamwood_planks_rotated_bricks_slab_top"
+    }
+  }
+}

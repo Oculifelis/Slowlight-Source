@@ -144,4 +144,42 @@ public final class FlowerColours {
     private static int darker(int rgb) {
         return (((rgb >> 16) & 0xFF) * 3 / 4) << 16 | (((rgb >> 8) & 0xFF) * 3 / 4) << 8 | (rgb & 0xFF) * 3 / 4;
     }
+
+    /** The pressed item's petal layer tint. The texture is grey with the shading baked in, its plain petal pixels at
+     * 230, so the dried colour is scaled up by 255/230 to come out right there. */
+    public static int petalsTint(Item flower) {
+        int c = dried(of(flower).petals());
+        return 0xFF000000 | up(c >> 16) << 16 | up(c >> 8) << 8 | up(c);
+    }
+
+    /** The pressed item's pollen specks: the dried centre colour, or a darker crumb of petal on a one-colour flower. */
+    public static int pollenTint(Item flower) {
+        Look look = of(flower);
+        if (look.twoTone()) {
+            return 0xFF000000 | dried(look.centre());
+        }
+        int c = dried(look.petals());
+        return 0xFF000000 | (c >> 16 & 255) * 3 / 4 << 16 | (c >> 8 & 255) * 3 / 4 << 8 | (c & 255) * 3 / 4;
+    }
+
+    /** A colour as it looks pressed and dried: a little less saturated and darker; whites age to ivory. */
+    private static int dried(int rgb) {
+        float[] hsb = java.awt.Color.RGBtoHSB(rgb >> 16 & 255, rgb >> 8 & 255, rgb & 255, null);
+        float h = hsb[0];
+        float s = hsb[1];
+        float v = hsb[2];
+        if (s < 0.2F && v > 0.7F) {
+            h = 44.0F / 360.0F;
+            s = 0.14F;
+            v *= 0.95F;
+        } else {
+            s *= 0.85F;
+            v = v * 0.92F + 0.03F;
+        }
+        return java.awt.Color.HSBtoRGB(h, Math.min(s, 1.0F), Math.min(v, 1.0F)) & 0xFFFFFF;
+    }
+
+    private static int up(int channel) {
+        return Math.min(255, (channel & 255) * 255 / 230);
+    }
 }

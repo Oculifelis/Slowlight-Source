@@ -1,0 +1,8 @@
+{
+  "neoforge:conditions": [ { "type": "neoforge:mod_loaded", "modid": "color" } ],
+  "type": "slowlight:transit",
+  "ingredient": { "item": "minecraft:glass_bottle" },
+  "result": { "id": "color:greenfly_bottle", "count": 1 },
+  "from": "minecraft:the_end",
+  "to": "minecraft:overworld"
+}

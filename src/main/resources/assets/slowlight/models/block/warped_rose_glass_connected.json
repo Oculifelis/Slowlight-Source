@@ -1,0 +1,14 @@
+{
+  "loader": "slowlight:connected",
+  "parent": "minecraft:block/block",
+  "render_type": "minecraft:translucent",
+  "pattern": 2,
+  "textures": {
+    "isolated": "slowlight:block/warped_rose_glass_ctm_isolated",
+    "all": "slowlight:block/warped_rose_glass_ctm_all",
+    "h": "slowlight:block/warped_rose_glass_ctm_h",
+    "v": "slowlight:block/warped_rose_glass_ctm_v",
+    "inner": "slowlight:block/warped_rose_glass_ctm_inner",
+    "particle": "slowlight:block/warped_rose_glass"
+  }
+}

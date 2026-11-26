@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/fence_side",
+  "textures": {
+    "texture": "slowlight:block/faded_gloamwood_planks"
+  }
+}

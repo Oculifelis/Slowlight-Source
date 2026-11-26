@@ -210,6 +210,12 @@ public final class RestChecks {
             }
         }
         check("rest.advancements", advs == 4, advs + " of 4 branch-rest advancements loaded");
+        // SL50: every crafting recipe has a recipe-book unlock (guide_book only with Patchouli).
+        long unlocks = server.getAdvancements().getAllAdvancements().stream()
+                .filter(x -> x.id().getNamespace().equals("slowlight") && x.id().getPath().startsWith("recipes/")).count();
+        var kilnUnlock = server.getAdvancements().get(ResourceLocation.parse("slowlight:recipes/building/patient_kiln"));
+        check("rest.recipe_unlocks", unlocks == (net.neoforged.fml.ModList.get().isLoaded("patchouli") ? 362 : 361) && kilnUnlock != null,
+                unlocks + " recipe unlock advancements (guide book one needs Patchouli), patient_kiln unlock " + (kilnUnlock != null));
     }
 
     // ---- Sandglass ----------------------------------------------------------------------------------------------
@@ -228,6 +234,12 @@ public final class RestChecks {
             click(level, player, GLASS, ItemStack.EMPTY, false);
         }
         check("sandglass.wraps_after_seven", glass.days() == 1, "eight clicks, days=" + glass.days());
+        // A restart reloads the block entity from its save; days left hang on game time, which the world keeps.
+        net.minecraft.nbt.CompoundTag glassSaved = glass.saveWithoutMetadata(level.registryAccess());
+        SandglassBlockEntity glassBack = new SandglassBlockEntity(GLASS, level.getBlockState(GLASS));
+        glassBack.loadWithComponents(glassSaved, level.registryAccess());
+        check("sandglass.survives_restart", glassBack.saveWithoutMetadata(level.registryAccess()).equals(glassSaved) && glassBack.days() == 1,
+                "saved " + glassSaved);
     }
 
     private static void glassAfterTurn(ServerLevel level) {
@@ -260,6 +272,12 @@ public final class RestChecks {
         click(level, player, URN, ItemStack.EMPTY, false);
         check("urn.sealed_will_not_open", !(player.containerMenu instanceof net.minecraft.world.inventory.DispenserMenu),
                 "menu after clicking sealed urn: " + player.containerMenu.getClass().getSimpleName());
+        // A restart reloads the block entity from its save; days left hang on game time, which the world keeps.
+        net.minecraft.nbt.CompoundTag urnSaved = urn.saveWithoutMetadata(level.registryAccess());
+        KeepsakeUrnBlockEntity urnBack = new KeepsakeUrnBlockEntity(URN, level.getBlockState(URN));
+        urnBack.loadWithComponents(urnSaved, level.registryAccess());
+        check("urn.survives_restart", urnBack.saveWithoutMetadata(level.registryAccess()).equals(urnSaved) && urnBack.sealed() && urnBack.planned() == 10 && urnBack.getItem(0).getCount() == 3,
+                "saved " + urnSaved);
 
         KeepsakeUrnBlockEntity early = (KeepsakeUrnBlockEntity) level.getBlockEntity(URN_EARLY);
         early.setItem(4, new ItemStack(Items.GOLD_INGOT, 5));

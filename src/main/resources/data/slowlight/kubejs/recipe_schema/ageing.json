@@ -27,6 +27,50 @@
       "name": "cellar_days",
       "type": "kubejs:int",
       "optional": 0
+    },
+    {
+      "name": "condition",
+      "type": {
+        "type": "kubejs:custom_object",
+        "keys": [
+          {
+            "name": "sky",
+            "component": "kubejs:string",
+            "optional": true
+          },
+          {
+            "name": "weather",
+            "component": "kubejs:string",
+            "optional": true
+          },
+          {
+            "name": "time",
+            "component": "kubejs:string",
+            "optional": true
+          },
+          {
+            "name": "moon",
+            "component": "kubejs:string",
+            "optional": true
+          },
+          {
+            "name": "climate",
+            "component": "kubejs:string",
+            "optional": true
+          },
+          {
+            "name": "light",
+            "component": "kubejs:string",
+            "optional": true
+          },
+          {
+            "name": "dimension",
+            "component": "kubejs:string",
+            "optional": true
+          }
+        ]
+      },
+      "optional": {}
     }
   ],
   "constructors": [

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "slowlight:block/weathered_gloamwood_planks_squares",
+    "side": "slowlight:block/weathered_gloamwood_planks_squares",
+    "top": "slowlight:block/weathered_gloamwood_planks_squares"
+  }
+}

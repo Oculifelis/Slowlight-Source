@@ -1,6 +1,13 @@
 {
   "replace": false,
   "values": [
-    "#slowlight:gloamwood_logs"
+    "#slowlight:gloamwood_logs",
+    "#slowlight:waxed_gloamwood_logs",
+    "#slowlight:faded_gloamwood_logs",
+    "#slowlight:waxed_faded_gloamwood_logs",
+    "#slowlight:weathered_gloamwood_logs",
+    "#slowlight:waxed_weathered_gloamwood_logs",
+    "#slowlight:silvered_gloamwood_logs",
+    "#slowlight:waxed_silvered_gloamwood_logs"
   ]
 }

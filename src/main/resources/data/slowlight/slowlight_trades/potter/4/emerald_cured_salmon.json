@@ -1,0 +1,15 @@
+{
+  "trader": "slowlight:potter",
+  "level": 4,
+  "wants": {
+    "id": "minecraft:emerald",
+    "count": 2
+  },
+  "gives": {
+    "id": "slowlight:cured_salmon",
+    "count": 3
+  },
+  "max_uses": 12,
+  "xp": 15,
+  "price_multiplier": 0.05
+}

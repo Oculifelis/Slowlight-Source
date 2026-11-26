@@ -1,0 +1,17 @@
+{
+  "name": "Slow Candles",
+  "icon": "slowlight:slow_candle",
+  "category": "slowlight:waiting",
+  "sortnum": 11,
+  "pages": [
+    {
+      "type": "patchouli:crafting",
+      "recipe": "slowlight:slow_candle",
+      "text": "String, honeycomb and copper. It burns down a little each day it is lit, four days in all."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Put it out and it keeps what is left. Use it to see how many days of light remain.$(br2)A Slow Candle sent by Waystone from the Nether to the End arrives as a $(item)Starwick Candle$()."
+    }
+  ]
+}
